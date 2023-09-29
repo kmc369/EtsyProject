@@ -63,6 +63,10 @@ def create_product():
         
         new_product = Product(
             price=form.data["price"],
+            # image=image_url,
+            # image1=image1_url,
+            # image2=image2_url,
+            # image3=image3_url,
             image=form.data["image"],
             image1=form.data["image1"],
             image2=form.data["image2"],
@@ -83,8 +87,49 @@ def create_product():
     else:
         return jsonify({"error": form.errors}), 400
     
+@products_bp.route("/update/<int:product_id>", methods=["PUT"])
+def update_product(product_id):
+  
+    product  = Product.query.get(product_id)
+  
+    if product is None:
+        return jsonify({"Product not found"}), 404
     
-        
+    data = request.get_json()
+    
+    print("the data is ", data)
+    
+    if 'price' in data:
+        product.price= data['image']
+    if 'image' in data:
+        product.image = data['image']
+    if 'image1' in data:
+        product.image1 = data['image1']
+    if 'image2' in data:
+        product.image2 = data['image2']
+    if 'image3' in data:
+        product.image3 = data['image3']
+    if 'title' in data:
+        product.title = data['title']
+    if 'handmade' in data:
+        product.handmade = data['handmade']
+    if 'vintage' in data:
+        product.vintage = data['vintage']
+    if 'made_to_order' in data:
+        product.made_to_order = data['made_to_order']
+    if 'creator' in data:
+        product.creator = data['creator']
+    if 'material' in data:
+        product.material = data['material']
+    if 'description' in data:
+        product.description = data['description']
+    if 'user_id' in data:
+        product.user_id = data['user_id']
+   
+    
+    db.session.commit()
+
+    return jsonify(product.to_dict())
         
     
     

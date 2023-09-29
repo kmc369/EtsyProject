@@ -54,6 +54,7 @@ class Product(db.Model):
             'updated_at': self.updated_at.isoformat() if self.updated_at else None, 
             'user_id': self.user_id,
             'shopping_cart_id': self.shopping_cart_id,
+            
             'user': {
                 "id": self.user.id,
                 "username": self.user.username,
