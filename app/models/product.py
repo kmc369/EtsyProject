@@ -14,13 +14,15 @@ class Product(db.Model):
     image3=db.Column(db.String(2000),nullable=True)
     title = db.Column(db.String(3000), nullable=False)
     handmade = db.Column(db.Boolean, nullable=False)
+    vintage = db.Column(db.Boolean, nullable=False)
+    made_to_order = db.Column(db.Boolean, nullable=False)
     creator = db.Column(db.String(1000), nullable=False)
     material=db.Column(db.String(1000))
     description =  db.Column(db.String(100000), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
     #foreign keys 
-    shopping_cart_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("shopping_carts.id")),nullable=False)
+    shopping_cart_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("shopping_carts.id")),nullable=True)
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
 
     #relationsips 
@@ -52,8 +54,12 @@ class Product(db.Model):
             'updated_at': self.updated_at.isoformat() if self.updated_at else None, 
             'user_id': self.user_id,
             'shopping_cart_id': self.shopping_cart_id,
-            'user': self.user.to_dict() if self.user else None,  # Assuming you have a to_dict method in your User model
-            'reviews': [review.to_dict() for review in self.reviews],  # Assuming you have a to_dict method in your Review model
+            'user': {
+                "id": self.user.id,
+                "username": self.user.username,
+                "email": self.user.email
+            },
+            'reviews': [review.to_dict() for review in self.reviews]  # Assuming you have a to_dict method in your Review model
 
             # Add more attributes as needed
         }
