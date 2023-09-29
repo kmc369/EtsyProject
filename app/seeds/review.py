@@ -5,9 +5,9 @@ from sqlalchemy.sql import text
 
 def seed_review():
     review1 = Review(stars=5,description="This product exceeded my expectations. Highly recommended!",product_id=1, user_id=2)
-    review2 = Review(stars=4, description="Good product, but could use some improvements.", product_id=5, user_id=1)
-    review3 = Review(stars=5, description="Impressive quality! I'm satisfied with my purchase.", product_id=10, user_id=3)
-    review4 = Review(stars=3, description="Not bad, but I expected more features.", product_id=7, user_id=4)
+    review2 = Review(stars=4, description="Good product, but could use some improvements.", product_id=1, user_id=1)
+    review3 = Review(stars=5, description="Impressive quality! I'm satisfied with my purchase.", product_id=1, user_id=3)
+    review4 = Review(stars=3, description="Not bad, but I expected more features.", product_id=1, user_id=4)
     review5 = Review(stars=4, description="Reliable and durable. I recommend it!", product_id=15, user_id=5)
     review6 = Review(stars=5, description="Fantastic product! Exceeded my expectations.", product_id=3, user_id=6)
     review7 = Review(stars=4, description="Solid performance. Good value for the price.", product_id=12, user_id=7)
