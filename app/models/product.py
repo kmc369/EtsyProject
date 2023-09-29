@@ -13,21 +13,21 @@ class Product(db.Model):
     image2=db.Column(db.String(2000),nullable=True)
     image3=db.Column(db.String(2000),nullable=True)
     title = db.Column(db.String(3000), nullable=False)
-    handmade = db.Column(db.Boolean)
+    handmade = db.Column(db.Boolean, nullable=False)
     creator = db.Column(db.String(1000), nullable=False)
     material=db.Column(db.String(1000))
     description =  db.Column(db.String(100000), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
     #foreign keys 
-    shopping_cart_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("shopping_carts.id"),nullable=False))
+    # shopping_cart_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("shopping_carts.id"),nullable=False))
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
 
     #relationsips 
     user = db.relationship("User", back_populates="products")
     reviews = db.relationship("Review", back_populates="products", cascade="all, delete-orphan")
     
-    shopping_cart = db.relationship("ShoppingCart",back_populates="products")
+    # shopping_cart = db.relationship("ShoppingCart",back_populates="products")
     
     def add_prefix_for_prod(attr):
         if environment == "production":
