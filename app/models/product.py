@@ -1,4 +1,5 @@
 from .db import db,environment,SCHEMA,add_prefix_for_prod
+from datetime import datetime
 
 class Product(db.Model):
     __tablename__ = "products"
@@ -16,5 +17,18 @@ class Product(db.Model):
     creator = db.Column(db.String(1000), nullable=False)
     material=db.Column(db.String(1000))
     description =  db.Column(db.String(100000), nullable=False)
+    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+    updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    #foreign keys 
+    shopping_cart_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("shopping_carts.id"),nullable=False))
+    user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
+
+    #relationsips 
+    user = db.relationship("User", back_populates="products")
+    reviews = db.relationship("Review", back_populates="products", cascade="all, delete-orphan")
     
-    
+    def add_prefix_for_prod(attr):
+        if environment == "production":
+            return f"{SCHEMA}.{attr}"
+        else:
+            return attr

@@ -14,6 +14,10 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
 
+    #relationships if you were to delete a use you should cascade all 
+    products = db.relationships("Product", back_populates="user", cascade="all, delete-orphan")
+    
+    
     @property
     def password(self):
         return self.hashed_password
