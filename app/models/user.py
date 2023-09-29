@@ -15,8 +15,9 @@ class User(db.Model, UserMixin):
     hashed_password = db.Column(db.String(255), nullable=False)
 
     #relationships if you were to delete a use you should cascade all 
-    products = db.relationships("Product", back_populates="user", cascade="all, delete-orphan")
-    
+    products = db.relationship("Product", back_populates="user", cascade="all, delete-orphan")
+    shopping_cart = db.relationship('ShoppingCart', back_populates='user', uselist=False)
+    reviews = db.relationship("Review", back_populates="user",cascade="all, delete-orphan")
     
     @property
     def password(self):
@@ -33,5 +34,9 @@ class User(db.Model, UserMixin):
         return {
             'id': self.id,
             'username': self.username,
-            'email': self.email
+            'email': self.email,
+            
+            'products': [product.to_dict() for product in self.products],  
+            'shopping_cart': self.shopping_cart.to_dict() if self.shopping_cart else None,  
+            'reviews': [review.to_dict() for review in self.reviews],  
         }
