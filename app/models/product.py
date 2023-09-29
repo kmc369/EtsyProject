@@ -14,6 +14,8 @@ class Product(db.Model):
     image3=db.Column(db.String(2000),nullable=True)
     title = db.Column(db.String(3000), nullable=False)
     handmade = db.Column(db.Boolean, nullable=False)
+    vintage = db.Column(db.Boolean, nullable=False)
+    made_to_order = db.Column(db.Boolean, nullable=False)
     creator = db.Column(db.String(1000), nullable=False)
     material=db.Column(db.String(1000))
     description =  db.Column(db.String(100000), nullable=False)
