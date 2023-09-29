@@ -19,8 +19,46 @@ def get_all_products():
     
     return jsonify(productList)
 
-@products_bp.route('/<int:userid>')
+@products_bp.route('/<int:userid>',methods=["GET"])
 def get_product_by_id(userid):
     """get all products by their product id"""
     products = Product.query.filter_by(user_id=userid)
     return [product.to_dict() for product in products]
+
+@products_bp.route('/', methods=["POST"])
+def create_product():
+    """create a new product """
+    
+    
+    
+    
+    
+#     @post_bp.route("/new_post/photo", methods=["POST"])
+# def new_photo_post():
+#     """
+#     Photo post method 
+#     """
+#     form = PostForm()
+#     form['csrf_token'].data = request.cookies['csrf_token']
+
+#     if form.validate_on_submit():
+#         image = form.data["second_content"]
+#         image.filename = get_unique_filename(image.filename)
+#         upload = upload_file_to_s3(image)
+#         print("upload is ", upload)
+#         if "url" not in upload:
+#             return jsonify({"error": "Failed to upload image to S3"}), 400
+
+#         new_post = TextPost(
+#             title = form.data["title"],
+#             text_content = form.data['text_content'],
+#             user_id = form.data['user_id'],
+#             post_type = form.data['post_type'],
+#             second_content = upload["url"]
+#         )
+        
+#         db.session.add(new_post)
+#         db.session.commit()
+#         return jsonify(new_post.to_dict(), 201)
+#     return {'error'}
+    
