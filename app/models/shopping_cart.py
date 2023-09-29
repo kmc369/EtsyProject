@@ -22,3 +22,12 @@ class ShoppingCart(db.Model):
             return f"{SCHEMA}.{attr}"
         else:
             return attr
+    
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'user_id': self.user_id,
+            'products': [product.to_dict() for product in self.products],  # Assuming you have a to_dict method in your Product model
+
+          
+        }
