@@ -20,14 +20,14 @@ class Product(db.Model):
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
     #foreign keys 
-    # shopping_cart_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("shopping_carts.id"),nullable=False))
+    shopping_cart_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("shopping_carts.id")),nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
 
     #relationsips 
     user = db.relationship("User", back_populates="products")
     reviews = db.relationship("Review", back_populates="products", cascade="all, delete-orphan")
     
-    # shopping_cart = db.relationship("ShoppingCart",back_populates="products")
+    shopping_cart = db.relationship("ShoppingCart",back_populates="products")
     
     def add_prefix_for_prod(attr):
         if environment == "production":
