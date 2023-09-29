@@ -34,3 +34,26 @@ class Product(db.Model):
             return f"{SCHEMA}.{attr}"
         else:
             return attr
+    
+    def to_dict(self):
+            return {
+            'id': self.id,
+            'price': self.price,
+            'image': self.image,
+            'image1': self.image1,
+            'image2': self.image2,
+            'image3': self.image3,
+            'title': self.title,
+            'handmade': self.handmade,
+            'creator': self.creator,
+            'material': self.material,
+            'description': self.description,
+            'created_at': self.created_at.isoformat(),  # Convert datetime to string
+            'updated_at': self.updated_at.isoformat() if self.updated_at else None, 
+            'user_id': self.user_id,
+            'shopping_cart_id': self.shopping_cart_id,
+            'user': self.user.to_dict() if self.user else None,  # Assuming you have a to_dict method in your User model
+            'reviews': [review.to_dict() for review in self.reviews],  # Assuming you have a to_dict method in your Review model
+
+            # Add more attributes as needed
+        }
