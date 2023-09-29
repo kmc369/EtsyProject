@@ -16,7 +16,7 @@ def seed_products():
         material= 'Oak Wood',
         description= 'Experience comfort and elegance with our handcrafted wooden chair. Made from the finest oak wood, this chair is a perfect addition to your home.',
         user_id= 1,  
-        shopping_cart_id= 1,  
+        shopping_cart_id=None,  
         
     )
     product2 = Product(
@@ -33,7 +33,7 @@ def seed_products():
         material='Glass and Metal',
         description='Add a touch of modern elegance to your living room with our sleek glass coffee table. Sturdy metal legs support a clear glass top for a minimalist look.',
         user_id=1,
-        shopping_cart_id=1,
+        shopping_cart_id=None
     )
 
     product3 = Product(
@@ -50,7 +50,7 @@ def seed_products():
         material='Leather and Wood',
         description='Bring vintage charm to your space with our comfortable leather armchair. The rich leather upholstery and wooden frame make it a classic choice for any room.',
         user_id=1,
-        shopping_cart_id=1,
+        shopping_cart_id=None
     )
 
 
@@ -69,7 +69,7 @@ def seed_products():
         material='Crystal and Metal',
         description='Illuminate your space with our elegant crystal chandelier. The shimmering crystals and modern design will add a touch of sophistication to any room.',
         user_id=2,
-        shopping_cart_id=2,
+        shopping_cart_id=None
     )
 
 
@@ -87,7 +87,7 @@ def seed_products():
         material='Stainless Steel',
         description='Upgrade your kitchen with our high-quality stainless steel utensil set. The sleek design and durable construction make cooking a breeze.',
         user_id=2,
-        shopping_cart_id=2,
+        shopping_cart_id=None
     )
 
 
@@ -105,7 +105,7 @@ def seed_products():
         material='Wool',
         description='Add warmth and style to your home with our handwoven wool area rug. The intricate patterns and soft texture make it a perfect choice for any room.',
         user_id=2,
-        shopping_cart_id=2,
+        shopping_cart_id=None
     )
 
 
@@ -123,8 +123,8 @@ def seed_products():
         creator='Timeless Designs',
         material='Wood and Metal',
         description='Add a vintage touch to your space with our beautifully crafted wall clock. The combination of wood and metal creates a timeless and stylish look.',
-        user_id=2,
-        shopping_cart_id=2,
+        user_id=4,
+        shopping_cart_id=None
     )
 
 # Product 10
@@ -141,8 +141,8 @@ def seed_products():
         creator='Artistic Pottery',
         material='Ceramic',
         description='Enhance your home decor with our sculptural ceramic vase. The unique design and craftsmanship make it a striking centerpiece for any room.',
-        user_id=2,
-        shopping_cart_id=2,
+        user_id=4,
+        shopping_cart_id=None
     )
     product8 = Product(
         price=95.00,
@@ -157,8 +157,8 @@ def seed_products():
         creator='Tech Innovations',
         material='Plastic and Metal',
         description="Control your home's temperature with our digital smart thermostat. The user-friendly interface and energy-saving features make it a must-have for modern homes.",
-        user_id=2,
-        shopping_cart_id=2,
+        user_id=4,
+        shopping_cart_id=None
     )
     
     # Product 11
@@ -175,8 +175,8 @@ def seed_products():
         creator='ArtisticExpressions Studio',
         material='Canvas and Acrylic Paint',
         description='Bring creativity to your walls with our hand-painted canvas art. Each piece is a unique expression of artistic vision, making it a standout in any space.',
-        user_id=3,
-        shopping_cart_id=3,
+        user_id=2,
+        shopping_cart_id=None
     )
 
 # Product 12
@@ -193,8 +193,8 @@ def seed_products():
         creator='ClayCraft Studios',
         material='Ceramic',
         description='Sip your favorite beverages in style with our handmade ceramic mug set. Each mug is crafted with care, adding an artisan touch to your daily routine.',
-        user_id=3,
-        shopping_cart_id=3,
+        user_id=5,
+        shopping_cart_id=None
     )
 
 # Product 13
@@ -211,8 +211,8 @@ def seed_products():
         creator='BohoCraft Creations',
         material='Cotton Rope',
         description='Elevate your space with our macramé wall hanging. The intricate knots and natural fibers create a boho-chic vibe, making it a focal point in any room.',
-        user_id=3,
-        shopping_cart_id=3,
+        user_id=5,
+        shopping_cart_id=None
         )
 
 # Product 14
@@ -229,8 +229,8 @@ def seed_products():
         creator='StitchCraft Artisans',
         material='Cotton Fabric',
         description='Add a touch of texture to your decor with our hand-embroidered throw pillow. The delicate embroidery and soft fabric create a cozy and stylish accent.',
-        user_id=3,
-        shopping_cart_id=3,
+        user_id=5,
+        shopping_cart_id=None
     )
 
 # Product 15
@@ -248,7 +248,7 @@ def seed_products():
         material='Sterling Silver',
         description='Wear your name close to your heart with our custom nameplate necklace. Each piece is handcrafted in sterling silver for a personalized and timeless accessory.',
         user_id=3,
-        shopping_cart_id=3,
+        shopping_cart_id=None
     )
     product16 = Product(
         price=80.00,
@@ -263,8 +263,8 @@ def seed_products():
         creator='Vintage Finds Co.',
         material='Brass',
         description='Illuminate your space with our antique brass table lamp. The vintage design and brass construction add a touch of old-world charm to any room.',
-        user_id=1,
-        shopping_cart_id=1,
+        user_id=6,
+        shopping_cart_id=None
     )
 
 # Product 17
@@ -281,8 +281,8 @@ def seed_products():
         creator='Retro Audio Co.',
         material='Plastic and Metal',
         description='Experience the nostalgia of vinyl with our retro record player. The vintage-inspired design and modern features make it a perfect addition to your music setup.',
-        user_id=1,
-        shopping_cart_id=1,
+        user_id=6,
+        shopping_cart_id=None
     )
 
 # Product 18
@@ -299,8 +299,8 @@ def seed_products():
         creator='Modern Living Designs',
         material='Wood and Fabric',
         description='Add a touch of mid-century modern style to your home with our handcrafted armchair. The wooden frame and sleek fabric upholstery create a timeless look.',
-        user_id=1,
-        shopping_cart_id=1,
+        user_id=7,
+        shopping_cart_id=None
     )
 
 # Product 19
@@ -317,8 +317,8 @@ def seed_products():
         creator='Traveler\'s Treasures',
         material='Leather and Metal',
         description='Travel in style with our vintage leather suitcase. The worn leather and sturdy metal accents give it a timeless appeal for your adventures.',
-        user_id=1,
-        shopping_cart_id=1,
+        user_id=7,
+        shopping_cart_id=None
     )
     
     product20 = Product(
@@ -334,8 +334,8 @@ def seed_products():
             creator='TeaTime Antiques',
             material='Porcelain',
             description='Enjoy tea time in classic style with our vintage tea set. The delicate porcelain and timeless design make it a charming addition to your collection.',
-            user_id=3,
-            shopping_cart_id=3,
+            user_id=6,
+            shopping_cart_id=None
     )
 
 # Product 21
@@ -353,7 +353,7 @@ def seed_products():
         material='Silver',
         description='Add a touch of vintage elegance to your attire with our antique silver pocket watch. The intricate details and classic design make it a timeless accessory.',
         user_id=3,
-        shopping_cart_id=3,
+        shopping_cart_id=None
     )
 
 # Product 22
@@ -370,8 +370,8 @@ def seed_products():
         creator='LaceCraft Creations',
         material='Lace and Wood',
         description='Step back in time with our handmade Victorian lace parasol. The delicate lace and wooden handle evoke the charm of a bygone era.',
-        user_id=3,
-        shopping_cart_id=3,
+        user_id=1,
+        shopping_cart_id=None
     )
     
     
