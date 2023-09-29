@@ -23,9 +23,11 @@ class Product(db.Model):
     shopping_cart_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("shopping_carts.id"),nullable=False))
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
 
-    #relationsips s
+    #relationsips 
     user = db.relationship("User", back_populates="products")
     reviews = db.relationship("Review", back_populates="products", cascade="all, delete-orphan")
+    
+    shopping_cart = db.relationship("ShoppingCart",back_populates="products")
     
     def add_prefix_for_prod(attr):
         if environment == "production":
