@@ -27,6 +27,8 @@ class Product(db.Model):
     user = db.relationship("User", back_populates="products")
     reviews = db.relationship("Review", back_populates="products", cascade="all, delete-orphan")
     
+    shopping_cart = db.relationship("ShoppingCart",back_populates="products")
+    
     def add_prefix_for_prod(attr):
         if environment == "production":
             return f"{SCHEMA}.{attr}"
