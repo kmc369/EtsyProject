@@ -1,8 +1,8 @@
-"""create packages table
+"""empty message
 
-Revision ID: 45f940e90ad5
+Revision ID: aaf76b1b083f
 Revises: 
-Create Date: 2023-09-29 14:42:53.756113
+Create Date: 2023-09-29 16:24:35.125034
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '45f940e90ad5'
+revision = 'aaf76b1b083f'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -36,14 +36,14 @@ def upgrade():
     op.create_table('products',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('price', sa.Integer(), nullable=False),
-    sa.Column('image', sa.String(length=2000), nullable=False),
+    sa.Column('image', sa.String(length=2000), nullable=True),
     sa.Column('image1', sa.String(length=2000), nullable=True),
     sa.Column('image2', sa.String(length=2000), nullable=True),
     sa.Column('image3', sa.String(length=2000), nullable=True),
     sa.Column('title', sa.String(length=3000), nullable=False),
-    sa.Column('handmade', sa.Boolean(), nullable=False),
-    sa.Column('vintage', sa.Boolean(), nullable=False),
-    sa.Column('made_to_order', sa.Boolean(), nullable=False),
+    sa.Column('handmade', sa.Boolean(), nullable=True),
+    sa.Column('vintage', sa.Boolean(), nullable=True),
+    sa.Column('made_to_order', sa.Boolean(), nullable=True),
     sa.Column('creator', sa.String(length=1000), nullable=False),
     sa.Column('material', sa.String(length=1000), nullable=True),
     sa.Column('description', sa.String(length=100000), nullable=False),

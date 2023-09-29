@@ -8,19 +8,20 @@ class Product(db.Model):
     
     id = db.Column(db.Integer, primary_key=True)
     price = db.Column(db.Integer, nullable=False)
-    image = db.Column(db.String(2000), nullable=False)
+    image = db.Column(db.String(2000), nullable=True)
     image1=db.Column(db.String(2000),nullable=True)
     image2=db.Column(db.String(2000),nullable=True)
     image3=db.Column(db.String(2000),nullable=True)
     title = db.Column(db.String(3000), nullable=False)
-    handmade = db.Column(db.Boolean, nullable=False)
-    vintage = db.Column(db.Boolean, nullable=False)
-    made_to_order = db.Column(db.Boolean, nullable=False)
+    handmade = db.Column(db.Boolean)
+    vintage = db.Column(db.Boolean)
+    made_to_order = db.Column(db.Boolean)
     creator = db.Column(db.String(1000), nullable=False)
     material=db.Column(db.String(1000))
     description =  db.Column(db.String(100000), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    
     #foreign keys 
     shopping_cart_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("shopping_carts.id")),nullable=True)
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
@@ -28,7 +29,6 @@ class Product(db.Model):
     #relationsips 
     user = db.relationship("User", back_populates="products")
     reviews = db.relationship("Review", back_populates="products", cascade="all, delete-orphan")
-    
     shopping_cart = db.relationship("ShoppingCart",back_populates="products")
     
     def add_prefix_for_prod(attr):
@@ -54,6 +54,7 @@ class Product(db.Model):
             'updated_at': self.updated_at.isoformat() if self.updated_at else None, 
             'user_id': self.user_id,
             'shopping_cart_id': self.shopping_cart_id,
+            
             'user': {
                 "id": self.user.id,
                 "username": self.user.username,
