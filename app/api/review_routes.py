@@ -31,3 +31,19 @@ def create_review():
         db.session.commit()
         return new_review.to_dict()
     return jsonify({"error": form.errors}), 400
+
+@review_bp.route("/update/<int:review_id>", methods=["PUT"])
+def edit_review(review_id):
+    review = Review.query.get(review_id)
+    if review is None:
+        return jsonify({"Review not found"},404)
+    data = request.get_json()
+    if "stars" in data:
+        review.stars = data["stars"]
+    if "description" in data:
+        review.description = data["description"]
+   
+    db.session.commit()
+    return jsonify(review.to_dict())
+    
+
