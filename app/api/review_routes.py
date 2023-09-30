@@ -34,9 +34,10 @@ def create_review():
 
 @review_bp.route("/update/<int:review_id>", methods=["PUT"])
 def edit_review(review_id):
+    
     review = Review.query.get(review_id)
     if review is None:
-        return jsonify({"Review not found"},404)
+        return jsonify({"message": "Review not found"}, 404)
     data = request.get_json()
     if "stars" in data:
         review.stars = data["stars"]
@@ -45,5 +46,19 @@ def edit_review(review_id):
    
     db.session.commit()
     return jsonify(review.to_dict())
+
+
+@review_bp.route('/delete/<int:review_id>',methods=["DELETE"])
+def delete_review(review_id):
+    
+    review = Review.query.get(review_id)
+    if review is None:
+        return jsonify({"message": "Review not found"}, 404)
+    db.session.delete(review)
+    db.session.commit()
+    return jsonify({"message":"Successfully deleted"},201)
+    
+    
+
     
 
