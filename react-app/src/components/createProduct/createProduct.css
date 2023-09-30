@@ -1,0 +1,63 @@
+.create-listing-container{
+    border:2px solid red;
+    padding: 10px;
+
+    
+}
+
+.listing-header{
+    font-family: "Guardian-EgypTT",Charter,"Charter Bitstream",Cambria,"Noto Serif Light","Droid Serif",Georgia,serif;
+    font-weight: 400;
+    color: rgb(54, 52, 52);
+    font-size:xx-large;
+}
+
+.second-header{
+    font-family: "Guardian-EgypTT",Charter,"Charter Bitstream",Cambria,"Noto Serif Light","Droid Serif",Georgia,serif;
+    font-weight: 400;
+    color: rgb(54, 52, 52);
+ 
+}
+
+/* photo container  */
+.photo-container{
+    border:1px solid rgba(180, 179, 179, 0.9);
+    border-radius: 3px;
+   
+
+}
+.photo-image-container{
+    border:2px solid purple;
+    display: flex;
+    flex-direction: row;
+    gap:20px;
+    
+}
+.photo-header{
+    font-family: "Guardian-EgypTT",Charter,"Charter Bitstream",Cambria,"Noto Serif Light","Droid Serif",Georgia,serif;
+    font-weight: 400;  
+}
+.p-header{
+    font-family: "Guardian-EgypTT",Charter,"Charter Bitstream",Cambria,"Noto Serif Light","Droid Serif",Georgia,serif;
+    font-weight: 400;
+    color  : rgb(124, 124, 124);
+}
+.photo-header4{
+    margin: 0px;;
+    font-family: "Guardian-EgypTT",Charter,"Charter Bitstream",Cambria,"Noto Serif Light","Droid Serif",Georgia,serif;
+    font-weight: 600; 
+  
+}
+.list-elements{
+    font-family: "Guardian-EgypTT",Charter,"Charter Bitstream",Cambria,"Noto Serif Light","Droid Serif",Georgia,serif;
+    font-weight: 400;
+    color  : rgb(124, 124, 124);
+}
+
+.photo-words{
+    border:2px solid green;
+ 
+}
+.photo-images{
+    border:4px solid gold;
+}
