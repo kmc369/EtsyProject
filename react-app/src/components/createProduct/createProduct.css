@@ -1,6 +1,9 @@
 .create-listing-container{
     border:2px solid red;
     padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap:20px;
 
     
 }
@@ -10,12 +13,14 @@
     font-weight: 400;
     color: rgb(54, 52, 52);
     font-size:xx-large;
+    margin-bottom: 0px;
 }
 
 .second-header{
     font-family: "Guardian-EgypTT",Charter,"Charter Bitstream",Cambria,"Noto Serif Light","Droid Serif",Georgia,serif;
     font-weight: 400;
     color: rgb(54, 52, 52);
+    margin-top: 4px;
  
 }
 
@@ -24,6 +29,7 @@
     border:1px solid rgba(180, 179, 179, 0.9);
     border-radius: 3px;
     padding:10px;
+
    
 
 }
@@ -32,11 +38,13 @@
     display: flex;
     flex-direction: row;
     gap:100px;
+
     
 }
 .photo-header{
     font-family: "Guardian-EgypTT",Charter,"Charter Bitstream",Cambria,"Noto Serif Light","Droid Serif",Georgia,serif;
     font-weight: 400;  
+    font-size: x-large;
 }
 .p-header{
     font-family: "Guardian-EgypTT",Charter,"Charter Bitstream",Cambria,"Noto Serif Light","Droid Serif",Georgia,serif;
@@ -108,4 +116,49 @@ input#file-upload-button{
 
 .fa-camera{
     font-size: 30px;
+}
+
+
+
+/* Lisiting information */
+.listing-details-container{
+  border:2px solid purple;  
+  border-radius: 3px;
+  padding: 10px;
+}
+.input-fields{
+    display: flex;
+    flex-direction: column;
+}
+
+.title{
+    display: flex;
+    flex-direction: row;
+    border:2px solid green;
+    align-items: center;
+    padding: 10px;
+    gap:40px;
+ 
+}
+.title-header{
+    font-size:medium;
+    font-weight: 400;
+    margin:2px;
+}
+.title-input{
+    border:1px solid rgba(180, 179, 179, 0.9);
+    border-radius: 3px;
+    width: 80%;
+    height: 40px;
+}
+.title-words{
+    width: 15%;
+}
+
+.p-header-listing{
+    font-family: "Guardian-EgypTT",Charter,"Charter Bitstream",Cambria,"Noto Serif Light","Droid Serif",Georgia,serif;
+    font-weight: 400;
+    color  : rgb(124, 124, 124);
+    font-size:small;
+
 }

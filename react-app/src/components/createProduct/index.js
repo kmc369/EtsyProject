@@ -56,14 +56,56 @@ function NewProduct() {
                         <div>Add a photo</div>
                     </label>
                     <input type="file" id="file-input" className="input-image1" accept="image/*" />
-                    </div>
+                    </div>    
 
-                    
-
-                    
-
-                </div>
+                </div>    
             </div>
+        </div>
+
+
+    <div className="listing-details-container">
+            <div className="listing-words">
+                <h3  className="photo-header">Listing Details</h3>
+                <p className="p-header">Tell the world all about your item and why they’ll love it.</p>
+            </div>
+
+        <div className="input-feilds">
+            <div className="title">
+                <div className="title-words">
+                    <h5 className="title-header">Title *</h5>
+                    <p className="p-header-listing">Include keywords that buyers would use to search for your item.</p>
+                </div>
+            
+                 <input
+                 className="title-input"
+                type="text"
+            
+                />
+            </div>
+            <div>
+    <label>
+        <input
+            type="radio"
+            name="yesno"
+            value="yes"
+            className="title-input"
+        />
+        Yes
+    </label>
+    <label>
+        <input
+            type="radio"
+            name="yesno"
+            value="no"
+            className="title-input"
+        />
+        No
+    </label>
+</div>
+
+
+         </div>
+
         </div>
 
 
