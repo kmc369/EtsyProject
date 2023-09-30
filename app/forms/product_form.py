@@ -11,7 +11,7 @@ ALLOWED_EXTENSIONS = {"pdf", "png", "jpg", "jpeg", "gif"}
 # FileRequired()
 class ProductForm(FlaskForm):
     price = IntegerField("price", validators=[DataRequired()])
-    image = FileField("Image file", validators=[FileAllowed(list(ALLOWED_EXTENSIONS))])
+    image = FileField("Image file", validators=[FileRequired(),FileAllowed(list(ALLOWED_EXTENSIONS))])
     image1 = FileField("Image file", validators=[FileAllowed(list(ALLOWED_EXTENSIONS))])
     image2 = FileField("Image file", validators=[FileAllowed(list(ALLOWED_EXTENSIONS))])
     image3 = FileField("Image file", validators=[FileAllowed(list(ALLOWED_EXTENSIONS))])
