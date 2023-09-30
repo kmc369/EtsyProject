@@ -14,6 +14,6 @@ def get_product(product_id,shopping_cart_id):
     user_cart = ShoppingCart.query.get(shopping_cart_id)
     
     shopping_cart =[]
-    shopping_cart.append(user_cart.to_dict())
+    shopping_cart.append(product_to_add.to_dict())
   
     return shopping_cart
