@@ -24,11 +24,43 @@ function NewProduct() {
                     </ul>
                 </div>
                 <div className="photo-images">
-                    <input className='input-image' type="file" accept="image/*"/>
-                    <input className='input-image' type="file" accept="image/*"/>
-                    <input className='input-image' type="file" accept="image/*"/>
-                    <input className='input-image' type="file" accept="image/*"/>
-                    <input className='input-image' type="file" accept="image/*"/>
+                    <div>
+                    <label className='custom-file-input-label' htmlFor="file-input">
+                        <div><i class="fa-solid fa-camera" style={{"color": "#121416;"}}></i></div>
+                        <div>Add a photo</div>
+                        </label>
+                    
+                    <input type="file" id="file-input" className="input-image1" accept="image/*" />
+                    </div>
+
+                    <div>
+                    <label className='custom-file-input-label' htmlFor="file-input">
+                        <i class="fa-solid fa-camera" style={{"color": "#121416;"}}></i>
+                        <div>Add a photo</div>
+                    </label>
+                    <input type="file" id="file-input" className="input-image1" accept="image/*" />
+                    </div>
+
+                    <div>
+                    <label className='custom-file-input-label' htmlFor="file-input">
+                    <i class="fa-solid fa-camera" style={{"color": "#121416;"}}></i>
+                    <div>Add a photo</div>
+                        
+                    </label>
+                    <input type="file" id="file-input" className="input-image1" accept="image/*" />
+                    </div>
+
+                    <div>
+                    <label className='custom-file-input-label' htmlFor="file-input">
+                    <i class="fa-solid fa-camera" style={{"color": "#121416;"}}></i>
+                        <div>Add a photo</div>
+                    </label>
+                    <input type="file" id="file-input" className="input-image1" accept="image/*" />
+                    </div>
+
+                    
+
+                    
 
                 </div>
             </div>
