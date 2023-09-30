@@ -42,7 +42,8 @@ class Review(db.Model):
             "user":{
                "id": self.user.id,
                 "username": self.user.username,
-                "email": self.user.email 
+                "email": self.user.email ,
+                "image":self.user.image
             },
             "products":{
                 "id":self.products.id,

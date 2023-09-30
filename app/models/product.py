@@ -58,7 +58,8 @@ class Product(db.Model):
             'user': {
                 "id": self.user.id,
                 "username": self.user.username,
-                "email": self.user.email
+                "email": self.user.email,
+                "image":self.user.image
             },
             'reviews': [review.to_dict() for review in self.reviews]  # Assuming you have a to_dict method in your Review model
 

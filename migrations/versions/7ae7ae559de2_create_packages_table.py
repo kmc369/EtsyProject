@@ -1,8 +1,8 @@
-"""empty message
+"""create packages table
 
-Revision ID: aaf76b1b083f
+Revision ID: 7ae7ae559de2
 Revises: 
-Create Date: 2023-09-29 16:24:35.125034
+Create Date: 2023-09-30 07:54:00.341809
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'aaf76b1b083f'
+revision = '7ae7ae559de2'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -23,6 +23,7 @@ def upgrade():
     sa.Column('username', sa.String(length=40), nullable=False),
     sa.Column('email', sa.String(length=255), nullable=False),
     sa.Column('hashed_password', sa.String(length=255), nullable=False),
+    sa.Column('image', sa.String(length=2000), nullable=True),
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('email'),
     sa.UniqueConstraint('username')
@@ -36,7 +37,7 @@ def upgrade():
     op.create_table('products',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('price', sa.Integer(), nullable=False),
-    sa.Column('image', sa.String(length=2000), nullable=True),
+    sa.Column('image', sa.String(length=2000), nullable=False),
     sa.Column('image1', sa.String(length=2000), nullable=True),
     sa.Column('image2', sa.String(length=2000), nullable=True),
     sa.Column('image3', sa.String(length=2000), nullable=True),
