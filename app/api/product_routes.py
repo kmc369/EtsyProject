@@ -13,7 +13,7 @@ def get_all_products():
     products = Product.query.all()
     productList = []
     if not products:
-        return jsonify({"message": "Post not found"}, 404)
+        return jsonify({"message": "Product not found"}, 404)
     for product in products:
         productList.append(product.to_dict())
     
