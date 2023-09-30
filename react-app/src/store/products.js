@@ -28,6 +28,7 @@ export const getAllProductThunk = () => async (dispatch, getState) => {
             method: "GET"
         });
 
+   
         if (res.ok) {
             const data = await res.json();
             dispatch(get_products(data));
@@ -45,12 +46,13 @@ export const getAllProductThunk = () => async (dispatch, getState) => {
 const inital_state = {allProducts:{}}
 
 const productReducer = (state=inital_state, action)=>{
-
+   
     switch(action.type) {
         case GET_PRODUCTS:
+        
             const newState = {...state, allProducts:{...state.allProducts}}
             //make a copy of all the keys in the data not whats in them
-            newState.allProducts = action.payload.data
+            newState.allProducts = action.payload
             return newState
         default:
             return state
