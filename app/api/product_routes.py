@@ -147,5 +147,6 @@ def delete_product(product_id):
     else:
         db.session.delete(product)
         db.session.commit()
-    return jsonify({"message":"Successfully deleted"},201)
+    new_products = Product.query.all()
+    return jsonify([product.to_dict() for product in new_products])
     
