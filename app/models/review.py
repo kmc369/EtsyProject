@@ -23,6 +23,7 @@ class Review(db.Model):
     #realtionships 
     products = db.relationship("Product", back_populates="reviews" )
     user  = db.relationship("User", back_populates="reviews")
+   
     def add_prefix_for_prod(attr):
         if environment == "production":
             return f"{SCHEMA}.{attr}"
@@ -38,6 +39,18 @@ class Review(db.Model):
             'updated_at': self.updated_at.isoformat() if self.updated_at else None,  # Convert datetime to string (or None if not set)
             'product_id': self.product_id,
             'user_id': self.user_id,
+            "user":{
+               "id": self.user.id,
+                "username": self.user.username,
+                "email": self.user.email 
+            },
+            "products":{
+                "id":self.products.id,
+                "price":self.products.price,
+                "title":self.products.title,
+               
+                
+            }
 
             # Add more attributes as needed
         }
