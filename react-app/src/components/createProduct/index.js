@@ -82,26 +82,108 @@ function NewProduct() {
             
                 />
             </div>
-            <div>
-    <label>
-        <input
-            type="radio"
-            name="yesno"
-            value="yes"
-            className="title-input"
-        />
-        Yes
-    </label>
-    <label>
-        <input
-            type="radio"
-            name="yesno"
-            value="no"
-            className="title-input"
-        />
-        No
-    </label>
-</div>
+            <div className="handmade">
+                <div className="handmade-words">
+                    <h5 className="handmade-header">Handmade *</h5>
+                    <p className="p-header-listing">Tell the users if the design is custom.</p>
+                </div>
+
+                <div className="radio-container">
+                        <div>
+                            <input
+                                className="radio-input"
+                                type="radio"
+                                name="handmade"
+                            />
+                           Yes, The current product is handmade
+                        </div>
+
+                        <div>
+                            <input
+                                className="radio-input"
+                                type="radio"
+                                name="handmade"
+                            />
+                        No, The current product is NOT handmade
+                        </div>
+                </div>
+            </div>
+
+
+
+            <div className="vintage">
+                <div className="vintage-words">
+                    <h5 className="vintage-header">Vintage *</h5>
+                    <p className="p-header-listing">Tell the users if the design is custom.</p>
+                </div>
+
+                <div className="radio-container">
+                        <div>
+                            <input
+                                className="radio-input"
+                                type="radio"
+                                name="vintage"
+                                
+                            />
+                           Yes, The current product is a Vintage
+                        </div>
+
+                        <div>
+                            <input
+                                className="radio-input"
+                                type="radio"
+                                name="vintage"
+                            />
+                        No, The current product is a NOT Vintage
+                        </div>
+                </div>
+            </div>
+
+
+
+
+
+
+            <div className="made-to-order">
+                <div className="made-to-order-words">
+                    <h5 className="vintage-header">Made To Order *</h5>
+                    <p className="p-header-listing">Tell the users if the design is custom.</p>
+                </div>
+
+                <div className="radio-container">
+                        <div>
+                            <input
+                                className="radio-input"
+                                type="radio"
+                                name="vintage"
+                                
+                            />
+                           Yes, The product is Made to Order
+                        </div>
+
+                        <div>
+                            <input
+                                className="radio-input"
+                                type="radio"
+                                name="vintage"
+                            />
+                        No, The product is NOT Made to Order
+                        </div>
+                </div>
+            </div>
+
+
+            <div className="creator-container">
+                <div className="creator-word">
+                    Creator 
+                </div>
+
+                <input className="creator-input"
+                    type="text"
+                />
+
+
+            </div>
 
 
          </div>
