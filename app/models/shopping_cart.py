@@ -28,6 +28,7 @@ class ShoppingCart(db.Model):
             'id': self.id,
             'user_id': self.user_id,
             'products': [product.to_dict() for product in self.products],  # Assuming you have a to_dict method in your Product model
-
+            
+            
           
         }
