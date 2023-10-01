@@ -37,8 +37,10 @@ export const create_product = (data)=>{
 
 // THUNKS
 export const createProductThunk = (product) => async(dispatch,getState) =>{
-    const {product_id, } = product 
-    const res = await fetch("api/products/new_product",{
+ 
+   const image= product.get("image")
+   console.log("the image from thunl is ", image)
+    const res = await fetch("/api/products/new_product",{
         method:"POST",
         body:product
     })
@@ -51,7 +53,7 @@ export const createProductThunk = (product) => async(dispatch,getState) =>{
 
 
 export const deleteProductThunk = (product_id) => async(dispatch,getState) =>{
-    const res = await fetch(`api/products/delete/${product_id}`,{
+    const res = await fetch(`/api/products/delete/${product_id}`,{
         method:"DELETE"
     })
     if(res.ok){

@@ -9,7 +9,7 @@ const [price,setPrice] = useState(0)
 const [image,setImage]=useState(null)
 const [image1,setImage1]=useState(null)
 const [image2,setImage2]=useState(null)
-const [image3,setImag3e]=useState(null)
+const [image3,setImage3]=useState(null)
 const [handmade , setHandmade]=useState(false)
 const [vintage , setVintage]=useState(false)
 const [madeToOrder , setmadeToOrder]=useState(false)
@@ -32,16 +32,22 @@ const [imageLoading, setImageLoading] = useState(false);
         formData.append('image2', image2);
         formData.append('image3', image3);
         formData.append('price', price);
+        formData.append('handmade', handmade);
+        formData.append('vintage', vintage);
+        formData.append('madeToOrder', madeToOrder);
         formData.append('title', title);
         formData.append('creator', creator);
         formData.append('material', material);
         formData.append('description', description);
-        formData.append('user_id', );
+        formData.append('user_id', userId);
        
         setImageLoading(true);
     
       
         await dispatch(ProductActions.createProductThunk(formData))
+        console.log("the form is ", formData)
+        const handmade2 = formData.get("image")
+        console.log("the image is ",handmade2)
         // history.push("/images");
   
         // setChange(false)
@@ -51,7 +57,7 @@ const [imageLoading, setImageLoading] = useState(false);
     return (
         <>
    
-    <form className="create-listing-container"  method="POST" enctype="multipart/form-data">
+    <form className="create-listing-container"  method="POST" encType="multipart/form-data" onSubmit={handleSubmit}>
             <h1 className="listing-header">Create a listing </h1>
             <h3 className="second-header">Add some photos and details about your item. Fill out what you can for now—you’ll be able to edit this later.</h3>
         <div className="photo-container">
@@ -108,7 +114,7 @@ const [imageLoading, setImageLoading] = useState(false);
                     <i class="fa-solid fa-camera" style={{"color": "#121416"}}></i>
                         <div>Add a photo</div>
                     </label>
-                    <input type="file" id="file-input" className="input-image1" accept="image/*" onChange={(e)=>setImage2(e.target.files[0])} />
+                    <input type="file" id="file-input" className="input-image1" accept="image/*" onChange={(e)=>setImage3(e.target.files[0])} />
                     </div>    
 
                 </div>    
@@ -149,6 +155,10 @@ const [imageLoading, setImageLoading] = useState(false);
                                 className="radio-input"
                                 type="radio"
                                 name="handmade"
+                                value="true"
+                                checked={handmade===true}
+                                onChange={(e)=>setHandmade(e.target.value)}
+                                
                             />
                            Yes, The current product is handmade
                         </div>
@@ -158,6 +168,11 @@ const [imageLoading, setImageLoading] = useState(false);
                                 className="radio-input"
                                 type="radio"
                                 name="handmade"
+                                value="false"
+                                checked={handmade===false}
+                                onChange={(e)=>setHandmade(e.target.value)}
+
+
                             />
                         No, The current product is NOT handmade
                         </div>
@@ -178,6 +193,9 @@ const [imageLoading, setImageLoading] = useState(false);
                                 className="radio-input"
                                 type="radio"
                                 name="vintage"
+                                value="true"
+                                checked={vintage===true}
+                                onChange={(e)=>setVintage(e.target.value)}
                                 
                             />
                            Yes, The current product is a Vintage
@@ -188,6 +206,9 @@ const [imageLoading, setImageLoading] = useState(false);
                                 className="radio-input"
                                 type="radio"
                                 name="vintage"
+                                value="false"
+                                checked={vintage===false}
+                                onChange={(e)=>setVintage(e.target.value)}
                             />
                         No, The current product is a NOT Vintage
                         </div>
@@ -210,7 +231,11 @@ const [imageLoading, setImageLoading] = useState(false);
                             <input
                                 className="radio-input"
                                 type="radio"
-                                name="vintage"
+                                name="made-to-order"
+                                value="true"
+                                checked={madeToOrder===true}
+                                onChange={(e)=>setmadeToOrder(e.target.value)}
+                                
                                 
                             />
                            Yes, The product is Made to Order
@@ -220,7 +245,10 @@ const [imageLoading, setImageLoading] = useState(false);
                             <input
                                 className="radio-input"
                                 type="radio"
-                                name="vintage"
+                                name="made-to-order"
+                                value="false"
+                                checked={madeToOrder===false}
+                                onChange={(e)=>setmadeToOrder(e.target.value)}
                             />
                         No, The product is NOT Made to Order
                         </div>
