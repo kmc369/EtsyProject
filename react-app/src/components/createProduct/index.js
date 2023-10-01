@@ -83,7 +83,8 @@ const [imageLoading, setImageLoading] = useState(false);
                         <div>Add a photo</div>
                         </label>
                     
-                    <input  onChange={(e)=>setImage(e.target.files[0])}
+                    <input  
+                    onChange={(e)=>setImage(e.target.files[0])}
                     type="file" 
                     id="file-input" 
                     className="input-image1" 

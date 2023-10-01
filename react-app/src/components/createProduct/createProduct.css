@@ -74,8 +74,8 @@
     gap: 20px;
   
 }
-.photo-images input[type="file"] {
-    /* Your styles here */
+/* .photo-images input[type="file"] {
+
   
 }
 input#file-upload-button{
@@ -85,7 +85,7 @@ input#file-upload-button{
 
 .photo-images {
     position: relative;
-    display: inline-block; /* Ensures that the container only takes as much width as necessary */
+    display: inline-block; 
 }
 
 .custom-file-input-label {
@@ -102,9 +102,9 @@ input#file-upload-button{
     width:100px;
     height: 100px;
     border:1px solid rgba(180, 179, 179, 0.9)
-}
+} */
 
-.input-image1 {
+/* .input-image1 {
     position: absolute;
     top: 0;
     left: 0;
@@ -116,7 +116,7 @@ input#file-upload-button{
 
 .fa-camera{
     font-size: 30px;
-}
+} */
 
 
 

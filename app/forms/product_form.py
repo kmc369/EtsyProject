@@ -2,7 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField,IntegerField
 from wtforms.validators import DataRequired
 from flask_wtf import FlaskForm
-from wtforms import StringField,IntegerField,BooleanField,FieldList
+from wtforms import StringField,IntegerField,BooleanField,FieldList, FloatField
 from flask_wtf.file import FileField, FileRequired,FileAllowed
 from wtforms.validators import DataRequired
 
@@ -10,7 +10,7 @@ from wtforms.validators import DataRequired
 ALLOWED_EXTENSIONS = {"pdf", "png", "jpg", "jpeg", "gif"}
 # FileRequired()
 class ProductForm(FlaskForm):
-    price = IntegerField("price", validators=[DataRequired()])
+    price = FloatField("price", validators=[DataRequired()])
     image = FileField("Image file", validators=[FileRequired(),FileAllowed(list(ALLOWED_EXTENSIONS))])
     image1 = FileField("Image file", validators=[FileAllowed(list(ALLOWED_EXTENSIONS))])
     image2 = FileField("Image file", validators=[FileAllowed(list(ALLOWED_EXTENSIONS))])
