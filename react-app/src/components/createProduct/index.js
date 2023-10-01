@@ -177,7 +177,11 @@ function NewProduct() {
                 <div className="desc-word">
                   <h5 className="desc-header"> Description *</h5>
                    <p className="p-header-listing">Start with a brief overview that describes your item’s finest features. Shoppers will only see the first few lines of your description at first, so make it count!
-                        Not sure what else to say? Shoppers also like hearing about your process, and the story behind this item.</p>
+                        Not sure what else to say? 
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        Shoppers also like hearing about your process, and the story behind this item.</p>
                 </div>
 
                 <input className="desc-input"
@@ -213,6 +217,22 @@ function NewProduct() {
 
 
             </div>
+
+            <div className="price-container">
+                <div className="price-word">
+                   Price 
+                </div>
+
+                <label className="price-label">
+                <i class="fa-solid fa-dollar-sign" style={{color: "#5b6371;"}}></i>
+                <input className="price-input"
+                    type="number"
+                />
+                </label>
+
+
+            </div>
+
 
            
 
