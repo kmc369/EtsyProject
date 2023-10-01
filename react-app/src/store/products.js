@@ -109,13 +109,7 @@ export const getAllProductThunk = () => async (dispatch, getState) => {
 }
 
 export const editProductThunk = (product,product_id) => async (dispatch, getState) => {
-    console.log("the product is", product.get("creator"))
-    console.log("the product is", product.get("image"))
-    console.log("the product is", product.get("handmade"))
-    console.log("the product is", product.get("madeToOrder"))
-    console.log("the product is", product.get("material"))
-    console.log("the product is", product.get("description"))
-    console.log("the product is", product.get("image2"))
+  
 
     // console.log("the product id is", product_id)
     const res = await fetch(`/api/products/update/${product_id}`,{

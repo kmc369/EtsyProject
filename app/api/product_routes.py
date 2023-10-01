@@ -121,8 +121,8 @@ def update_product(product_id):
         return jsonify({"Product not found"}), 404
     
     data = request.form
-    if not data:
-       return "NO DATA"
+    print("updated DATA is ",data)
+  
   
     image = data.get("image")
     if image:
@@ -132,7 +132,9 @@ def update_product(product_id):
             return jsonify({"error": "Failed to upload image to S3 1 "}), 400
 
     image1 = data.get("image1")
-    if image1:
+    print("image 1 is", image1)
+    if image1 and image1 !="null":
+        print("how are we here if image1 is null")
         image1.filename = get_unique_filename(image1.filename)
         upload1 = upload_file_to_s3(image1)
         if "url" not in upload1:
@@ -143,7 +145,7 @@ def update_product(product_id):
         image1_url = ""
 
     image2 = data.get("image2")
-    if image2:
+    if image2 and image2 !="null":
         image2.filename = get_unique_filename(image2.filename)
         upload2 = upload_file_to_s3(image2)
         if "url" not in upload2:
@@ -154,13 +156,13 @@ def update_product(product_id):
         image2_url = ""
 
     image3 = data.get("image3")
-    if image3:
+    if image3 and image3 != "null":
         image3.filename = get_unique_filename(image3.filename)
         upload3 = upload_file_to_s3(image3)
         if "url" not in upload3:
             return jsonify({"error": "Failed to upload image3 to S3 4"}), 400
         else:
-            image3_url = ""
+            image3_url = upload3["url"]
     else:
         image3_url = ""
     print("THE DATA AT THE CREATOR IS" ,data['creator'])
@@ -178,11 +180,22 @@ def update_product(product_id):
     if 'title' in data:
         product.title = data['title']
     if 'handmade' in data:
-        product.handmade = data['handmade']
+        if data['handmade'].lower()=='true':
+            product.handmade = True
+        else:
+            product.handmade=False
+       
     if 'vintage' in data:
-        product.vintage = data['vintage']
+        if data['vintage'].lower() == 'true':
+            product.vintage =True
+        else:
+            product.vintage=False
     if 'made_to_order' in data:
-        product.made_to_order = data['made_to_order']
+        if data['made_to_order'].lower()=='true':
+            product.made_to_order = True
+        else:
+            product.made_to_order = False
+ 
     if 'creator' in data:
         product.creator = data['creator']
     
