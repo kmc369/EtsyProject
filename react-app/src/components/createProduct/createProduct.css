@@ -134,22 +134,29 @@ input#file-upload-button{
 .title{
     display: flex;
     flex-direction: row;
-    /* border:2px solid green; */
+    border:2px solid green;
     align-items: center;
     padding: 10px;
     gap:40px;
  
 }
-.title-header,.vintage-header,.made-to-order{
+.title-words,.handmade-words,.vintage-words,.made-to-order-words,.desc-word{
+    border:2px solid purple;
+    width:25%
+}
+.han
+.title-header,.vintage-header,.made-to-order,.desc-header{
     font-size:medium;
     font-weight: 400;
     margin:2px;
 }
-.title-input{
-    border:1px solid rgba(180, 179, 179, 0.9);
+.title-input,.desc-input{
+    border:1px solid orange;
+    /* rgba(180, 179, 179, 0.9); */
     border-radius: 3px;
     width: 80%;
     height: 40px;
+
 }
 
 
@@ -164,10 +171,12 @@ input#file-upload-button{
 /* radio input  handmade*/
 
 .handmade,.vintage,.made-to-order{
-    /* border:1px solid green; */
+    border:1px solid green;
     display: flex;
     flex-direction: row;
     padding: 10px;
+ 
+    gap:40px;
     
 }
 .handmade-words,.vintage-words,.made-to-order-words{
@@ -183,9 +192,35 @@ justify-content: space-around;
 align-items: center;
 }
 
-.creator-container{
-    border:2px solid green;
+.creator-container,.material-container,.descr-container{
+    /* border:2px solid green; */
     display: flex;
     flex-direction: row;
-    padding:10px;
+    padding: 10px;
+    gap:40px;
+  
+    align-items: center;
+    border:2px solid gold;
 }
+
+.creator-word,.material-word{
+    font-family: "Guardian-EgypTT",Charter,"Charter Bitstream",Cambria,"Noto Serif Light","Droid Serif",Georgia,serif;
+    font-weight: 400; 
+   
+    /* border:2px solid green; */
+}
+
+.creator-input,.material-input{
+    height:40px;
+    width:30%;
+    border-radius: 5px;
+    border:1px solid rgba(180, 179, 179, 0.9);
+    
+}
+.desc-input{
+    height:250px;
+}
+.desc-word{
+    
+}
+

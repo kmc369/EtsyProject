@@ -173,6 +173,22 @@ function NewProduct() {
             </div>
 
 
+            <div className="descr-container">
+                <div className="desc-word">
+                  <h5 className="desc-header"> Description *</h5>
+                   <p className="p-header-listing">Start with a brief overview that describes your item’s finest features. Shoppers will only see the first few lines of your description at first, so make it count!
+                        Not sure what else to say? Shoppers also like hearing about your process, and the story behind this item.</p>
+                </div>
+
+                <input className="desc-input"
+                    type="text"
+                />
+
+
+            </div>
+
+
+
             <div className="creator-container">
                 <div className="creator-word">
                     Creator 
@@ -184,6 +200,24 @@ function NewProduct() {
 
 
             </div>
+
+
+            <div className="material-container">
+                <div className="material-word">
+                    Materials 
+                </div>
+
+                <input className="material-input"
+                    type="text"
+                />
+
+
+            </div>
+
+           
+
+
+
 
 
          </div>
