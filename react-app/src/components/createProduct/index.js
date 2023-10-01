@@ -1,10 +1,57 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import * as ProductActions from '../../store/products'
 import "./createProduct.css"
 function NewProduct() {
 
+const dispatch = useDispatch()
+const [price,setPrice] = useState(0)
+const [image,setImage]=useState(null)
+const [image1,setImage1]=useState(null)
+const [image2,setImage2]=useState(null)
+const [image3,setImag3e]=useState(null)
+const [handmade , setHandmade]=useState(false)
+const [vintage , setVintage]=useState(false)
+const [madeToOrder , setmadeToOrder]=useState(false)
+const [creator , setCreator]=useState("")
+const [title , setTitle]=useState("")
+const [material,setMaterial] = useState("")
+const [description,setDescription]=useState("")
+const [userId,setUserId] = useState(1)
+const [imageLoading, setImageLoading] = useState(false);
+
+    async function handleSubmit(e){
+        e.preventDefault();
+      
+      
+    
+    
+        const formData = new FormData();
+        formData.append('image', image);
+        formData.append('image1', image1);
+        formData.append('image2', image2);
+        formData.append('image3', image3);
+        formData.append('price', price);
+        formData.append('title', title);
+        formData.append('creator', creator);
+        formData.append('material', material);
+        formData.append('description', description);
+        formData.append('user_id', );
+       
+        setImageLoading(true);
+    
+      
+        await dispatch(ProductActions.createProductThunk(formData))
+        // history.push("/images");
+  
+        // setChange(false)
+      }
+
+
     return (
         <>
-    <div className="create-listing-container">
+   
+    <form className="create-listing-container"  method="POST" enctype="multipart/form-data">
             <h1 className="listing-header">Create a listing </h1>
             <h3 className="second-header">Add some photos and details about your item. Fill out what you can for now—you’ll be able to edit this later.</h3>
         <div className="photo-container">
@@ -26,36 +73,42 @@ function NewProduct() {
                 <div className="photo-images">
                     <div>
                     <label className='custom-file-input-label' htmlFor="file-input">
-                        <div><i class="fa-solid fa-camera" style={{"color": "#121416;"}}></i></div>
+                        <div><i class="fa-solid fa-camera" style={{"color": "#121416"}}></i></div>
                         <div>Add a photo</div>
                         </label>
                     
-                    <input type="file" id="file-input" className="input-image1" accept="image/*" />
+                    <input  onChange={(e)=>setImage(e.target.files[0])}
+                    type="file" 
+                    id="file-input" 
+                    className="input-image1" 
+                    accept="image/*" />
                     </div>
 
                     <div>
                     <label className='custom-file-input-label' htmlFor="file-input">
-                        <i class="fa-solid fa-camera" style={{"color": "#121416;"}}></i>
+                        <i class="fa-solid fa-camera" style={{"color": "#121416"}}></i>
                         <div>Add a photo</div>
                     </label>
-                    <input type="file" id="file-input" className="input-image1" accept="image/*" />
+                    <input type="file" id="file-input" className="input-image1" 
+                    onChange={(e)=>setImage1(e.target.files[0])}
+                    accept="image/*" />
                     </div>
 
                     <div>
                     <label className='custom-file-input-label' htmlFor="file-input">
-                    <i class="fa-solid fa-camera" style={{"color": "#121416;"}}></i>
+                    <i class="fa-solid fa-camera" style={{"color": "#121416"}}></i>
                     <div>Add a photo</div>
                         
                     </label>
-                    <input type="file" id="file-input" className="input-image1" accept="image/*" />
+                    <input type="file" id="file-input" className="input-image1" accept="image/*" onChange={(e)=>setImage2(e.target.files[0])}/>
                     </div>
 
                     <div>
                     <label className='custom-file-input-label' htmlFor="file-input">
-                    <i class="fa-solid fa-camera" style={{"color": "#121416;"}}></i>
+                    <i class="fa-solid fa-camera" style={{"color": "#121416"}}></i>
                         <div>Add a photo</div>
                     </label>
-                    <input type="file" id="file-input" className="input-image1" accept="image/*" />
+                    <input type="file" id="file-input" className="input-image1" accept="image/*" onChange={(e)=>setImage2(e.target.files[0])} />
                     </div>    
 
                 </div>    
@@ -79,6 +132,8 @@ function NewProduct() {
                  <input
                  className="title-input"
                 type="text"
+                value={title}
+                onChange={(e)=>setTitle(e.target.value)}
             
                 />
             </div>
@@ -186,6 +241,8 @@ function NewProduct() {
 
                 <input className="desc-input"
                     type="text"
+                    value={description}
+                    onChange={(e)=>setDescription(e.target.value)}
                 />
 
 
@@ -200,6 +257,8 @@ function NewProduct() {
 
                 <input className="creator-input"
                     type="text"
+                    value={creator}
+                    onChange={(e)=>setCreator(e.target.value)}
                 />
 
 
@@ -213,6 +272,8 @@ function NewProduct() {
 
                 <input className="material-input"
                     type="text"
+                    value={material}
+                    onChange={(e)=>setMaterial(e.target.value)}
                 />
 
 
@@ -224,9 +285,11 @@ function NewProduct() {
                 </div>
 
                 <label className="price-label">
-                <i class="fa-solid fa-dollar-sign" style={{color: "#5b6371;"}}></i>
+                <i class="fa-solid fa-dollar-sign" style={{color: "#5b6371"}}></i>
                 <input className="price-input"
                     type="number"
+                    value={price}
+                    onChange={(e)=>setPrice(e.target.value)}
                 />
                 </label>
 
@@ -244,8 +307,9 @@ function NewProduct() {
 
         </div>
 
-
-    </div>
+             <button type="submit">Submit</button>
+            {(imageLoading)&& <p>Loading...</p>}
+    </form>
 
         </>
     )
