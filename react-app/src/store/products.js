@@ -67,20 +67,16 @@ export const createProductThunk = (product) => async(dispatch,getState) =>{
 
 
 export const getProductByIdThunk = (product_id) => async (dispatch, getState) => {
-    console.log("the product id is thunk", product_id)
+    // console.log("the product id is thunk", product_id)
     const res = await fetch(`/api/products/single_product/${product_id}`,{
        method: "GET"
    });
    if (res.ok) {
        const data = await res.json();
        console.log("the result from the thunk is ",data)
-       dispatch(getProductByIdThunk(data));
+       dispatch(get_products_by_id(data));
        return data;
-   } else {
-     
-       const errorData = await res.json();
-       throw new Error(errorData.error || 'Failed to fetch data');
-   }  
+   } 
 }
 
 
