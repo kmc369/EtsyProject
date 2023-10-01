@@ -38,7 +38,7 @@ export const create_product = (data)=>{
 
 export const edit_product = (data)=>{
     return {
-        type:CREATE_PRODUCT,
+        type:EDIT_PRODUCT,
         payload:data
     }
 }
@@ -109,9 +109,9 @@ export const getAllProductThunk = () => async (dispatch, getState) => {
 }
 
 export const editProductThunk = (product,product_id) => async (dispatch, getState) => {
-    console.log("the product is", product)
+  
 
-    console.log("the product id is", product_id)
+    // console.log("the product id is", product_id)
     const res = await fetch(`/api/products/update/${product_id}`,{
         method:"PUT",
         body:product
