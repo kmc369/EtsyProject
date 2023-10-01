@@ -8,6 +8,7 @@
     
 }
 
+
 .listing-header{
     font-family: "Guardian-EgypTT",Charter,"Charter Bitstream",Cambria,"Noto Serif Light","Droid Serif",Georgia,serif;
     font-weight: 400;
@@ -256,8 +257,3 @@ align-items: center;
     border-radius: 5px;
     border:1px solid rgba(180, 179, 179, 0.9);
 }
-
-
-
-
-

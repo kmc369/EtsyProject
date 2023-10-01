@@ -3,12 +3,20 @@
 const GET_PRODUCTS = 'get/products'
 const DELETE_PRODUCT='delete/product'
 const CREATE_PRODUCT='create/product'
-
+const EDIT_PRODUCT = "edit/product"
+const GET_PRODUCT_BY_ID = "get/product/by/id"
 
 //ACTIONS
 export const get_products = (data) =>{
     return {
         type:GET_PRODUCTS,
+        payload:data
+    }
+}
+
+export const get_products_by_id = (data) =>{
+    return {
+        type:GET_PRODUCT_BY_ID,
         payload:data
     }
 }
@@ -27,6 +35,13 @@ export const create_product = (data)=>{
     }
 }
 
+export const edit_product = (data)=>{
+    return {
+        type:CREATE_PRODUCT,
+        payload:data
+    }
+}
+
 
 
 
@@ -38,8 +53,7 @@ export const create_product = (data)=>{
 // THUNKS
 export const createProductThunk = (product) => async(dispatch,getState) =>{
  
-   const image= product.get("image")
-   console.log("the image from thunl is ", image)
+ 
     const res = await fetch("/api/products/new_product",{
         method:"POST",
         body:product
@@ -49,6 +63,24 @@ export const createProductThunk = (product) => async(dispatch,getState) =>{
         dispatch(create_product(data))
         return data
     }
+}
+
+
+export const getProductByIdThunk = (product_id) => async (dispatch, getState) => {
+    console.log("the product id is thunk", product_id)
+    const res = await fetch(`/api/products/single_product/${product_id}`,{
+       method: "GET"
+   });
+   if (res.ok) {
+       const data = await res.json();
+       console.log("the result from the thunk is ",data)
+       dispatch(getProductByIdThunk(data));
+       return data;
+   } else {
+     
+       const errorData = await res.json();
+       throw new Error(errorData.error || 'Failed to fetch data');
+   }  
 }
 
 
@@ -79,15 +111,34 @@ export const getAllProductThunk = () => async (dispatch, getState) => {
         }  
 }
 
+export const editProductThunk = (product) => async (dispatch, getState) => {
+    const res = await fetch(`/api/products/update/${product.id}`,{
+        method:"PUT",
+        body:product
+    })
+
+   if (res.ok) {
+       const data = await res.json();
+       dispatch(get_products(data));
+       return data;
+   } else {
+     
+       const errorData = await res.json();
+       throw new Error(errorData.error || 'Failed to fetch data');
+   }  
+}
+
 
 //REDUCDER
-const inital_state = {allProducts:{}}
+const inital_state = {allProducts:{}, singleProduct:{}}
 
 const productReducer = (state=inital_state, action)=>{
    
     switch(action.type) {
         case GET_PRODUCTS:{
-        
+            console.log("the action payload is ",action.payload)
+          
+
             const newState = {...state, allProducts:{...state.allProducts}}
             //make a copy of all the keys in the data not whats in them
 
@@ -104,6 +155,19 @@ const productReducer = (state=inital_state, action)=>{
         case CREATE_PRODUCT:{
             const newState = {...state , allProducts:{...state.allProducts}}
             newState.allProducts[action.payload.id] = action.payload
+            
+            return newState
+        }
+        case EDIT_PRODUCT:{
+           
+            const newState = {...state,allProducts:{...state.allProducts}}
+            newState.allProducts[action.payload.id] = action.payload
+            return newState
+        }
+        case GET_PRODUCT_BY_ID:{
+            console.log("the product data is ", action.payload)
+            const newState  = {...state, singleProduct:{...state.singleProduct}}
+            newState.singleProduct = action.payload
             return newState
         }
         default:

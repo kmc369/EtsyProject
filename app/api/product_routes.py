@@ -27,6 +27,19 @@ def get_product_by_user_id(userid):
         return jsonify({"message": "Product not found"}, 404)
     return [product.to_dict() for product in products]
 
+
+
+@products_bp.route('/single_product/<int:product_id>',methods=["GET"])
+def get_product_by_id(product_id):
+    """get product by id"""
+    single_product = Product.query.get(product_id)
+    print("the single post is ", single_product.to_dict())
+    if single_product is None:
+        return jsonify({"message": "Product not found"}, 404)
+    return jsonify(single_product.to_dict())
+
+
+
 @products_bp.route('/new_product', methods=["POST"])
 def create_product():
     """create a new product """
@@ -34,13 +47,13 @@ def create_product():
     form['csrf_token'].data = request.cookies['csrf_token']
     
     if form.validate_on_submit():
-        print("the form data is valid")
+     
 
         image = form.data.get("image")
         if image:
             image.filename = get_unique_filename(image.filename)
             upload = upload_file_to_s3(image)
-            print("the upload is ", upload)
+   
             if "url" not in upload:
                 return jsonify({"error": "Failed to upload image to S3 1 "}), 400
 
@@ -95,7 +108,7 @@ def create_product():
         )
         db.session.add(new_product)
         db.session.commit()
-        return jsonify(new_product.to_dict(), 201)
+        return jsonify(new_product.to_dict())
     
     return jsonify({"error": form.errors}), 400
     
