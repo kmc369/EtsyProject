@@ -1,3 +1,4 @@
+import EditProduct from "../components/EditProduct"
 
 //ACTION TYPES
 const GET_PRODUCTS = 'get/products'
@@ -73,7 +74,7 @@ export const getProductByIdThunk = (product_id) => async (dispatch, getState) =>
    });
    if (res.ok) {
        const data = await res.json();
-       console.log("the result from the thunk is ",data)
+      
        dispatch(get_products_by_id(data));
        return data;
    } 
@@ -107,15 +108,18 @@ export const getAllProductThunk = () => async (dispatch, getState) => {
         }  
 }
 
-export const editProductThunk = (product) => async (dispatch, getState) => {
-    const res = await fetch(`/api/products/update/${product.id}`,{
+export const editProductThunk = (product,product_id) => async (dispatch, getState) => {
+    console.log("the product is", product)
+
+    console.log("the product id is", product_id)
+    const res = await fetch(`/api/products/update/${product_id}`,{
         method:"PUT",
         body:product
     })
 
    if (res.ok) {
        const data = await res.json();
-       dispatch(get_products(data));
+       dispatch(edit_product(data));
        return data;
    } else {
      
@@ -132,7 +136,6 @@ const productReducer = (state=inital_state, action)=>{
    
     switch(action.type) {
         case GET_PRODUCTS:{
-            console.log("the action payload is ",action.payload)
           
 
             const newState = {...state, allProducts:{...state.allProducts}}
@@ -161,9 +164,9 @@ const productReducer = (state=inital_state, action)=>{
             return newState
         }
         case GET_PRODUCT_BY_ID:{
-            console.log("the product data is ", action.payload)
             const newState  = {...state, singleProduct:{...state.singleProduct}}
             newState.singleProduct = action.payload
+            
             return newState
         }
         default:

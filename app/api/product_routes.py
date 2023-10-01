@@ -122,7 +122,6 @@ def update_product(product_id):
     
     data = request.get_json()
     
-    print("the data is ", data)
     
     if 'price' in data:
         product.price= data['image']

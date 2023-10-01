@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch,useSelector } from "react-redux";
 import { useParams } from 'react-router-dom';
 
 import * as ProductActions from '../../store/products'
@@ -9,7 +9,10 @@ import "./editProducts.css"
 function EditProduct() {
 const {product_id} = useParams()
 const product_id_num = Number(product_id)
-console.log("the product id is", product_id_num)
+
+const result = useSelector(state =>state.products.singleProduct)
+// const [result,setResult]=useState({})
+// console.log("the result is ",result)
 const dispatch = useDispatch()
 const [price,setPrice] = useState(0)
 const [image,setImage]=useState(null)
@@ -49,11 +52,11 @@ const [imageLoading, setImageLoading] = useState(false);
        
         setImageLoading(true);
     
-      
-       
-        // history.push("/images");
-  
-        // setChange(false)
+        await dispatch(ProductActions.editProductThunk(formData,result.id))
+
+   
+        
+     
       }
     
 
@@ -62,12 +65,27 @@ const [imageLoading, setImageLoading] = useState(false);
           
               const result = await dispatch(ProductActions.getProductByIdThunk(product_id_num));
                
-            
+           
+            setPrice(result.price)
+            setHandmade(result.handmade)
+            setVintage(result.vintage)
+            setmadeToOrder(result.made_to_order)
+            setCreator(result.creator)
+            setTitle(result.title)
+            setMaterial(result.material)
+            setDescription(result.description)
+            setUserId(result.user_id)
            
           };
         
           fetchData(); // Immediately in
       },[dispatch,product_id_num])
+
+   
+    if (Object.values(result).length===0) {
+        console.log("result was empty nothing in the EMPTY")
+        return null
+    }
 
 
     return (

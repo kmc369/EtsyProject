@@ -47,6 +47,8 @@ class Product(db.Model):
             'image3': self.image3,
             'title': self.title,
             'handmade': self.handmade,
+            "made_to_order":self.made_to_order,
+            "vintage":self.vintage,
             'creator': self.creator,
             'material': self.material,
             'description': self.description,
