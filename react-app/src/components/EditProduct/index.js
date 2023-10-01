@@ -29,11 +29,16 @@ const [description,setDescription]=useState("")
 const [userId,setUserId] = useState(1)
 const [imageLoading, setImageLoading] = useState(false);
 
+
+    
     async function handleSubmit(e){
         e.preventDefault();
       
-      
     
+        const handmadeValue = JSON.parse(handmade);
+        const vintageValue = JSON.parse(vintage);  
+        const madeToOrderValue = JSON.parse(madeToOrder);
+        console.log("the handmade value is", madeToOrder)
     
         const formData = new FormData();
         formData.append('image', image);
@@ -51,7 +56,7 @@ const [imageLoading, setImageLoading] = useState(false);
         formData.append('user_id', userId);
        
         setImageLoading(true);
-    
+        // console.log("handmade is now", formData.get("handmade"))
         await dispatch(ProductActions.editProductThunk(formData,result.id))
 
    
@@ -63,8 +68,10 @@ const [imageLoading, setImageLoading] = useState(false);
       useEffect(()=>{
         const fetchData = async () => {
           
-              const result = await dispatch(ProductActions.getProductByIdThunk(product_id_num));
-               
+              
+            const result = await dispatch(ProductActions.getProductByIdThunk(product_id_num));
+              console.log("inside the use effect the resut", result.handmade)
+         
            
             setPrice(result.price)
             setHandmade(result.handmade)
