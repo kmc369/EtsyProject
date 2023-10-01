@@ -1,10 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import * as ProductActions from '../../store/products'
-import "./createProduct.css"
-import EditProduct from "../EditProduct";
-function NewProduct() {
+import { useDispatch,useSelector } from "react-redux";
+import { useParams } from 'react-router-dom';
 
+import * as ProductActions from '../../store/products'
+import "./editProducts.css"
+
+
+function EditProduct() {
+const {product_id} = useParams()
+const product_id_num = Number(product_id)
+
+const result = useSelector(state =>state.products.singleProduct)
+// const [result,setResult]=useState({})
+// console.log("the result is ",result)
 const dispatch = useDispatch()
 const [price,setPrice] = useState(0)
 const [image,setImage]=useState(null)
@@ -20,9 +28,6 @@ const [material,setMaterial] = useState("")
 const [description,setDescription]=useState("")
 const [userId,setUserId] = useState(1)
 const [imageLoading, setImageLoading] = useState(false);
-
-
-
 
     async function handleSubmit(e){
         e.preventDefault();
@@ -47,16 +52,45 @@ const [imageLoading, setImageLoading] = useState(false);
        
         setImageLoading(true);
     
-      
-        await dispatch(ProductActions.createProductThunk(formData))
-        // <EditProduct product={formData}/>
-      
+        await dispatch(ProductActions.editProductThunk(formData,result.id))
+
+   
+        
+     
       }
+    
+
+      useEffect(()=>{
+        const fetchData = async () => {
+          
+              const result = await dispatch(ProductActions.getProductByIdThunk(product_id_num));
+               
+           
+            setPrice(result.price)
+            setHandmade(result.handmade)
+            setVintage(result.vintage)
+            setmadeToOrder(result.made_to_order)
+            setCreator(result.creator)
+            setTitle(result.title)
+            setMaterial(result.material)
+            setDescription(result.description)
+            setUserId(result.user_id)
+           
+          };
+        
+          fetchData(); // Immediately in
+      },[dispatch,product_id_num])
+
+   
+    if (Object.values(result).length===0) {
+        console.log("result was empty nothing in the EMPTY")
+        return null
+    }
 
 
     return (
         <>
-   
+ 
     <form className="create-listing-container"  method="POST" encType="multipart/form-data" onSubmit={handleSubmit}>
             <h1 className="listing-header">Create a listing </h1>
             <h3 className="second-header">Add some photos and details about your item. Fill out what you can for now—you’ll be able to edit this later.</h3>
@@ -90,8 +124,6 @@ const [imageLoading, setImageLoading] = useState(false);
                     className="input-image1" 
                     accept="image/*" />
                     </div>
-                    {(imageLoading)&& <p>Loading...</p>}
-
 
                     <div>
                     <label className='custom-file-input-label' htmlFor="file-input">
@@ -102,8 +134,6 @@ const [imageLoading, setImageLoading] = useState(false);
                     onChange={(e)=>setImage1(e.target.files[0])}
                     accept="image/*" />
                     </div>
-                    {(imageLoading)&& <p>Loading...</p>}
-
 
                     <div>
                     <label className='custom-file-input-label' htmlFor="file-input">
@@ -113,8 +143,6 @@ const [imageLoading, setImageLoading] = useState(false);
                     </label>
                     <input type="file" id="file-input" className="input-image1" accept="image/*" onChange={(e)=>setImage2(e.target.files[0])}/>
                     </div>
-                    {(imageLoading)&& <p>Loading...</p>}
-
 
                     <div>
                     <label className='custom-file-input-label' htmlFor="file-input">
@@ -122,9 +150,7 @@ const [imageLoading, setImageLoading] = useState(false);
                         <div>Add a photo</div>
                     </label>
                     <input type="file" id="file-input" className="input-image1" accept="image/*" onChange={(e)=>setImage3(e.target.files[0])} />
-                    </div>   
-                    {(imageLoading)&& <p>Loading...</p>}
- 
+                    </div>    
 
                 </div>    
             </div>
@@ -345,10 +371,11 @@ const [imageLoading, setImageLoading] = useState(false);
         </div>
 
              <button type="submit">Submit</button>
+            {(imageLoading)&& <p>Loading...</p>}
     </form>
 
         </>
     )
 }
 
-export default NewProduct
+export default EditProduct

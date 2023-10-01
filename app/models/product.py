@@ -7,7 +7,7 @@ class Product(db.Model):
         __table_args__ = {'schema': SCHEMA}
     
     id = db.Column(db.Integer, primary_key=True)
-    price = db.Column(db.Integer, nullable=False)
+    price = db.Column(db.Float, nullable=False)
     image = db.Column(db.String(2000), nullable=False)
     image1=db.Column(db.String(2000),nullable=True)
     image2=db.Column(db.String(2000),nullable=True)
@@ -47,6 +47,8 @@ class Product(db.Model):
             'image3': self.image3,
             'title': self.title,
             'handmade': self.handmade,
+            "made_to_order":self.made_to_order,
+            "vintage":self.vintage,
             'creator': self.creator,
             'material': self.material,
             'description': self.description,

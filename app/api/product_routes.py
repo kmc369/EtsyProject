@@ -27,67 +27,90 @@ def get_product_by_user_id(userid):
         return jsonify({"message": "Product not found"}, 404)
     return [product.to_dict() for product in products]
 
+
+
+@products_bp.route('/single_product/<int:product_id>',methods=["GET"])
+def get_product_by_id(product_id):
+    """get product by id"""
+    single_product = Product.query.get(product_id)
+    print("the single post is ", single_product.to_dict())
+    if single_product is None:
+        return jsonify({"message": "Product not found"}, 404)
+    return jsonify(single_product.to_dict())
+
+
+
 @products_bp.route('/new_product', methods=["POST"])
 def create_product():
- 
     """create a new product """
     form = ProductForm()
     form['csrf_token'].data = request.cookies['csrf_token']
+    
     if form.validate_on_submit():
      
-        # image = form.data["image"]
-        # image.filename = get_unique_filename(image.filename)
-        # upload = upload_file_to_s3(image)
-        # if "url" not in upload:
-        #     return jsonify({"error": "Failed to upload image to S3"}), 400
-        # image_url = upload["url"]
-        
-        # image1 = form.data["image1"]
-        # image1.filename = get_unique_filename(image1.filename)
-        # upload1 = upload_file_to_s3(image1)
-        # if "url" not in upload1:
-        #     return jsonify({"error": "Failed to upload image1 to S3"}), 400
-        # image1_url = upload1["url"]
 
-        # image2 = form.data["image2"]
-        # image2.filename = get_unique_filename(image2.filename)
-        # upload2 = upload_file_to_s3(image2)
-        # if "url" not in upload2:
-        #     return jsonify({"error": "Failed to upload image2 to S3"}), 400
-        # image2_url = upload2["url"]
+        image = form.data.get("image")
+        if image:
+            image.filename = get_unique_filename(image.filename)
+            upload = upload_file_to_s3(image)
+   
+            if "url" not in upload:
+                return jsonify({"error": "Failed to upload image to S3 1 "}), 400
 
-        # image3 = form.data["image3"]
-        # image3.filename = get_unique_filename(image3.filename)
-        # upload3 = upload_file_to_s3(image3)
-        # if "url" not in upload3:
-        #     return jsonify({"error": "Failed to upload image3 to S3"}), 400
-        # image3_url = upload3["url"]
-        
+        image1 = form.data.get("image1")
+        if image1:
+            image1.filename = get_unique_filename(image1.filename)
+            upload1 = upload_file_to_s3(image1)
+            if "url" not in upload1:
+                return jsonify({"error": "Failed to upload image1 to S3 2"}), 400
+            else:
+                image1_url = upload1["url"]
+        else:
+            print("in the first else")
+            image1_url = ""
+
+        image2 = form.data.get("image2")
+        if image2:
+            image2.filename = get_unique_filename(image2.filename)
+            upload2 = upload_file_to_s3(image2)
+            if "url" not in upload2:
+                return jsonify({"error": "Failed to upload image2 to S3 3"}), 400
+            else:
+                image2_url = upload2["url"]
+        else:
+            image2_url = ""
+
+        image3 = form.data.get("image3")
+        if image3:
+            image3.filename = get_unique_filename(image3.filename)
+            upload3 = upload_file_to_s3(image3)
+            if "url" not in upload3:
+                return jsonify({"error": "Failed to upload image3 to S3 4"}), 400
+            else:
+                image3_url = ""
+        else:
+            image3_url = ""
+
         new_product = Product(
             price=form.data["price"],
-            # image=image_url,
-            # image1=image1_url,
-            # image2=image2_url,
-            # image3=image3_url,
-            image=form.data["image"],
-            image1=form.data["image1"],
-            image2=form.data["image2"],
-            image3=form.data["image3"],
             title=form.data["title"],
+            image=upload["url"],
+            image1=image1_url,
+            image2=image2_url,
+            image3=image3_url,
             handmade=form.data["handmade"],
             vintage=form.data["vintage"],
             made_to_order=form.data["made_to_order"],
             creator=form.data["creator"],
             material=form.data["material"],
             description=form.data["description"],
-            user_id=form.data["user_id"] 
-            
+            user_id=form.data["user_id"]
         )
         db.session.add(new_product)
         db.session.commit()
-        return jsonify(new_product.to_dict(), 201)
-    else:
-        return jsonify({"error": form.errors}), 400
+        return jsonify(new_product.to_dict())
+    
+    return jsonify({"error": form.errors}), 400
     
 @products_bp.route("/update/<int:product_id>", methods=["PUT"])
 def update_product(product_id):
@@ -99,7 +122,6 @@ def update_product(product_id):
     
     data = request.get_json()
     
-    print("the data is ", data)
     
     if 'price' in data:
         product.price= data['image']

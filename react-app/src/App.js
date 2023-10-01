@@ -7,6 +7,7 @@ import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import Landing from "./components/Landing";
 import NewProduct from "./components/createProduct";
+import EditProduct from "./components/EditProduct";
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -24,6 +25,9 @@ function App() {
           </Route>
           <Route exact path="/new_product">
             <NewProduct />
+          </Route>
+          <Route exact path="/edit_product/:product_id">
+            <EditProduct />
           </Route>
           <Route exact path="/login" >
             <LoginFormPage />
