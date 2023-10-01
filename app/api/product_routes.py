@@ -66,7 +66,7 @@ def create_product():
             else:
                 image1_url = upload1["url"]
         else:
-            print("in the first else")
+        
             image1_url = ""
 
         image2 = form.data.get("image2")
@@ -114,25 +114,67 @@ def create_product():
     
 @products_bp.route("/update/<int:product_id>", methods=["PUT"])
 def update_product(product_id):
-  
+
     product  = Product.query.get(product_id)
-  
+   
     if product is None:
         return jsonify({"Product not found"}), 404
     
-    data = request.get_json()
-    
-    
+    data = request.form
+    if not data:
+       return "NO DATA"
+  
+    image = data.get("image")
+    if image:
+        image.filename = get_unique_filename(image.filename)
+        upload = upload_file_to_s3(image)
+        if "url" not in upload:
+            return jsonify({"error": "Failed to upload image to S3 1 "}), 400
+
+    image1 = data.get("image1")
+    if image1:
+        image1.filename = get_unique_filename(image1.filename)
+        upload1 = upload_file_to_s3(image1)
+        if "url" not in upload1:
+            return jsonify({"error": "Failed to upload image1 to S3 2"}), 400
+        else:
+            image1_url = upload1["url"]
+    else:
+        image1_url = ""
+
+    image2 = data.get("image2")
+    if image2:
+        image2.filename = get_unique_filename(image2.filename)
+        upload2 = upload_file_to_s3(image2)
+        if "url" not in upload2:
+            return jsonify({"error": "Failed to upload image2 to S3 3"}), 400
+        else:
+            image2_url = upload2["url"]
+    else:
+        image2_url = ""
+
+    image3 = data.get("image3")
+    if image3:
+        image3.filename = get_unique_filename(image3.filename)
+        upload3 = upload_file_to_s3(image3)
+        if "url" not in upload3:
+            return jsonify({"error": "Failed to upload image3 to S3 4"}), 400
+        else:
+            image3_url = ""
+    else:
+        image3_url = ""
+    print("THE DATA AT THE CREATOR IS" ,data['creator'])
     if 'price' in data:
-        product.price= data['image']
+        product.price= data['price']
     if 'image' in data:
-        product.image = data['image']
+        product.image = upload["url"]
     if 'image1' in data:
-        product.image1 = data['image1']
+        product.image1 = image1_url
     if 'image2' in data:
-        product.image2 = data['image2']
+        product.image2 = image2_url
     if 'image3' in data:
-        product.image3 = data['image3']
+        product.image3 = image3_url
+        
     if 'title' in data:
         product.title = data['title']
     if 'handmade' in data:
@@ -143,14 +185,15 @@ def update_product(product_id):
         product.made_to_order = data['made_to_order']
     if 'creator' in data:
         product.creator = data['creator']
+    
     if 'material' in data:
         product.material = data['material']
     if 'description' in data:
         product.description = data['description']
     if 'user_id' in data:
         product.user_id = data['user_id']
-   
-    
+
+    print("the new product is ", product.to_dict())
     db.session.commit()
 
     return jsonify(product.to_dict())
