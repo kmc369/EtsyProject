@@ -29,10 +29,10 @@ def get_product_by_user_id(userid):
 
 @products_bp.route('/new_product', methods=["POST"])
 def create_product():
- 
     """create a new product """
     form = ProductForm()
     form['csrf_token'].data = request.cookies['csrf_token']
+    
     if form.validate_on_submit():
         print("the form data is valid")
 
@@ -40,17 +40,18 @@ def create_product():
         if image:
             image.filename = get_unique_filename(image.filename)
             upload = upload_file_to_s3(image)
-            print("the upload is ",upload)
+            print("the upload is ", upload)
             if "url" not in upload:
                 return jsonify({"error": "Failed to upload image to S3 1 "}), 400
 
         image1 = form.data.get("image1")
         if image1:
-           
             image1.filename = get_unique_filename(image1.filename)
             upload1 = upload_file_to_s3(image1)
             if "url" not in upload1:
                 return jsonify({"error": "Failed to upload image1 to S3 2"}), 400
+            else:
+                image1_url = upload1["url"]
         else:
             print("in the first else")
             image1_url = ""
@@ -61,6 +62,8 @@ def create_product():
             upload2 = upload_file_to_s3(image2)
             if "url" not in upload2:
                 return jsonify({"error": "Failed to upload image2 to S3 3"}), 400
+            else:
+                image2_url = upload2["url"]
         else:
             image2_url = ""
 
@@ -70,14 +73,15 @@ def create_product():
             upload3 = upload_file_to_s3(image3)
             if "url" not in upload3:
                 return jsonify({"error": "Failed to upload image3 to S3 4"}), 400
+            else:
+                image3_url = ""
         else:
             image3_url = ""
-      
-        
+
         new_product = Product(
             price=form.data["price"],
-            title = form.data["title"],
-            image= upload["url"],
+            title=form.data["title"],
+            image=upload["url"],
             image1=image1_url,
             image2=image2_url,
             image3=image3_url,
@@ -87,14 +91,13 @@ def create_product():
             creator=form.data["creator"],
             material=form.data["material"],
             description=form.data["description"],
-            user_id=form.data["user_id"] 
-            
+            user_id=form.data["user_id"]
         )
         db.session.add(new_product)
         db.session.commit()
         return jsonify(new_product.to_dict(), 201)
-    else:
-        return jsonify({"error": form.errors}), 400
+    
+    return jsonify({"error": form.errors}), 400
     
 @products_bp.route("/update/<int:product_id>", methods=["PUT"])
 def update_product(product_id):
