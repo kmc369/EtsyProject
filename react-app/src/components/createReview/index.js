@@ -6,11 +6,31 @@ import EditProduct from "../EditProduct";
 
 
 function CreateReview() {
+const [description,setDescription] = useState("")
+const [stars,setStars] = useState(0)
+
 
     return (
     <>
-    <h1>hello form dev</h1>
+    <div  >
+
+            <label className="star-label">
+                    <input 
+                    type="number"
+                    />
+                   
+             </label>
+            <label className="description-label" >
+                <textarea
+                type="text"
+                value = {description}
+                onChange={(e)=>setDescription()}
+                />
+            </label>
+
+            
     
+    </div>
     
     </>
     )
