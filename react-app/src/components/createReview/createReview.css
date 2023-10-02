@@ -1,0 +1,86 @@
+.review-container{
+    border: 2px solid gold;
+    display: flex;
+    justify-content: center;
+}
+.review-form-container{
+ 
+    display: flex;
+    flex-direction: column;
+    gap:15px;
+    align-items: left;
+    height:fit-content;
+    width: fit-content;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+    border-radius: 5px;
+    
+}
+.review-header{
+ font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+ font-weight: normal;
+
+ 
+}
+
+/* Stars  */
+.smaller-header{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 400;
+    margin: 0px;
+  
+
+}
+.star-rating {
+    display: flex;
+    flex-direction: row;
+    /* border:1px solid green; */
+    margin:0px;
+
+  }
+  
+  .star-filled {
+    color: black;
+  }
+  
+  .star-empty {
+    color: grey;
+    cursor: pointer;
+  }
+  #starsize{
+    font-size: 25px;
+   
+  }
+
+  /* stars end */
+
+  /* list elments */
+
+.para-help{
+font-weight:400;
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+/* border:3px solid purple; */
+
+
+}
+.list-items{
+    color:rgb(93, 89, 89);
+    font-size: medium;
+ 
+    padding-left: 0px;
+}
+.text-input{
+    width:350px;
+    height:120px;
+    border-radius: 3px;
+}
+.list1{
+
+margin-left: 10px;;
+}
+
+
+
+
+
