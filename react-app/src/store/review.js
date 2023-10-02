@@ -41,7 +41,7 @@ export const createReviewThunk = (review)=>async(dispatch,getState) =>{
 
 //Reducers 
 
-const initialState = {}
+const initialState = {singleProduct:{},user:{}}
 
 
 export const reviewsReducer=(state=initialState ,action)=>{
