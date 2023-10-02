@@ -49,18 +49,19 @@ export const reviewsReducer=(state=initialState ,action)=>{
     switch(action.type){
       
       
-    //   case CREATE_REVIEW: {
-    //     const { spotId, newReview } = action.payload;
-
-       
-    //     const newState = { ...state };
-    //     const targetSpot = newState.spot[spotId];
-    //           if (targetSpot) {
-    //       targetSpot.reviews = [...targetSpot.reviews, newReview];
-    //     }
+      case CREATE_REVIEW: {
       
-    //     return newState;
-    //   }
+        const newState = { ...state, singleProduct:{}, user:{...state.user}, allProduct:{...state.allProduct} };
+        const target = newState.singleProduct[action.payload.id]
+        // newState.allProduct.append[action.payload]
+        if(target){
+            target.review = action.payload 
+        }
+        newState.user.review = action.payload
+        
+      
+        return newState;
+      }
 
 
         default:
