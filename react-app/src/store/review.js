@@ -31,14 +31,40 @@ export const createReviewThunk = (review)=>async(dispatch,getState) =>{
         return data
     }
 
+
 }
 
 
-
-
+//startiig
 
 
 
 //Reducers 
 
-const inital_state = {}
+const initialState = {}
+
+
+export const reviewsReducer=(state=initialState ,action)=>{
+
+    switch(action.type){
+      
+      
+    //   case CREATE_REVIEW: {
+    //     const { spotId, newReview } = action.payload;
+
+       
+    //     const newState = { ...state };
+    //     const targetSpot = newState.spot[spotId];
+    //           if (targetSpot) {
+    //       targetSpot.reviews = [...targetSpot.reviews, newReview];
+    //     }
+      
+    //     return newState;
+    //   }
+
+
+        default:
+            return state
+    }
+}
+
