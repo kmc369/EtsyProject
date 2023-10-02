@@ -75,7 +75,7 @@ def upgrade():
     # ### end Alembic commands ###
     if environment == "production":
         op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
-        op.execute(f"ALTER TABLE pshopping_carts SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE shopping_carts SET SCHEMA {SCHEMA};")
         op.execute(f"ALTER TABLE products SET SCHEMA {SCHEMA};")
         op.execute(f"ALTER TABLE reviews SET SCHEMA {SCHEMA};")
 
