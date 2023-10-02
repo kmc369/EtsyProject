@@ -8,6 +8,7 @@ import Navigation from "./components/Navigation";
 import Landing from "./components/Landing";
 import NewProduct from "./components/createProduct";
 import EditProduct from "./components/EditProduct";
+import CreateReview from "./components/createReview";
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -29,6 +30,12 @@ function App() {
           <Route exact path="/edit_product/:product_id">
             <EditProduct />
           </Route>
+
+          <Route exact path="/create_review">
+            <CreateReview />
+          </Route>
+
+          
           <Route exact path="/login" >
             <LoginFormPage />
           </Route>
