@@ -69,7 +69,10 @@ const handleSubmit = (e) =>{
                 onChange={(e)=>setDescription()}
                 />
             </label>
-
+            <div className="button-container">
+            <button className="cancel-button">Cancel</button>
+            <button className="post-button">Post your review</button>
+            </div>
         </form>
         </div>
     
