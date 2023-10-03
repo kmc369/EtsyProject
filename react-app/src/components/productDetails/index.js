@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch,useSelector  } from "react-redux";
-import * as ReviewActions from '../../store/review'
+// import * as ReviewActions from '../../store/review'
 import * as ProductActions from '../../store/products'
 import { useParams,useHistory } from "react-router-dom";
 import CreateReview from "../createReview";
 import OpenModalButton from "../OpenModalButton";
 import './details.css'
-
+import EditReview from "../EditReview";
 
 
 const ProductDetails = () =>{
@@ -51,7 +51,6 @@ function dateFormat(timestamp){
     }
     const reviews = product.reviews
 
-    console.log("the product is", product)
     
     return (
         <>
@@ -82,7 +81,7 @@ function dateFormat(timestamp){
             <span className="heade-starts2"> ★ ★ ★ ★ ★</span>
         
       
-        <OpenModalButton  modalComponent={<CreateReview prop={product} buttonText="Leave a review"/>}/>
+        <OpenModalButton  modalComponent={<CreateReview prop={product}/>} buttonText="Leave a review"/>
          </div>
 
         {reviews
@@ -117,7 +116,13 @@ function dateFormat(timestamp){
                <div> <u>{product.reviews[index].user.username}</u> </div>
                <div className="para-date">{dateFormat(element.created_at)}</div>
              </div>
+
+             <div> 
+                <OpenModalButton  modalComponent={<EditReview prop={element} index={index}/>} buttonText="Edit Review"/>
             </div>
+            </div>
+
+   
             
           
              ))}

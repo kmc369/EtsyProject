@@ -1,45 +1,46 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { useSelector } from 'react-redux';
+import { useDispatch,useSelector  } from "react-redux";
+import './editreview.css'
 import * as PostActions from '../../store/products'
-import "./createReview.css"
 
 
-function CreateReview({prop}) {
-const [description,setDescription] = useState("")
-const [stars,setRating] = useState(0)
-const dispatch = useDispatch()
 
-const sessionUser = useSelector(state=>state.session.user)
 
-const handleStarClick = (selectedRating) => {
-  setRating(selectedRating);
-};
+function EditReview({prop,index}){
+  
+    const [description,setDescription] = useState(prop.description)
+    const [stars,setRating] = useState(prop.stars)
+    const dispatch = useDispatch()
+    const sessionUser = useSelector(state=>state.session.user)
 
-const handleSubmit = async (e) =>{
-    e.preventDefault()
 
-    const reviewData = {
-        stars:stars,
-        description: description,
-        user_id:sessionUser.id,
-        product_id:prop.id
+    const handleStarClick = (selectedRating) => {
+        setRating(selectedRating);
+      };
 
+    const handleSubmit = async (e) =>{
+        e.preventDefault()
+    
+        const reviewData = {
+            stars:stars,
+            description: description,
+            user_id:sessionUser.id,
+            product_id:prop.id
+    
+        }
+        // console.log("my data is ", reviewData)
+     
+         await dispatch(PostActions.editReviewThunk(prop.id,reviewData))
+    
+        setDescription("")
+        setRating(0)
+    
+    
     }
-    // console.log("my data is ", reviewData)
- 
-     await dispatch(PostActions.createReviewThunk(prop.id,reviewData))
-
-    setDescription("")
-    setRating(0)
-
-
-}
 
     return (
-    <>
-
-    <div className="review-container">
+        <>
+          <div className="review-container">
     <form className="review-form-container" onSubmit={handleSubmit}>
             <h1 className="review-header">Leave a Review</h1>
 
@@ -86,8 +87,8 @@ const handleSubmit = async (e) =>{
   
     
     </>
+   
     )
 }
 
-export default CreateReview
-
+export default EditReview
