@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch,useSelector  } from "react-redux";
-import * as ReviewActions from '../../store/review'
+// import * as ReviewActions from '../../store/review'
 import * as ProductActions from '../../store/products'
 import { useParams,useHistory } from "react-router-dom";
 import CreateReview from "../createReview";

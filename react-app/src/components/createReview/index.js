@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import * as ReviewActions from '../../store/review'
 import { useSelector } from 'react-redux';
-
+import * as PostActions from '../../store/products'
 import "./createReview.css"
 
 
@@ -29,7 +28,7 @@ const handleSubmit = async (e) =>{
     }
     // console.log("my data is ", reviewData)
  
-     await dispatch(ReviewActions.createReviewThunk(prop.id,reviewData))
+     await dispatch(PostActions.createReviewThunk(prop.id,reviewData))
 
     setDescription("")
     setRating(0)

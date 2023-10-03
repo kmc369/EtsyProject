@@ -5,8 +5,10 @@ const DELETE_PRODUCT='delete/product'
 const CREATE_PRODUCT='create/product'
 const EDIT_PRODUCT = "edit/product"
 const GET_PRODUCT_BY_ID = "get/product/by/id"
-const CREATE_REVIEW = 'create/review'
 
+
+const CREATE_REVIEW = 'create/review'
+const EDIT_REVIEW = 'edit/review'
 //ACTIONS
 export const get_products = (data) =>{
     return {
@@ -48,6 +50,18 @@ const create_review = (product_id,data) =>{
         type:CREATE_REVIEW,
         payload:{
             product_id,
+            data
+        }
+    }
+}
+
+
+const edit_review = (review_id,data)=>{
+
+    return {
+        type:EDIT_REVIEW,
+        payload:{
+            review_id,
             data
         }
     }
@@ -156,6 +170,24 @@ export const createReviewThunk = (product_id,review)=>async(dispatch,getState) =
 
 }
 
+export const getReviewThunk = (review_id,review)=>async(dispatch,getState) =>{
+
+ 
+    const res = await fetch(`/api/review/update/${review_id}`,{
+        method:"PUT",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(review),
+
+    })
+    if(res.ok){
+        const data = await res.json()
+        dispatch(edit_review(review_id,data))
+        return data
+    }
+
+
+}
+
 //REDUCDER
 const inital_state = {allProducts:{}, singleProduct:{}}
 
@@ -209,6 +241,17 @@ const productReducer = (state=inital_state, action)=>{
             
             }
             return newState;
+         }
+
+         case EDIT_REVIEW: {
+            const { review_id, data } = action.payload;
+            const newState = { ...state,singleProduct:{...state.singleProduct}}
+            let targetReview = newState.singleProduct.reviews[review_id]
+            console.log("the target review is ", targetReview)
+            if(targetReview){
+                targetReview = data
+            }
+
          }
     
         default:

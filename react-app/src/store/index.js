@@ -2,7 +2,7 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import session from './session'
 import productReducer from './products';
-import reviewsReducer from './review';
+// import reviewsReducer from './review';
 const rootReducer = combineReducers({
   session,
   products:productReducer,
