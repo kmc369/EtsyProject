@@ -119,7 +119,7 @@ function dateFormat(timestamp){
              </div>
 
              <div> 
-                <OpenModalButton  modalComponent={<EditReview prop={product}/>} buttonText="Edit Review"/>
+                <OpenModalButton  modalComponent={<EditReview prop={element} index={index}/>} buttonText="Edit Review"/>
             </div>
             </div>
 

@@ -170,7 +170,7 @@ export const createReviewThunk = (product_id,review)=>async(dispatch,getState) =
 
 }
 
-export const getReviewThunk = (review_id,review)=>async(dispatch,getState) =>{
+export const editReviewThunk = (review_id,review)=>async(dispatch,getState) =>{
 
  
     const res = await fetch(`/api/review/update/${review_id}`,{
