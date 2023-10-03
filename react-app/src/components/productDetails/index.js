@@ -4,7 +4,7 @@ import * as ReviewActions from '../../store/review'
 import * as ProductActions from '../../store/products'
 import { useParams,useHistory } from "react-router-dom";
 import CreateReview from "../createReview";
-
+import OpenModalButton from "../OpenModalButton";
 import './details.css'
 
 
@@ -43,7 +43,7 @@ function dateFormat(timestamp){
         fetchData()
       
     },[dispatch,product_id_num])
-    console.log("the product is", product)
+    // console.log("the product is", product)
   
     if(Object.keys(product).length===0){
      
@@ -77,6 +77,13 @@ function dateFormat(timestamp){
 
         <div className="review-container-location">
         {/* <CreateReview product={product}/> */}
+        <div className="header-reviews">
+            <div className="header-stars1" >{reviews.length}  reviews</div>
+            <span className="heade-starts2"> ★ ★ ★ ★ ★</span>
+        
+      
+        <OpenModalButton  modalComponent={<CreateReview prop={product} buttonText="Leave a review"/>}/>
+         </div>
 
         {reviews
             .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
@@ -106,7 +113,7 @@ function dateFormat(timestamp){
              </div>
 
              <div className="user-items"> 
-               <img src={product.user.image} style={{height:"30px",width:"30px",borderRadius:"20px"}}/>
+               <img src={product.reviews[index].user.image} style={{height:"30px",width:"30px",borderRadius:"20px"}}/>
                <div> <u>{product.reviews[index].user.username}</u> </div>
                <div className="para-date">{dateFormat(element.created_at)}</div>
              </div>
