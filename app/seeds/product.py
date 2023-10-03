@@ -55,7 +55,7 @@ def seed_products():
 
 
   
-    product5 = Product(
+    product4 = Product(
         price=85.00,
         image='https://example.com/product5_image.jpg',
         image1='https://example.com/product5_image1.jpg',
@@ -73,7 +73,7 @@ def seed_products():
     )
 
 
-    product6 = Product(
+    product5 = Product(
         price=65.00,
         image='https://example.com/product6_image.jpg',
         image1='https://example.com/product6_image1.jpg',
@@ -91,7 +91,7 @@ def seed_products():
     )
 
 
-    product7 = Product(
+    product6 = Product(
         price=150.00,
         image='https://example.com/product7_image.jpg',
         image1='https://example.com/product7_image1.jpg',
@@ -108,9 +108,25 @@ def seed_products():
         shopping_cart_id=None
     )
 
+    product7 = Product(
+        price=95.00,
+        image='https://example.com/product8_image.jpg',
+        image1='https://example.com/product8_image1.jpg',
+        image2='https://example.com/product8_image2.jpg',
+        image3='https://example.com/product8_image3.jpg',
+        title='Digital Smart Thermostat',
+        handmade=False,
+        vintage=True,
+        made_to_order=False,
+        creator='Tech Innovations',
+        material='Plastic and Metal',
+        description="Control your home's temperature with our digital smart thermostat. The user-friendly interface and energy-saving features make it a must-have for modern homes.",
+        user_id=4,
+        shopping_cart_id=None
+    )
 
 # Product 9
-    product9 = Product(
+    product8 = Product(
         price=120.00,
         image='https://example.com/product9_image.jpg',
         image1='https://example.com/product9_image1.jpg',
@@ -128,7 +144,7 @@ def seed_products():
     )
 
 # Product 10
-    product10 = Product(
+    product9 = Product(
         price=110.00,
         image='https://example.com/product10_image.jpg',
         image1='https://example.com/product10_image1.jpg',
@@ -144,40 +160,24 @@ def seed_products():
         user_id=4,
         shopping_cart_id=None
     )
-    product8 = Product(
-        price=95.00,
-        image='https://example.com/product8_image.jpg',
-        image1='https://example.com/product8_image1.jpg',
-        image2='https://example.com/product8_image2.jpg',
-        image3='https://example.com/product8_image3.jpg',
-        title='Digital Smart Thermostat',
-        handmade=False,
-        vintage=True,
-        made_to_order=False,
-        creator='Tech Innovations',
-        material='Plastic and Metal',
-        description="Control your home's temperature with our digital smart thermostat. The user-friendly interface and energy-saving features make it a must-have for modern homes.",
-        user_id=4,
-        shopping_cart_id=None
-    )
     
 #     # Product 11
-#     product11 = Product(
-#         price=90.00,
-#         image='https://example.com/product11_image.jpg',
-#         image1='https://example.com/product11_image1.jpg',
-#         image2='https://example.com/product11_image2.jpg',
-#         image3='https://example.com/product11_image3.jpg',
-#         title='Hand-Painted Canvas Art',
-#         handmade=True,
-#         vintage=False,
-#         made_to_order=False,
-#         creator='ArtisticExpressions Studio',
-#         material='Canvas and Acrylic Paint',
-#         description='Bring creativity to your walls with our hand-painted canvas art. Each piece is a unique expression of artistic vision, making it a standout in any space.',
-#         user_id=2,
-#         shopping_cart_id=None
-#     )
+    product10 = Product(
+        price=90.00,
+        image='https://example.com/product11_image.jpg',
+        image1='https://example.com/product11_image1.jpg',
+        image2='https://example.com/product11_image2.jpg',
+        image3='https://example.com/product11_image3.jpg',
+        title='Hand-Painted Canvas Art',
+        handmade=True,
+        vintage=False,
+        made_to_order=False,
+        creator='ArtisticExpressions Studio',
+        material='Canvas and Acrylic Paint',
+        description='Bring creativity to your walls with our hand-painted canvas art. Each piece is a unique expression of artistic vision, making it a standout in any space.',
+        user_id=2,
+        shopping_cart_id=None
+      )
 
 # # Product 12
 #     product12 = Product(
@@ -379,6 +379,7 @@ def seed_products():
     db.session.add(product1)
     db.session.add(product2)
     db.session.add(product3)
+    db.session.add(product4)
     db.session.add(product5)
     db.session.add(product6)
     db.session.add(product7)
