@@ -4,7 +4,7 @@ import * as ReviewActions from '../../store/review'
 import * as ProductActions from '../../store/products'
 import { useParams,useHistory } from "react-router-dom";
 import CreateReview from "../createReview";
-
+import OpenModalButton from "../OpenModalButton";
 import './details.css'
 
 
@@ -43,7 +43,7 @@ function dateFormat(timestamp){
         fetchData()
       
     },[dispatch,product_id_num])
-    console.log("the product is", product)
+    // console.log("the product is", product)
   
     if(Object.keys(product).length===0){
      
@@ -82,7 +82,7 @@ function dateFormat(timestamp){
             <span className="heade-starts2"> ★ ★ ★ ★ ★</span>
         
       
-        <div ><button className="leave-review-button">Leave Review</button></div>
+        <OpenModalButton  modalComponent={<CreateReview prop={product} buttonText="Leave a review"/>}/>
          </div>
 
         {reviews
