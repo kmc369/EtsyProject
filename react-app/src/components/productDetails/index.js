@@ -6,7 +6,7 @@ import { useParams,useHistory } from "react-router-dom";
 import CreateReview from "../createReview";
 import OpenModalButton from "../OpenModalButton";
 import './details.css'
-
+import EditReview from "../EditReview";
 
 
 const ProductDetails = () =>{
@@ -117,7 +117,13 @@ function dateFormat(timestamp){
                <div> <u>{product.reviews[index].user.username}</u> </div>
                <div className="para-date">{dateFormat(element.created_at)}</div>
              </div>
+
+             <div> 
+                <OpenModalButton  modalComponent={<EditReview prop={product}/>} buttonText="Edit Review"/>
             </div>
+            </div>
+
+   
             
           
              ))}
