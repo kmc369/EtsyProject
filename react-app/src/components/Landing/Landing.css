@@ -1,0 +1,49 @@
+.session-container{
+  text-align: center;
+}
+
+
+
+
+
+
+.landing-container {
+  border: 1px solid green;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 0 auto;
+
+  
+  align-items: flex-start; /* Align items at the top */
+}
+
+
+#products {
+  border: 1px solid rgb(183, 179, 179);
+  border-radius: 5px;
+  position: relative;
+  cursor: pointer;
+ 
+}
+
+#products:hover {
+  z-index: 5px;
+  box-shadow: 5px 5px 5px lightgray;
+}
+
+.price {
+  border: 1px solid black;
+  width: 70px;
+  padding: 5px;
+  background-color: white;
+  border-radius: 20px;
+  text-align: center;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+  
+  
+
