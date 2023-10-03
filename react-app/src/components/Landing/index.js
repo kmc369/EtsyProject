@@ -27,6 +27,7 @@ return (
           <div key={index} className="product" id="products">
             <img src={element.image1} alt={`Product ${index}`} style={{ width: '300px', height: '300px' }} />
             <div className="price">
+            <i class="fa-solid fa-dollar-sign"  style={{color: "#000000",marginRight:"5px"}}></i>
             {element.price}
             </div>
           </div>
