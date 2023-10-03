@@ -51,7 +51,6 @@ function dateFormat(timestamp){
     }
     const reviews = product.reviews
 
-    console.log("the product is", product)
     
     return (
         <>
