@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import "./createReview.css"
 
 
-function CreateReview({product}) {
+function CreateReview({prop}) {
 const [description,setDescription] = useState("")
 const [stars,setRating] = useState(0)
 const dispatch = useDispatch()
@@ -24,12 +24,12 @@ const handleSubmit = async (e) =>{
         stars:stars,
         description: description,
         user_id:sessionUser.id,
-        product_id:5
+        product_id:prop.id
 
     }
     // console.log("my data is ", reviewData)
  
-     await dispatch(ReviewActions.createReviewThunk(reviewData))
+     await dispatch(ReviewActions.createReviewThunk(prop.id,reviewData))
 
     setDescription("")
     setRating(0)

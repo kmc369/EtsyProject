@@ -5,6 +5,7 @@ const DELETE_PRODUCT='delete/product'
 const CREATE_PRODUCT='create/product'
 const EDIT_PRODUCT = "edit/product"
 const GET_PRODUCT_BY_ID = "get/product/by/id"
+const CREATE_REVIEW = 'create/review'
 
 //ACTIONS
 export const get_products = (data) =>{
@@ -39,6 +40,16 @@ export const edit_product = (data)=>{
     return {
         type:EDIT_PRODUCT,
         payload:data
+    }
+}
+const create_review = (product_id,data) =>{
+ 
+    return {
+        type:CREATE_REVIEW,
+        payload:{
+            product_id,
+            data
+        }
     }
 }
 
@@ -127,6 +138,24 @@ export const editProductThunk = (product,product_id) => async (dispatch, getStat
 }
 
 
+export const createReviewThunk = (product_id,review)=>async(dispatch,getState) =>{
+
+ 
+    const res = await fetch('/api/review/new_review',{
+        method:"POST",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(review),
+
+    })
+    if(res.ok){
+        const data = await res.json()
+        dispatch(create_review(product_id,data))
+        return data
+    }
+
+
+}
+
 //REDUCDER
 const inital_state = {allProducts:{}, singleProduct:{}}
 
@@ -167,6 +196,21 @@ const productReducer = (state=inital_state, action)=>{
             
             return newState
         }
+        case CREATE_REVIEW: {
+        
+            const { product_id, data } = action.payload;
+    
+            const newState = { ...state,singleProduct:{...state.singleProduct}}
+
+            const targetSpot = newState.singleProduct;
+        
+                  if (targetSpot) {
+              targetSpot.reviews = [...targetSpot.reviews, data];
+            
+            }
+            return newState;
+         }
+    
         default:
             return state
 

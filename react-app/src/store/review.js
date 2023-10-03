@@ -8,8 +8,8 @@ const create_review = (product_id,data) =>{
     return {
         type:CREATE_REVIEW,
         payload:{
-            id:product_id,
-            data:data
+            product_id,
+            data
         }
     }
 }
@@ -48,8 +48,8 @@ export const getAllReviewsThunk = ()=>async(dispatch,getState) =>{
 
 }
 
-export const createReviewThunk = (review)=>async(dispatch,getState) =>{
-    const {stars,description,user_id,product_id} = review
+export const createReviewThunk = (product_id,review)=>async(dispatch,getState) =>{
+
  
     const res = await fetch('/api/review/new_review',{
         method:"POST",
@@ -59,7 +59,6 @@ export const createReviewThunk = (review)=>async(dispatch,getState) =>{
     })
     if(res.ok){
         const data = await res.json()
-       
         dispatch(create_review(product_id,data))
         return data
     }
@@ -88,12 +87,12 @@ export const reviewsReducer=(state=initialState ,action)=>{
         return newState
     }
     case CREATE_REVIEW: {
-      
+        
         const { product_id, data } = action.payload;
 
-       
-        const newState = { ...state, productReviews:{...state.productReviews},allReviews:{...state.allReviews} };
+        const newState = { ...state}
         const targetSpot = newState.productReviews[product_id];
+        console.log("the target spot is" ,targetSpot)
               if (targetSpot) {
           targetSpot.reviews = [...targetSpot.reviews, data];
         //   allReview = [...allReview]
