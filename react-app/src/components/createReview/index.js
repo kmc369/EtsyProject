@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import "./createReview.css"
 
 
-function CreateReview() {
+function CreateReview({product}) {
 const [description,setDescription] = useState("")
 const [stars,setRating] = useState(0)
 const dispatch = useDispatch()
