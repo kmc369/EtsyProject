@@ -251,24 +251,24 @@ const productReducer = (state=inital_state, action)=>{
               ...state,
               singleProduct: {
                 ...state.singleProduct,
-                reviews: [...state.singleProduct.reviews], // Create a copy of the reviews array
+                reviews: [...state.singleProduct.reviews], 
               },
             };
           
-            // Find the index of the review in the reviews array
+       
             const reviewIndex = newState.singleProduct.reviews.findIndex(
               (review) => review.id === review_id
             );
           
-            // Check if the review_id exists in the reviews array
+     
             if (reviewIndex !== -1) {
-              // Create a copy of the target review and update it with the new data
+           
               const updatedReview = {
                 ...newState.singleProduct.reviews[reviewIndex],
                 ...data,
               };
           
-              // Update the reviews array with the modified review
+          
               newState.singleProduct.reviews = [
                 ...newState.singleProduct.reviews.slice(0, reviewIndex),
                 updatedReview,
