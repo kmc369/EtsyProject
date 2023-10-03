@@ -1,14 +1,30 @@
+import session from './session'
 const CREATE_REVIEW = 'create/review'
-
+const EDIT_REVIEW = 'edit/review'
 
 // ACTIONS
-const create_review = (data) =>{
-
+const create_review = (product_id,data) =>{
+ 
     return {
         type:CREATE_REVIEW,
-        payload:data
+        payload:{
+            id:product_id,
+            data:data
+        }
     }
 }
+
+// const create_review = (product_id,data) =>{
+ 
+//     return {
+//         type:CREATE_REVIEW,
+//         payload:{
+//             id:product_id,
+//             data:data
+//         }
+//     }
+// }
+
 
 
 
@@ -18,7 +34,8 @@ const create_review = (data) =>{
 //THUNKS
 
 export const createReviewThunk = (review)=>async(dispatch,getState) =>{
-
+    const {stars,description,user_id,product_id} = review
+ 
     const res = await fetch('/api/review/new_review',{
         method:"POST",
         headers: { 'Content-Type': 'application/json' },
@@ -27,7 +44,8 @@ export const createReviewThunk = (review)=>async(dispatch,getState) =>{
     })
     if(res.ok){
         const data = await res.json()
-        dispatch(create_review(data))
+       
+        dispatch(create_review(product_id,data))
         return data
     }
 
@@ -41,31 +59,32 @@ export const createReviewThunk = (review)=>async(dispatch,getState) =>{
 
 //Reducers 
 
-const initialState = {singleProduct:{},user:{}}
+const initialState = {singleProduct:{}, user:{}}
 
 
 export const reviewsReducer=(state=initialState ,action)=>{
-
+   
     switch(action.type){
-      
-      
       case CREATE_REVIEW: {
       
-        const newState = { ...state, singleProduct:{}, user:{...state.user}, allProduct:{...state.allProduct} };
-        const target = newState.singleProduct[action.payload.id]
-        // newState.allProduct.append[action.payload]
-        if(target){
-            target.review = action.payload 
+        const { product_id, data } = action.payload;
+
+       
+        const newState = { ...state };
+        const targetSpot = newState.singleProduct[product_id];
+              if (targetSpot) {
+          targetSpot.reviews = [...targetSpot.reviews, data];
         }
-        newState.user.review = action.payload
-        
-      
         return newState;
-      }
+     }
+
+
 
 
         default:
             return state
     }
 }
+
+export default reviewsReducer
 

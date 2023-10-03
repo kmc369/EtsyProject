@@ -1,30 +1,38 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import * as ReviewActions from '../../store/review'
+import { useSelector } from 'react-redux';
+
 import "./createReview.css"
 
 
 function CreateReview() {
 const [description,setDescription] = useState("")
-const [stars,setStars] = useState(0)
+const [stars,setRating] = useState(0)
 const dispatch = useDispatch()
-const [rating, setRating] = useState(0);
+
+const sessionUser = useSelector(state=>state.session.user)
 
 const handleStarClick = (selectedRating) => {
   setRating(selectedRating);
 };
 
-const handleSubmit = (e) =>{
+const handleSubmit = async (e) =>{
     e.preventDefault()
 
     const reviewData = {
         stars:stars,
-        description: description
+        description: description,
+        user_id:sessionUser.id,
+        product_id:5
+
     }
+    // console.log("my data is ", reviewData)
+ 
+     await dispatch(ReviewActions.createReviewThunk(reviewData))
 
-    dispatch(ReviewActions.createReviewThunk(reviewData))
-
-    
+    setDescription("")
+    setRating(0)
 
 
 }
@@ -44,7 +52,7 @@ const handleSubmit = (e) =>{
             <span
             key={star}
             id="starsize"
-            className={star <= rating ? 'star-filled' : 'star-empty'}
+            className={star <= stars ? 'star-filled' : 'star-empty'}
             onClick={() => handleStarClick(star)}
                 >
              ★
@@ -66,12 +74,12 @@ const handleSubmit = (e) =>{
                 <textarea className="text-input"
                 type="text"
                 value = {description}
-                onChange={(e)=>setDescription()}
+                onChange={(e)=>setDescription(e.target.value)}
                 />
             </label>
             <div className="button-container">
             <button className="cancel-button">Cancel</button>
-            <button className="post-button">Post your review</button>
+            <button className="post-button" type="submit">Post your review</button>
             </div>
         </form>
         </div>
