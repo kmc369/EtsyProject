@@ -9,6 +9,7 @@ import Landing from "./components/Landing";
 import NewProduct from "./components/createProduct";
 import EditProduct from "./components/EditProduct";
 import CreateReview from "./components/createReview";
+import ProductDetails from "./components/productDetails";
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -26,6 +27,9 @@ function App() {
           </Route>
           <Route exact path="/new_product">
             <NewProduct />
+          </Route>
+          <Route exact path="/products/:product_id">
+            <ProductDetails />
           </Route>
           <Route exact path="/edit_product/:product_id">
             <EditProduct />
