@@ -1,0 +1,46 @@
+<mxfile host="app.diagrams.net" modified="2023-10-03T15:25:07.916Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36" etag="x2k7-ke1YeTT7RZD1Ig-" version="22.0.2" type="github">
+  <diagram name="Page-1" id="FIOPp4ArZERt5tVjDFFM">
+    <mxGraphModel dx="1434" dy="790" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="CH7Is32FwqtBwRFHKUOU-6" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="145" y="60" width="960" height="700" as="geometry" />
+        </mxCell>
+        <mxCell id="CH7Is32FwqtBwRFHKUOU-7" value="add photos" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="290" y="150" width="620" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="CH7Is32FwqtBwRFHKUOU-8" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="620" y="170" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="CH7Is32FwqtBwRFHKUOU-9" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="780" y="170" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="CH7Is32FwqtBwRFHKUOU-10" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="620" y="240" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="CH7Is32FwqtBwRFHKUOU-11" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="780" y="240" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="CH7Is32FwqtBwRFHKUOU-12" value="header&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="290" y="70" width="620" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="CH7Is32FwqtBwRFHKUOU-13" value="item details&amp;nbsp;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="290" y="380" width="640" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="CH7Is32FwqtBwRFHKUOU-14" value="title&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="305" y="430" width="360" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="CH7Is32FwqtBwRFHKUOU-15" value="description&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="305" y="500" width="375" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="CH7Is32FwqtBwRFHKUOU-17" value="price" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="770" y="520" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="CH7Is32FwqtBwRFHKUOU-19" value="creator" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="770" y="420" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
