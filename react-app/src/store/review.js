@@ -1,7 +1,7 @@
 import session from './session'
 const CREATE_REVIEW = 'create/review'
 const EDIT_REVIEW = 'edit/review'
-
+const GET_REVIEWS = 'get/reviews'
 // ACTIONS
 const create_review = (product_id,data) =>{
  
@@ -14,16 +14,14 @@ const create_review = (product_id,data) =>{
     }
 }
 
-// const create_review = (product_id,data) =>{
+const get_reviews = (data) =>{
  
-//     return {
-//         type:CREATE_REVIEW,
-//         payload:{
-//             id:product_id,
-//             data:data
-//         }
-//     }
-// }
+    return {
+        type:GET_REVIEWS,
+        payload:data
+        
+    }
+}
 
 
 
@@ -32,6 +30,21 @@ const create_review = (product_id,data) =>{
 
 
 //THUNKS
+export const getAllReviewsThunk = ()=>async(dispatch,getState) =>{
+   
+    const res = await fetch('/api/review/get/reviews',{
+        method:"GET",
+    
+    })
+    if(res.ok){
+        const data = await res.json()
+        console.log("the data coming back is",data)
+        dispatch(get_reviews(data))
+        return data
+    }
+
+
+}
 
 export const createReviewThunk = (review)=>async(dispatch,getState) =>{
     const {stars,description,user_id,product_id} = review
@@ -59,21 +72,30 @@ export const createReviewThunk = (review)=>async(dispatch,getState) =>{
 
 //Reducers 
 
-const initialState = {singleProduct:{}, user:{}}
+const initialState = {allReviews:{}, productReviews:{}}
 
 
 export const reviewsReducer=(state=initialState ,action)=>{
    
     switch(action.type){
-      case CREATE_REVIEW: {
+    case GET_REVIEWS:{
+        const newState = {...state , allReviews:{...state.allReviews}}
+        action.payload.forEach(element => {
+            newState.allReviews[element.id] = element
+        });
+        return newState
+    }
+    case CREATE_REVIEW: {
       
         const { product_id, data } = action.payload;
 
        
-        const newState = { ...state };
-        const targetSpot = newState.singleProduct[product_id];
+        const newState = { ...state, productReviews:{...state.productReviews},allReviews:{...state.allReviews} };
+        const targetSpot = newState.productReviews[product_id];
               if (targetSpot) {
           targetSpot.reviews = [...targetSpot.reviews, data];
+        //   allReview = [...allReview]
+        //append the data to all reviews 
         }
         return newState;
      }

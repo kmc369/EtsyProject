@@ -1,4 +1,3 @@
-import EditProduct from "../components/EditProduct"
 
 //ACTION TYPES
 const GET_PRODUCTS = 'get/products'
@@ -68,13 +67,12 @@ export const createProductThunk = (product) => async(dispatch,getState) =>{
 
 
 export const getProductByIdThunk = (product_id) => async (dispatch, getState) => {
-    // console.log("the product id is thunk", product_id)
+    
     const res = await fetch(`/api/products/single_product/${product_id}`,{
        method: "GET"
    });
    if (res.ok) {
        const data = await res.json();
-      
        dispatch(get_products_by_id(data));
        return data;
    } 

@@ -3,7 +3,7 @@ import { useDispatch,useSelector } from "react-redux";
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import './Landing.css'
 import * as ProductActions from '../../store/products'
-
+import ProductDetails from "../productDetails";
 
 function Landing () {
 const dispatch = useDispatch()
@@ -25,7 +25,6 @@ if(Object.values(products).length===0){
     return null
 }
 const values = Object.values(products)
-
 return (
     <>  
     <div className="magical-container">
@@ -39,7 +38,8 @@ return (
     </div> 
       <div className="landing-container" >
         {values.map((element, index) => (
-          <div key={index} className="product" id="products" onClick={()=>{history.push(`/products/${element.id}`)}}>
+          <div key={index} className="product" id="products" onClick={()=>{history.push(`/products/${element.id}`)}
+          }>
             <img src={element.image1} alt={`Product ${index}`} style={{ width: '250px', height: '250px' }} />
             <div className="price">
             <i class="fa-solid fa-dollar-sign"  style={{color: "#000000",marginRight:"5px"}}></i>

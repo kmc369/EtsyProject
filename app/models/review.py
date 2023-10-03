@@ -45,15 +45,13 @@ class Review(db.Model):
                 "email": self.user.email ,
                 "image":self.user.image
             },
-            "products":{
-                "id":self.products.id,
-                "price":self.products.price,
-                "title":self.products.title,
-               
-                
-            }
+          "products": {
+            "id": self.products.id if self.products else None,
+            "price": self.products.price if self.products else None,
+            "title": self.products.title if self.products else None,
+}
 
-            # Add more attributes as needed
+           
         }
     
     
