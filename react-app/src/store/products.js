@@ -6,6 +6,9 @@ const CREATE_PRODUCT='create/product'
 const EDIT_PRODUCT = "edit/product"
 const GET_PRODUCT_BY_ID = "get/product/by/id"
 
+
+const CREATE_REVIEW = 'create/review'
+const EDIT_REVIEW = 'edit/review'
 //ACTIONS
 export const get_products = (data) =>{
     return {
@@ -39,6 +42,28 @@ export const edit_product = (data)=>{
     return {
         type:EDIT_PRODUCT,
         payload:data
+    }
+}
+const create_review = (product_id,data) =>{
+ 
+    return {
+        type:CREATE_REVIEW,
+        payload:{
+            product_id,
+            data
+        }
+    }
+}
+
+
+const edit_review = (review_id,data)=>{
+
+    return {
+        type:EDIT_REVIEW,
+        payload:{
+            review_id,
+            data
+        }
     }
 }
 
@@ -127,6 +152,42 @@ export const editProductThunk = (product,product_id) => async (dispatch, getStat
 }
 
 
+export const createReviewThunk = (product_id,review)=>async(dispatch,getState) =>{
+
+ 
+    const res = await fetch('/api/review/new_review',{
+        method:"POST",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(review),
+
+    })
+    if(res.ok){
+        const data = await res.json()
+        dispatch(create_review(product_id,data))
+        return data
+    }
+
+
+}
+
+export const editReviewThunk = (review_id,review)=>async(dispatch,getState) =>{
+
+ 
+    const res = await fetch(`/api/review/update/${review_id}`,{
+        method:"PUT",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(review),
+
+    })
+    if(res.ok){
+        const data = await res.json()
+        dispatch(edit_review(review_id,data))
+        return data
+    }
+
+
+}
+
 //REDUCDER
 const inital_state = {allProducts:{}, singleProduct:{}}
 
@@ -167,6 +228,62 @@ const productReducer = (state=inital_state, action)=>{
             
             return newState
         }
+        case CREATE_REVIEW: {
+        
+            const { product_id, data } = action.payload;
+    
+            const newState = { ...state,singleProduct:{...state.singleProduct}}
+
+            const targetSpot = newState.singleProduct;
+        
+                  if (targetSpot) {
+              targetSpot.reviews = [...targetSpot.reviews, data];
+            
+            }
+            return newState;
+         }
+
+         case EDIT_REVIEW: {
+            const { review_id, data } = action.payload;
+          
+            // Create a copy of the state
+            const newState = {
+              ...state,
+              singleProduct: {
+                ...state.singleProduct,
+                reviews: [...state.singleProduct.reviews], 
+              },
+            };
+          
+       
+            const reviewIndex = newState.singleProduct.reviews.findIndex(
+              (review) => review.id === review_id
+            );
+          
+     
+            if (reviewIndex !== -1) {
+           
+              const updatedReview = {
+                ...newState.singleProduct.reviews[reviewIndex],
+                ...data,
+              };
+          
+          
+              newState.singleProduct.reviews = [
+                ...newState.singleProduct.reviews.slice(0, reviewIndex),
+                updatedReview,
+                ...newState.singleProduct.reviews.slice(reviewIndex + 1),
+              ];
+            }
+          
+            return newState;
+          }
+          
+          
+          
+          
+          
+          
         default:
             return state
 
