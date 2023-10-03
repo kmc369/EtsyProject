@@ -82,7 +82,7 @@ function dateFormat(timestamp){
             <span className="heade-starts2"> ★ ★ ★ ★ ★</span>
         
       
-        <OpenModalButton  modalComponent={<CreateReview prop={product} buttonText="Leave a review"/>}/>
+        <OpenModalButton  modalComponent={<CreateReview prop={product}/>} buttonText="Leave a review"/>
          </div>
 
         {reviews
