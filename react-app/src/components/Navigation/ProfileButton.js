@@ -45,13 +45,13 @@ function ProfileButton({ user }) {
       <ul className={ulClassName} ref={ulRef} >
         {user ? (
           <>
-          <div></div>
-            <li className="list-item">{user.username}</li>
-            <li className="list-item">{user.email}</li>
-            <li className="list-item">Manage Spots</li>
-            <li className="list-item">
-              <button onClick={handleLogout}>Log Out</button>
-            </li>
+          
+          <div className="div-list1"><img src={user.image} alt="userimage" style={{height:"30px", width:"30px",borderRadius:"19px",paddingBottom:"3px"}}/><li className="list-item">{user.username}</li></div>
+          <div className="div-list"><li className="list-item">{user.email}</li></div>
+           <div className="div-list"><li className="list-item">Manage Spots</li></div> 
+            <div className="div-list"><li className="list-item">
+              <button className="logoutButton" onClick={handleLogout}>Log Out</button>
+            </li></div>
           </>
         ) : (
           <>
