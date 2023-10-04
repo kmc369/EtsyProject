@@ -57,17 +57,17 @@ def seed_products():
   
     product4 = Product(
         price=85.00,
-        image='https://example.com/product5_image.jpg',
-        image1='https://example.com/product5_image1.jpg',
-        image2='https://example.com/product5_image2.jpg',
-        image3='https://example.com/product5_image3.jpg',
-        title='Elegant Crystal Chandelier',
-        handmade=False,
+        image='https://i.etsystatic.com/16123146/r/il/19ea8f/5293725553/il_794xN.5293725553_8zak.jpg',
+        image1='https://i.etsystatic.com/16123146/r/il/11e633/5360391165/il_794xN.5360391165_8ubn.jpg',
+        image2='https://i.etsystatic.com/16123146/r/il/ebfcf5/5360391169/il_794xN.5360391169_jf7x.jpg',
+        image3='https://i.etsystatic.com/16123146/r/il/7e04a6/5245542532/il_794xN.5245542532_igjv.jpg',
+        title='John Legend Creator Collab | Hand-built Organic Ceramic Vases, Speckled Vase, Marbled Vase, Natural & Minimalistic Vase',
+        handmade=True,
         vintage=False,
         made_to_order=False,
-        creator='Luxury Lights',
-        material='Crystal and Metal',
-        description='Illuminate your space with our elegant crystal chandelier. The shimmering crystals and modern design will add a touch of sophistication to any room.',
+        creator='Vase and More',
+        material='Ceramic',
+        description='Mother Nature was a significant influence in the design of these vases, which is reflected in the curved, earth-toned, and hand-built nature of these vases. The speckled ceramic vases are each built by hand with durable stoneware and finished with a satin glaze, while the marbled ceramic vases are a combination of two durable stonewares finished with a clear glaze.',
         user_id=2,
         shopping_cart_id=None
     )
@@ -129,8 +129,8 @@ def seed_products():
     product8 = Product(
         price=12.97,
         image='https://i.etsystatic.com/46406397/r/il/26a534/5389459791/il_794xN.5389459791_j5o2.jpg',
-        image1='https://i.etsystatic.com/46406397/r/il/45691a/5389510035/il_794xN.5389510035_b5rs.jpg',
-        image2='https://i.etsystatic.com/46406397/r/il/12ae20/5341334536/il_794xN.5341334536_ovvp.jpg',
+        image1='https://i.etsystatic.com/42128291/r/il/55d1e6/5229125143/il_794xN.5229125143_by02.jpg',
+        image2='https://i.etsystatic.com/42128291/r/il/47a4da/5228991881/il_794xN.5228991881_45no.jpg',
         image3='https://i.etsystatic.com/46406397/r/il/109d5e/5389511301/il_794xN.5389511301_638z.jpg',
         title='Naruto Printed Poster, painting - Home Decoration for Anime Lovers - Wall Art - Gift for Naruto Fans - Naruto Printed Picture - Anime Wall Art',
         handmade=True,
