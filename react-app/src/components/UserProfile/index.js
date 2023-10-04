@@ -5,6 +5,7 @@ import './userProfile.css'
 import { useHistory } from "react-router-dom/";
 
 function UserProfile(){
+
 const dispatch = useDispatch()
 const sessionUser = useSelector(state=>state.session.user)
 const [products,setProducts] = useState()
@@ -21,6 +22,11 @@ const history = useHistory()
       
     },[dispatch,sessionUser.id])
 
+  
+    
+
+  
+
     if(!products){
         return null;
     }
@@ -35,7 +41,7 @@ const history = useHistory()
                 <div className="header">
                 <img src={sessionUser.image} style={{height:"60px",width:"60px", borderRadius:"15px"}} />
                 {sessionUser.username}
-                <button className="create-product" onClick={()=>history.push('/new_product')}>Create Product</button>
+                <button className="create-product" >Create Product</button>
                 </div>
 
                

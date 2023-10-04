@@ -3,9 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import * as ProductActions from '../../store/products'
 import "./createProduct.css"
 import EditProduct from "../EditProduct";
-
+import { useHistory } from "react-router-dom/";
+import * as UserAction from '../../store/session'
+import UserProfile from "../UserProfile";
 function NewProduct() {
 const sessionUser = useSelector(state => state.session.user)
+const history = useHistory()
 const dispatch = useDispatch()
 const [price,setPrice] = useState(0)
 const [image,setImage]=useState(null)
@@ -47,11 +50,19 @@ const [imageLoading, setImageLoading] = useState(false);
         formData.append('user_id', userId);
        
         setImageLoading(true);
-    
+        setCreator("")
+        setDescription("")
+        setMaterial("")
+        setTitle("")
+        setPrice(0)
+        setHandmade(false)
+        setVintage(false)
+        setmadeToOrder(false)
+       
       
         await dispatch(ProductActions.createProductThunk(formData))
-        // <EditProduct product={formData}/>
-      
+         history.push(`/userProfile/${userId}`)
+       
       }
 
 
