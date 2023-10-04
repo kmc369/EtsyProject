@@ -41,7 +41,7 @@ const history = useHistory()
                 <div className="header">
                 <img src={sessionUser.image} style={{height:"60px",width:"60px", borderRadius:"15px"}} />
                 {sessionUser.username}
-                <button className="create-product" >Create Product</button>
+                <button className="create-product" onClick={()=>history.push("/new_product")}>Create Product</button>
                 </div>
 
                
