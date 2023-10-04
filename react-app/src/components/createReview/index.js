@@ -5,7 +5,7 @@ import * as PostActions from '../../store/products'
 import "./createReview.css"
 
 
-function CreateReview({prop}) {
+function CreateReview({prop, onCreateReview}) {
 const [description,setDescription] = useState("")
 const [stars,setRating] = useState(0)
 const dispatch = useDispatch()
@@ -26,15 +26,23 @@ const handleSubmit = async (e) =>{
         product_id:prop.id
 
     }
-    // console.log("my data is ", reviewData)
+   
  
-     await dispatch(PostActions.createReviewThunk(prop.id,reviewData))
+    //  await dispatch(PostActions.createReviewThunk(prop.id,reviewData))
+    
+    await onCreateReview(reviewData);
 
     setDescription("")
     setRating(0)
 
 
 }
+useEffect(()=>{
+    async function FetchData(){
+      await dispatch(PostActions.getProductByIdThunk(prop.id))
+    }
+    FetchData()
+},[dispatch,prop.id])
 
     return (
     <>
