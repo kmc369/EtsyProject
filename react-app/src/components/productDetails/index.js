@@ -7,7 +7,7 @@ import CreateReview from "../createReview";
 import OpenModalButton from "../OpenModalButton";
 import './details.css'
 import EditReview from "../EditReview";
-
+import DeleteReview from "../DeleteReview";
 
 const ProductDetails = () =>{
    
@@ -31,6 +31,8 @@ function dateFormat(timestamp){
   const monthYearFormat = `${months[date.getUTCMonth()]} ${date.getUTCFullYear()}`;
   return monthYearFormat;
   }
+
+
 
     useEffect(()=>{
         async function fetchData (){
@@ -119,6 +121,8 @@ function dateFormat(timestamp){
 
              <div> 
                 <OpenModalButton  modalComponent={<EditReview prop={element} index={index}/>} buttonText="Edit Review"/>
+                <OpenModalButton  modalComponent={<DeleteReview prop={element} index={index}/>} buttonText="Delete Review"/>
+
             </div>
             </div>
 

@@ -68,10 +68,14 @@ const edit_review = (review_id,data)=>{
     }
 }
 
-const delete_review = (review_id) =>{
+const delete_review = (review_id,index) =>{
     return {
         type:DELETE_REVIEW ,
-        payload:review_id
+        payload:{
+            review_id,
+            index
+
+        }
     }
 }
 
@@ -195,7 +199,7 @@ export const editReviewThunk = (review_id,review)=>async(dispatch,getState) =>{
 
 
 }
-export const deleteReviewThunk = (review_id)=>async(dispatch,getState) =>{
+export const deleteReviewThunk = (review_id,index)=>async(dispatch,getState) =>{
 
  
     const res = await fetch(`/api/review/delete/${review_id}`,{
@@ -206,7 +210,8 @@ export const deleteReviewThunk = (review_id)=>async(dispatch,getState) =>{
     })
     if(res.ok){
         const data = await res.json()
-        dispatch(delete_review(review_id))
+      
+        dispatch(delete_review(review_id,index))
         return data
     }
 
@@ -304,20 +309,12 @@ const productReducer = (state=inital_state, action)=>{
             return newState;
           }
           case DELETE_REVIEW: {
-            const { review_id } = action.payload;
+            const { review_id,index } = action.payload;
             const newState = { ...state, singleProduct: { ...state.singleProduct } };
-            const reviewIndex = newState.singleProduct.reviews.findIndex(
-              (review) => review.id === review_id
-            );
-          
-            if (reviewIndex !== -1) {
-              const updatedReviews = [
-                ...newState.singleProduct.reviews.slice(0, reviewIndex),
-                ...newState.singleProduct.reviews.slice(reviewIndex + 1),
+            newState.singleProduct.reviews = [
+                ...newState.singleProduct.reviews.slice(0, index),
+                ...newState.singleProduct.reviews.slice(index + 1),
               ];
-          
-              newState.singleProduct.reviews = updatedReviews;
-            }
           
             return newState;
           }
