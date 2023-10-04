@@ -15,8 +15,8 @@ const ProductDetails = () =>{
     const {product_id} = useParams()
     const product_id_num = Number(product_id)
     const [product,setProduct]=useState({})
+    // const [reviews, SetReviews] = useState([])
     const history = useHistory()
-
 
 
 function dateFormat(timestamp){
@@ -33,25 +33,51 @@ function dateFormat(timestamp){
   }
 
 
-
     useEffect(()=>{
         async function fetchData (){
-           const product =  await dispatch(ProductActions.getProductByIdThunk(product_id_num))
+            const product = await dispatch(ProductActions.getProductByIdThunk(product_id_num))
            setProduct(product)
         //    const reviews = await dispatch(ReviewActions.getAllReviewsThunk())
         // const product_reviews = await dispatch(c)
+            
+    
         }
        
         fetchData()
       
     },[dispatch,product_id_num])
     // console.log("the product is", product)
+    const reviews  = product.reviews
+
+    const handleCreateReview = async (reviewData) => {
+     
+        await dispatch(ProductActions.createReviewThunk(product.id, reviewData));
+        const updatedProduct = await dispatch(ProductActions.getProductByIdThunk(product_id_num));
+        setProduct(updatedProduct);
+      };
+
+      const handleEditReview = async (id, reviewData) => {
+     
+        await dispatch(ProductActions.editReviewThunk(id, reviewData));
+        const updatedProduct = await dispatch(ProductActions.getProductByIdThunk(product_id_num));
+        setProduct(updatedProduct);
+      };
+
+      const onDeleteReview = async (id, index) => {
+     
+        await dispatch(ProductActions.deleteReviewThunk(id, index));
+        const updatedProduct = await dispatch(ProductActions.getProductByIdThunk(product_id_num));
+        setProduct(updatedProduct);
+      };
   
     if(Object.keys(product).length===0){
      
         return null
     }
-    const reviews = product.reviews
+
+
+
+   
 
     
     return (
@@ -83,7 +109,7 @@ function dateFormat(timestamp){
             <span className="heade-starts2"> ★ ★ ★ ★ ★</span>
         
       
-        <OpenModalButton  modalComponent={<CreateReview prop={product}/>} buttonText="Leave a review"/>
+        <OpenModalButton  modalComponent={<CreateReview prop={product} onCreateReview={handleCreateReview}/>} buttonText="Leave a review"/>
          </div>
 
         {reviews
@@ -120,8 +146,8 @@ function dateFormat(timestamp){
              </div>
 
              <div> 
-                <OpenModalButton  modalComponent={<EditReview prop={element} index={index}/>} buttonText="Edit Review"/>
-                <OpenModalButton  modalComponent={<DeleteReview prop={element} index={index}/>} buttonText="Delete Review"/>
+                <OpenModalButton  modalComponent={<EditReview prop={element} index={index} onEditReview={handleEditReview}/>} buttonText="Edit Review"/>
+                <OpenModalButton  modalComponent={<DeleteReview prop={element} index={index} onDeleteReview={onDeleteReview}/>} buttonText="Delete Review"/>
 
             </div>
             </div>

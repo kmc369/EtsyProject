@@ -6,7 +6,7 @@ import * as PostActions from '../../store/products'
 
 
 
-function EditReview({prop,index}){
+function EditReview({prop,index,onEditReview}){
   
     const [description,setDescription] = useState(prop.description)
     const [stars,setRating] = useState(prop.stars)
@@ -30,8 +30,8 @@ function EditReview({prop,index}){
         }
         // console.log("my data is ", reviewData)
      
-         await dispatch(PostActions.editReviewThunk(prop.id,reviewData))
-    
+        //  await dispatch(PostActions.editReviewThunk(prop.id,reviewData))
+        await onEditReview(prop.id,reviewData);
         setDescription("")
         setRating(0)
     
