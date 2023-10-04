@@ -66,6 +66,8 @@ margin-left: 5px;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  position: relative;
+ 
 }
 .fa-user{
   margin-right: 3px;
@@ -75,7 +77,14 @@ margin-left: 5px;
 .profile-dropdown{
   list-style: none;
   cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  gap:10px;
+  background-color: whitesmoke;
+  z-index: 4;
+  position: absolute;
+
 }
+/* style={{position:'absolute',right:"150px"}} */
+.list-item{
+  border-bottom: 1px solid lightgrey;
+  margin-bottom: 10px;
+}
+
