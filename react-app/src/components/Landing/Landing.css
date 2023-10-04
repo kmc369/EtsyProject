@@ -12,6 +12,7 @@ text-align: center;
   font-size:50px;
   font-family:'Courier New', Courier, monospace;
   font-weight: 400;
+  padding-top: 20px;
 
 }
 .magic{
@@ -53,7 +54,7 @@ text-align: center;
 
 }
 .landing-container {
-  border: 1px solid green;
+  /* border: 1px solid green; */
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
