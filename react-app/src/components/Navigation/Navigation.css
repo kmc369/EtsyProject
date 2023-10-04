@@ -5,3 +5,52 @@
 .hidden {
   display: none;
 }
+
+.nav-container{
+  border:3px solid green;
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  height: 70px;
+  gap:10px;
+  align-items: center;
+  padding: 10px;
+ 
+
+}
+/* home */
+.home-link{
+color:rgb(255, 102, 0);
+text-decoration: none;
+font-size: xx-large;
+
+}
+
+/* Search Label */
+.search-label{
+border:2px solid black;
+border-radius: 20px;
+height: fit-content;
+width:75%;
+padding: 5px;
+
+
+
+}
+.fa-magnifying-glass{
+font-size: 25px;
+margin-left: 5px;
+}
+
+.search-input{
+  /* border:2px solid pink; */
+  width:90% ;
+  outline: none;
+  border:none;
+  height:30px;
+  font-size: large;
+
+  
+
+}
