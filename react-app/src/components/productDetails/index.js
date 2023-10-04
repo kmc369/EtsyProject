@@ -48,7 +48,7 @@ function dateFormat(timestamp){
     },[dispatch,product_id_num])
     // console.log("the product is", product)
     const reviews  = product.reviews
-    
+
     const handleCreateReview = async (reviewData) => {
      
         await dispatch(ProductActions.createReviewThunk(product.id, reviewData));
@@ -59,6 +59,13 @@ function dateFormat(timestamp){
       const handleEditReview = async (id, reviewData) => {
      
         await dispatch(ProductActions.editReviewThunk(id, reviewData));
+        const updatedProduct = await dispatch(ProductActions.getProductByIdThunk(product_id_num));
+        setProduct(updatedProduct);
+      };
+
+      const onDeleteReview = async (id, index) => {
+     
+        await dispatch(ProductActions.deleteReviewThunk(id, index));
         const updatedProduct = await dispatch(ProductActions.getProductByIdThunk(product_id_num));
         setProduct(updatedProduct);
       };
@@ -140,7 +147,7 @@ function dateFormat(timestamp){
 
              <div> 
                 <OpenModalButton  modalComponent={<EditReview prop={element} index={index} onEditReview={handleEditReview}/>} buttonText="Edit Review"/>
-                <OpenModalButton  modalComponent={<DeleteReview prop={element} index={index}/>} buttonText="Delete Review"/>
+                <OpenModalButton  modalComponent={<DeleteReview prop={element} index={index} onDeleteReview={onDeleteReview}/>} buttonText="Delete Review"/>
 
             </div>
             </div>
