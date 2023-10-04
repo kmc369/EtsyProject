@@ -10,6 +10,7 @@ import NewProduct from "./components/createProduct";
 import EditProduct from "./components/EditProduct";
 import CreateReview from "./components/createReview";
 import ProductDetails from "./components/productDetails";
+import UserProfile from './components/UserProfile'
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -27,6 +28,9 @@ function App() {
           </Route>
           <Route exact path="/new_product">
             <NewProduct />
+          </Route>
+          <Route exact path="/userProfile/:user_id">
+            <UserProfile />
           </Route>
           <Route exact path="/products/:product_id">
             <ProductDetails />
