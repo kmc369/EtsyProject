@@ -45,6 +45,15 @@ return (
       
     </div>
 
+    <div className="circle-images">
+      <img src="https://i.etsystatic.com/30981785/r/il/393034/4645837193/il_794xN.4645837193_qkwb.jpg" style={{width:"130px",height:"130px"}}/>
+      <img src="https://i.etsystatic.com/17305851/r/il/319e0d/4796740674/il_794xN.4796740674_mypt.jpg" style={{width:"130px",height:"130px"}}/>
+      <img src="https://i.etsystatic.com/11753776/r/il/51dcbb/1975020708/il_794xN.1975020708_1t4i.jpg" style={{width:"130px",height:"130px"}}/>
+      <img src="https://i.etsystatic.com/32516685/r/il/2f2f23/4963062963/il_794xN.4963062963_aisj.jpg" style={{width:"130px",height:"130px"}}/>
+      <img src="https://i.etsystatic.com/25199519/r/il/3df845/4968305885/il_794xN.4968305885_l8pb.jpg" style={{width:"130px",height:"130px"}}/>
+
+    </div>
+
 
   
       <div className="landing-container" >
