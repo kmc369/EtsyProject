@@ -54,3 +54,28 @@ margin-left: 5px;
   
 
 }
+
+/* user */
+.user-button{
+  background-color: rgb(211, 211, 211);
+  height:35px;
+  width: 35px;
+  border:none;
+  border-radius: 35px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.fa-user{
+  margin-right: 3px;
+  color: rgb(58, 56, 56);
+  font-size: small;
+}
+.profile-dropdown{
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap:10px;
+}
