@@ -35,7 +35,7 @@ class User(db.Model, UserMixin):
             'id': self.id,
             'username': self.username,
             'email': self.email,
-            
+            'image':self.image,
             'products': [product.to_dict() for product in self.products],  
             'shopping_cart': self.shopping_cart.to_dict() if self.shopping_cart else None,  
             'reviews': [review.to_dict() for review in self.reviews],  
