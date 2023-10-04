@@ -27,20 +27,31 @@ if(Object.values(products).length===0){
 const values = Object.values(products)
 return (
     <>  
-    <div className="magical-container">
+    <div className="welcom3-container">
       <div className="session-container">
     {sessionUser? (
         <h3 className="landing-header">Welcome back, <u>{sessionUser.username}</u> </h3>
+
     ):(
         <h3 className="landing-header">Hello Welcome to Fetsy</h3>
     )}
     </div>
-    </div> 
+    </div>
+    <div className="magical-container">
+    
+          <div className="underth">Gifts Under $30 </div>
+          <div className="magic">Magical, meaningful gifts!</div>
+          <p className="part"> Participating shops only. Terms apply.</p>
+      
+    </div>
+
+
+  
       <div className="landing-container" >
         {values.map((element, index) => (
           <div key={index} className="product" id="products" onClick={()=>{history.push(`/products/${element.id}`)}
           }>
-            <img src={element.image1} alt={`Product ${index}`} style={{ width: '250px', height: '250px' }} />
+            <img src={element.image1} alt={`Product ${index}`} style={{ width: '200px', height: '200px' }} />
             <div className="price">
             <i class="fa-solid fa-dollar-sign"  style={{color: "#000000",marginRight:"5px"}}></i>
             {element.price}
@@ -48,6 +59,8 @@ return (
           </div>
         ))}
       </div>
+  
+   
     </>
   );
 }
