@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import * as ProductActions from '../../store/products'
 import "./createProduct.css"
 import EditProduct from "../EditProduct";
-function NewProduct() {
 
+function NewProduct() {
+const sessionUser = useSelector(state => state.session.user)
 const dispatch = useDispatch()
 const [price,setPrice] = useState(0)
 const [image,setImage]=useState(null)
@@ -18,7 +19,7 @@ const [creator , setCreator]=useState("")
 const [title , setTitle]=useState("")
 const [material,setMaterial] = useState("")
 const [description,setDescription]=useState("")
-const [userId,setUserId] = useState(1)
+const [userId,setUserId] = useState(sessionUser.id)
 const [imageLoading, setImageLoading] = useState(false);
 
 

@@ -1,6 +1,8 @@
 // constants
 const SET_USER = "session/SET_USER";
 const REMOVE_USER = "session/REMOVE_USER";
+const GET_PRODUCT_OF_USER = "user/products"
+
 
 const setUser = (user) => ({
 	type: SET_USER,
@@ -11,7 +13,16 @@ const removeUser = () => ({
 	type: REMOVE_USER,
 });
 
-const initialState = { user: null };
+export const get_user_products = (data) =>{
+    return {
+        type:GET_PRODUCT_OF_USER,
+        payload:data
+
+        
+    }
+}
+
+
 
 export const authenticate = () => async (dispatch) => {
 	const response = await fetch("/api/auth/", {
@@ -94,12 +105,34 @@ export const signUp = (username, email, password) => async (dispatch) => {
 	}
 };
 
+
+export const getUserProductThunk = (user_id) => async(dispatch,getState) =>{
+
+ 
+    const res = await fetch(`/api/products/user/${user_id}`,{
+        method:"GET",
+     
+    })
+    if(res.ok){
+        const data = await res.json()
+		
+        dispatch(get_user_products(data))
+        return data
+    }
+}
+
+const initialState = { user: null };
 export default function reducer(state = initialState, action) {
 	switch (action.type) {
 		case SET_USER:
 			return { user: action.payload };
 		case REMOVE_USER:
 			return { user: null };
+		case GET_PRODUCT_OF_USER:{
+          	const newState = {...state, user:{...state.user}}
+			newState.user.products = action.payload
+			return newState
+			}
 		default:
 			return state;
 	}

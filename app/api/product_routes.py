@@ -19,7 +19,7 @@ def get_all_products():
     
     return jsonify(productList)
 
-@products_bp.route('/<int:userid>',methods=["GET"])
+@products_bp.route('/user/<int:userid>',methods=["GET"])
 def get_product_by_user_id(userid):
     """get all products of user """
     products = Product.query.filter_by(user_id=userid)
