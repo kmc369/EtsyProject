@@ -9,6 +9,7 @@ const GET_PRODUCT_BY_ID = "get/product/by/id"
 
 const CREATE_REVIEW = 'create/review'
 const EDIT_REVIEW = 'edit/review'
+const DELETE_REVIEW = 'delete/review'
 //ACTIONS
 export const get_products = (data) =>{
     return {
@@ -64,6 +65,13 @@ const edit_review = (review_id,data)=>{
             review_id,
             data
         }
+    }
+}
+
+const delete_review = (review_id) =>{
+    return {
+        type:DELETE_REVIEW ,
+        payload:review_id
     }
 }
 
@@ -187,6 +195,23 @@ export const editReviewThunk = (review_id,review)=>async(dispatch,getState) =>{
 
 
 }
+export const deleteReviewThunk = (review_id)=>async(dispatch,getState) =>{
+
+ 
+    const res = await fetch(`/api/review/delete/${review_id}`,{
+        method:"DELETE",
+     
+      
+
+    })
+    if(res.ok){
+        const data = await res.json()
+        dispatch(delete_review(review_id))
+        return data
+    }
+
+
+}
 
 //REDUCDER
 const inital_state = {allProducts:{}, singleProduct:{}}
@@ -278,6 +303,25 @@ const productReducer = (state=inital_state, action)=>{
           
             return newState;
           }
+          case DELETE_REVIEW: {
+            const { review_id } = action.payload;
+            const newState = { ...state, singleProduct: { ...state.singleProduct } };
+            const reviewIndex = newState.singleProduct.reviews.findIndex(
+              (review) => review.id === review_id
+            );
+          
+            if (reviewIndex !== -1) {
+              const updatedReviews = [
+                ...newState.singleProduct.reviews.slice(0, reviewIndex),
+                ...newState.singleProduct.reviews.slice(reviewIndex + 1),
+              ];
+          
+              newState.singleProduct.reviews = updatedReviews;
+            }
+          
+            return newState;
+          }
+
           
           
           
