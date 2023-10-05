@@ -2,7 +2,7 @@
 const SET_USER = "session/SET_USER";
 const REMOVE_USER = "session/REMOVE_USER";
 const GET_PRODUCT_OF_USER = "user/products"
-
+const DELETE_PRODUCT='delete/product'
 
 const setUser = (user) => ({
 	type: SET_USER,
@@ -12,6 +12,16 @@ const setUser = (user) => ({
 const removeUser = () => ({
 	type: REMOVE_USER,
 });
+export const delete_product = (product_id,data)=>{
+	
+    return {
+        type:DELETE_PRODUCT,
+        payload:{
+			product_id,
+			data
+		}
+    }
+}
 
 export const get_user_products = (data) =>{
     return {
@@ -120,6 +130,16 @@ export const getUserProductThunk = (user_id) => async(dispatch,getState) =>{
         return data
     }
 }
+export const deleteProductThunk = (product_id) => async(dispatch,getState) =>{
+    const res = await fetch(`/api/products/delete/${product_id}`,{
+        method:"DELETE"
+    })
+    if(res.ok){
+        const data = await res.json()
+        dispatch(delete_product(product_id,data))
+        return data
+    }
+}
 
 const initialState = { user: null };
 export default function reducer(state = initialState, action) {
@@ -133,6 +153,18 @@ export default function reducer(state = initialState, action) {
 			newState.user.products = action.payload
 			return newState
 			}
+		case DELETE_PRODUCT:{
+		
+			const newState = {...state,user:{...state.user}, products:{...state.user.products}}
+			const updatedProducts = state.user.products.filter(
+				(product) => product.id !== action.payload.product_id
+			  );
+
+				
+			  newState.user.products = updatedProducts
+		
+			return newState
+		}
 		default:
 			return state;
 	}
