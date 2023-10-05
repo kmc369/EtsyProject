@@ -62,6 +62,7 @@ const [imageLoading, setImageLoading] = useState(false);
        
        
         await dispatch(ProductActions.createProductThunk(formData))
+        console.log("the submit form image is",formData.get("image") )
         // const updatedData = await dispatch(UserAction.getUserProductThunk(userId))
         history.push(`/userProfile/${userId}`)
      

@@ -58,8 +58,6 @@ const [imageLoading, setImageLoading] = useState(false);
         formData.append('user_id', userId);
        
         setImageLoading(true);
-        console.log("image 1 in submit is", formData.get("image1"))
-        setCreator("")
         setDescription("")
         setMaterial("")
         setTitle("")
@@ -67,7 +65,6 @@ const [imageLoading, setImageLoading] = useState(false);
         setHandmade(false)
         setVintage(false)
         setmadeToOrder(false)
-      
        const updated= await dispatch(UserAction.editProductThunk(formData,result.id))
 
       

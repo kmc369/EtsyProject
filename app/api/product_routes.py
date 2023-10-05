@@ -33,7 +33,7 @@ def get_product_by_user_id(userid):
 def get_product_by_id(product_id):
     """get product by id"""
     single_product = Product.query.get(product_id)
-    print("the single post is ", single_product.to_dict())
+    # print("the single post is ", single_product.to_dict())
     if single_product is None:
         return jsonify({"message": "Product not found"}, 404)
     return jsonify(single_product.to_dict())
@@ -114,24 +114,26 @@ def create_product():
     
 @products_bp.route("/update/<int:product_id>", methods=["PUT"])
 def update_product(product_id):
-
+  
     product  = Product.query.get(product_id)
-   
+    print("product", request.form)
     if product is None:
         return jsonify({"Product not found"}), 404
     
-    data = request.form
+    # data = request.form
+    form = ProductForm()
+   
  
-
+    print("the form data", form.data, "PLEAEEJSDKSAFGK:FSGSFG" )
   
-    image = data.get("image")
+    image = form.data.get("image")
     if image:
         image.filename = get_unique_filename(image.filename)
         upload = upload_file_to_s3(image)
         if "url" not in upload:
             return jsonify({"error": "Failed to upload image to S3 1 "}), 400
 
-    image1 = data.get("image1")
+    image1 = form.data.get("image1")
     print("image 1 is", image1)
     if image1 and image1 !="null":
         print("how are we here if image1 is null")
@@ -144,7 +146,7 @@ def update_product(product_id):
     else:
         image1_url = ""
 
-    image2 = data.get("image2")
+    image2 = form.data.get("image2")
     if image2 and image2 !="null":
         image2.filename = get_unique_filename(image2.filename)
         upload2 = upload_file_to_s3(image2)
@@ -155,7 +157,7 @@ def update_product(product_id):
     else:
         image2_url = ""
 
-    image3 = data.get("image3")
+    image3 = form.data.get("image3")
     if image3 and image3 != "null":
         image3.filename = get_unique_filename(image3.filename)
         upload3 = upload_file_to_s3(image3)
@@ -166,48 +168,48 @@ def update_product(product_id):
     else:
         image3_url = ""
    
-    if 'price' in data:
-        product.price= data['price']
-    if 'image' in data:
-        print("in image1 THE DATA",data["image"] )
-        product.image = data["image"]
-    if 'image1' in data:
-        product.image1 = data["image1"]
-    if 'image2' in data:
-        product.image2 = data["image2"]
-    if 'image3' in data:
-        product.image3 = data["image3"]
+    if 'price' in form.data:
+        product.price= form.data['price']
+    if 'image' in form.data:
+        print("in image1 THE DATA",form.data["image"] )
+        product.image = upload["url"]
+    if 'image1' in form.data:
+        product.image1 = image1_url
+    if 'image2' in form.data:
+        product.image2 = image2_url
+    if 'image3' in form.data:
+        product.image3 = image3_url
         
-    if 'title' in data:
-        product.title = data['title']
-    if 'handmade' in data:
-        if data['handmade'].lower()=='true':
+    if 'title' in form.data:
+        product.title = form.data['title']
+    if 'handmade' in form.data:
+        if form.data['handmade']=='true':
             product.handmade = True
         else:
             product.handmade=False
        
-    if 'vintage' in data:
-        if data['vintage'].lower() == 'true':
+    if 'vintage' in form.data:
+        if form.data['vintage'] == 'true':
             product.vintage =True
         else:
             product.vintage=False
-    if 'made_to_order' in data:
-        if data['made_to_order'].lower()=='true':
+    if 'made_to_order' in form.data:
+        if form.data['made_to_order'] =='true':
             product.made_to_order = True
         else:
             product.made_to_order = False
  
-    if 'creator' in data:
-        product.creator = data['creator']
+    if 'creator' in form.data:
+        product.creator = form.data['creator']
     
-    if 'material' in data:
-        product.material = data['material']
-    if 'description' in data:
-        product.description = data['description']
-    if 'user_id' in data:
-        product.user_id = data['user_id']
+    if 'material' in form.data:
+        product.material = form.data['material']
+    if 'description' in form.data:
+        product.description = form.data['description']
+    if 'user_id' in form.data:
+        product.user_id = form.data['user_id']
 
-    print("the new product is ", product.to_dict())
+    print("the neCAPITALis 2@#@@#$#@#$#$%*(%^@#$#$) ", product.to_dict())
     db.session.commit()
 
     return jsonify(product.to_dict())

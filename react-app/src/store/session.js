@@ -152,8 +152,8 @@ export const deleteProductThunk = (product_id) => async(dispatch,getState) =>{
 
 export const editProductThunk = (product,product_id) => async (dispatch, getState) => {
   
-
-    // console.log("the product id is", product_id)
+	
+	console.log("the thunk image is ", product.get("image"))
     const res = await fetch(`/api/products/update/${product_id}`,{
         method:"PUT",
         body:product
