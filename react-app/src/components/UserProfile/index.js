@@ -8,7 +8,7 @@ function UserProfile(){
 
 const dispatch = useDispatch()
 const sessionUser = useSelector(state=>state.session.user)
-const updatedproducts = useSelector(state=>state.session.user.products) 
+const updatedProducts = useSelector(state => state.session.user.products ?? []);
 const [products,setProducts] = useState()
 const history = useHistory()
 
