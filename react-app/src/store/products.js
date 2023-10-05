@@ -11,6 +11,8 @@ const CREATE_REVIEW = 'create/review'
 const EDIT_REVIEW = 'edit/review'
 const DELETE_REVIEW = 'delete/review'
 //ACTIONS
+
+
 export const get_products = (data) =>{
     return {
         type:GET_PRODUCTS,
@@ -88,6 +90,10 @@ const delete_review = (review_id,index) =>{
 
 
 // THUNKS
+
+
+
+
 export const createProductThunk = (product) => async(dispatch,getState) =>{
  
  
@@ -235,6 +241,7 @@ const productReducer = (state=inital_state, action)=>{
             })
             return newState
         }
+     
         case DELETE_PRODUCT:{
             const newState = {...state,allProducts:{...state.allProducts}}
             newState.allProducts = action.payload

@@ -19,7 +19,7 @@ def get_all_products():
     
     return jsonify(productList)
 
-@products_bp.route('/<int:userid>',methods=["GET"])
+@products_bp.route('/user/<int:userid>',methods=["GET"])
 def get_product_by_user_id(userid):
     """get all products of user """
     products = Product.query.filter_by(user_id=userid)
@@ -165,7 +165,7 @@ def update_product(product_id):
             image3_url = upload3["url"]
     else:
         image3_url = ""
-    print("THE DATA AT THE CREATOR IS" ,data['creator'])
+
     if 'price' in data:
         product.price= data['price']
     if 'image' in data:

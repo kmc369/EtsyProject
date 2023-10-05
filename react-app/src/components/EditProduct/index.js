@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch,useSelector } from "react-redux";
 import { useParams } from 'react-router-dom';
+import * as UserAction from '../../store/session'
+import { useHistory } from "react-router-dom/";
 
 import * as ProductActions from '../../store/products'
 import "./editProducts.css"
@@ -9,10 +11,9 @@ import "./editProducts.css"
 function EditProduct() {
 const {product_id} = useParams()
 const product_id_num = Number(product_id)
+const history = useHistory()
 
 const result = useSelector(state =>state.products.singleProduct)
-// const [result,setResult]=useState({})
-// console.log("the result is ",result)
 const dispatch = useDispatch()
 const [price,setPrice] = useState(0)
 const [image,setImage]=useState(null)
@@ -38,7 +39,8 @@ const [imageLoading, setImageLoading] = useState(false);
         const handmadeValue = JSON.parse(handmade);
         const vintageValue = JSON.parse(vintage);  
         const madeToOrderValue = JSON.parse(madeToOrder);
-        console.log("the handmade value is", madeToOrder)
+        
+
     
         const formData = new FormData();
         formData.append('image', image);
@@ -56,8 +58,20 @@ const [imageLoading, setImageLoading] = useState(false);
         formData.append('user_id', userId);
        
         setImageLoading(true);
-        // console.log("handmade is now", formData.get("handmade"))
-        await dispatch(ProductActions.editProductThunk(formData,result.id))
+        console.log("image 1 in submit is", formData.get("image1"))
+        setCreator("")
+        setDescription("")
+        setMaterial("")
+        setTitle("")
+        setPrice(0)
+        setHandmade(false)
+        setVintage(false)
+        setmadeToOrder(false)
+      
+       const updated= await dispatch(UserAction.editProductThunk(formData,result.id))
+
+      
+       history.push(`/products/${product_id_num}`)
 
    
         
@@ -70,9 +84,15 @@ const [imageLoading, setImageLoading] = useState(false);
           
               
             const result = await dispatch(ProductActions.getProductByIdThunk(product_id_num));
-              console.log("inside the use effect the resut", result.handmade)
-         
-           
+            //   console.log("inside the use effect the resut", result.get("image"))
+            // console.log("the result is blah ", result.image)
+            // console.log("the result is blah ", result.image1)
+
+            // setImage(result.image)
+            // setImage1(result.image1)
+            // setImage2(result.image2)
+            // setImage3(result.image3)
+
             setPrice(result.price)
             setHandmade(result.handmade)
             setVintage(result.vintage)
@@ -90,7 +110,7 @@ const [imageLoading, setImageLoading] = useState(false);
 
    
     if (Object.values(result).length===0) {
-        console.log("result was empty nothing in the EMPTY")
+       
         return null
     }
 
