@@ -61,7 +61,9 @@ const [imageLoading, setImageLoading] = useState(false);
        
       
         await dispatch(ProductActions.createProductThunk(formData))
-         history.push(`/userProfile/${userId}`)
+        // const updatedData = await dispatch(UserAction.getUserProductThunk(userId))
+        history.push(`/userProfile/${userId}`)
+        // return <UserProfile prop={updatedData}/>
        
       }
 
