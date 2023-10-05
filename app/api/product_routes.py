@@ -87,7 +87,7 @@ def create_product():
             if "url" not in upload3:
                 return jsonify({"error": "Failed to upload image3 to S3 4"}), 400
             else:
-                image3_url = ""
+                image3_url =  upload3["url"]
         else:
             image3_url = ""
 
