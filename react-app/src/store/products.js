@@ -1,7 +1,7 @@
 
 //ACTION TYPES
 const GET_PRODUCTS = 'get/products'
-
+const DELETE_PRODUCT='delete/product'
 const CREATE_PRODUCT='create/product'
 const EDIT_PRODUCT = "edit/product"
 const GET_PRODUCT_BY_ID = "get/product/by/id"
@@ -27,7 +27,12 @@ export const get_products_by_id = (data) =>{
     }
 }
 
-
+export const delete_product = (data)=>{
+    return {
+        type:DELETE_PRODUCT,
+        payload:data
+    }
+}
 
 export const create_product = (data)=>{
     return {
@@ -117,7 +122,16 @@ export const getProductByIdThunk = (product_id) => async (dispatch, getState) =>
 }
 
 
-
+export const deleteProductThunk = (product_id) => async(dispatch,getState) =>{
+    const res = await fetch(`/api/products/delete/${product_id}`,{
+        method:"DELETE"
+    })
+    if(res.ok){
+        const data = await res.json()
+        dispatch(delete_product(data))
+        return data
+    }
+}
 
 
 export const getAllProductThunk = () => async (dispatch, getState) => {
@@ -228,7 +242,11 @@ const productReducer = (state=inital_state, action)=>{
             return newState
         }
      
-     
+        case DELETE_PRODUCT:{
+            const newState = {...state,allProducts:{...state.allProducts}}
+            newState.allProducts = action.payload
+            return newState
+        }
         case CREATE_PRODUCT:{
             const newState = {...state , allProducts:{...state.allProducts}}
             newState.allProducts[action.payload.id] = action.payload

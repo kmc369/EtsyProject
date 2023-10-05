@@ -3,6 +3,8 @@ const SET_USER = "session/SET_USER";
 const REMOVE_USER = "session/REMOVE_USER";
 const GET_PRODUCT_OF_USER = "user/products"
 const DELETE_PRODUCT='delete/product'
+const EDIT_PRODUCT = "edit/product"
+
 
 const setUser = (user) => ({
 	type: SET_USER,
@@ -29,6 +31,13 @@ export const get_user_products = (data) =>{
         payload:data
 
         
+    }
+}
+
+export const edit_product = (data)=>{
+    return {
+        type:EDIT_PRODUCT,
+        payload:data
     }
 }
 
@@ -141,6 +150,26 @@ export const deleteProductThunk = (product_id) => async(dispatch,getState) =>{
     }
 }
 
+export const editProductThunk = (product,product_id) => async (dispatch, getState) => {
+  
+
+    // console.log("the product id is", product_id)
+    const res = await fetch(`/api/products/update/${product_id}`,{
+        method:"PUT",
+        body:product
+    })
+
+   if (res.ok) {
+       const data = await res.json();
+       dispatch(edit_product(data));
+       return data;
+   } else {
+     
+       const errorData = await res.json();
+       throw new Error(errorData.error || 'Failed to fetch data');
+   }  
+}
+
 const initialState = { user: null };
 export default function reducer(state = initialState, action) {
 	switch (action.type) {
@@ -159,12 +188,24 @@ export default function reducer(state = initialState, action) {
 			const updatedProducts = state.user.products.filter(
 				(product) => product.id !== action.payload.product_id
 			  );
-
-				
 			  newState.user.products = updatedProducts
 		
 			return newState
 		}
+		case EDIT_PRODUCT:{
+           
+			const newState = {...state,user:{...state.user}, products:{...state.user.products}}
+            // newState.user.products[action.payload.id] = action.payload
+			const index = state.user.products.findIndex((product) => product.id === action.payload.id);
+			console.log("the index is",index)
+			newState.user.products[index] = action.payload
+
+
+
+
+			
+            return newState
+        }
 		default:
 			return state;
 	}

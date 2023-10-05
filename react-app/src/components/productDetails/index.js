@@ -83,10 +83,12 @@ function dateFormat(timestamp){
     return (
         <>
        <div className="product-container">
-            <div>Product info</div>
+              {product.title}
+              {product.creator}
             <div className="images-container">
                 <div className="big-image">
                     <img src={product.image} style={{height:"200px",width:"200px"}}/>
+                 
                 </div>
                 <div className="sideImages">
                     <img src={product.image1} style={{height:"200px",width:"200px"}}/>

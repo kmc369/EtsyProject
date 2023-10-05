@@ -57,16 +57,8 @@ const fetchData = async () => {
           {values.map((element, index) => (
             <div key={index} className={`product${index}`}>
               <img src={element.image} style={{ height: "200px", width: "200px" }} />
-              <span><OpenModalButton
-  modalComponent={
-    <DeleteProductModal
-      prop={element}
-      buttonText="Delete Product"
-      onDelete={() => handleDelete(element.id)}
-    />
-  }
-/></span>
-              <span><button>Product</button></span>
+              <span><OpenModalButton modalComponent={<DeleteProductModal prop={element} buttonText="Delete Product" onDelete={() => handleDelete(element.id)}/>}/></span>
+              <span><button  onClick={() => history.push(`/edit_product/${element.id}`)}>Edit Product</button></span>
             </div>
           ))}
         </div>

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch,useSelector } from "react-redux";
 import { useParams } from 'react-router-dom';
+import * as UserAction from '../../store/session'
+import { useHistory } from "react-router-dom/";
 
 import * as ProductActions from '../../store/products'
 import "./editProducts.css"
@@ -9,6 +11,7 @@ import "./editProducts.css"
 function EditProduct() {
 const {product_id} = useParams()
 const product_id_num = Number(product_id)
+const history = useHistory()
 
 const result = useSelector(state =>state.products.singleProduct)
 // const [result,setResult]=useState({})
@@ -56,8 +59,17 @@ const [imageLoading, setImageLoading] = useState(false);
         formData.append('user_id', userId);
        
         setImageLoading(true);
-        // console.log("handmade is now", formData.get("handmade"))
-        await dispatch(ProductActions.editProductThunk(formData,result.id))
+      
+        setCreator("")
+        setDescription("")
+        setMaterial("")
+        setTitle("")
+        setPrice(0)
+        setHandmade(false)
+        setVintage(false)
+        setmadeToOrder(false)
+       const updated= await dispatch(UserAction.editProductThunk(formData,result.id))
+       history.push(`/products/${product_id_num}`)
 
    
         
@@ -70,9 +82,13 @@ const [imageLoading, setImageLoading] = useState(false);
           
               
             const result = await dispatch(ProductActions.getProductByIdThunk(product_id_num));
-              console.log("inside the use effect the resut", result.handmade)
+            //   console.log("inside the use effect the resut", result.get("image"))
          
-           
+            //   setImage(result.get(image))
+            //   setImage(result.image1)
+            //   setImage(result.image2)
+            //   setImage(result.image3)
+
             setPrice(result.price)
             setHandmade(result.handmade)
             setVintage(result.vintage)
