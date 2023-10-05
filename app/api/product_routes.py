@@ -121,8 +121,8 @@ def update_product(product_id):
         return jsonify({"Product not found"}), 404
     
     data = request.form
-    print("updated DATA is ",data)
-  
+ 
+    print("THE DATA COMING BACK HERE IS ", data)
   
     image = data.get("image")
     if image:
@@ -165,17 +165,17 @@ def update_product(product_id):
             image3_url = upload3["url"]
     else:
         image3_url = ""
-
+    print("THE DATA COMING BACK HERE IS ", data)
     if 'price' in data:
         product.price= data['price']
     if 'image' in data:
-        product.image = upload["url"]
+        product.image = data["image"]
     if 'image1' in data:
-        product.image1 = image1_url
+        product.image1 = data["image1"]
     if 'image2' in data:
-        product.image2 = image2_url
+        product.image2 = data["image2"]
     if 'image3' in data:
-        product.image3 = image3_url
+        product.image3 = data["image3"]
         
     if 'title' in data:
         product.title = data['title']
