@@ -1,0 +1,22 @@
+
+.extra-stuff{
+    height:200px;
+    /* background-color: ; */
+}
+
+.products-containers{
+
+    border:1px solid green;
+    width:80%;
+    margin: 0 auto;
+}
+
+.product-items{
+    border:2px solid red;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: fit-content;
+    margin: 0 auto;
+}
+

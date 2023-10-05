@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import * as ProductActions from '../../store/products'
 import "./createProduct.css"
 import EditProduct from "../EditProduct";
+import { useHistory } from "react-router-dom/";
+import * as UserAction from '../../store/session'
+import UserProfile from "../UserProfile";
 function NewProduct() {
-
+const sessionUser = useSelector(state => state.session.user)
+const history = useHistory()
 const dispatch = useDispatch()
 const [price,setPrice] = useState(0)
 const [image,setImage]=useState(null)
@@ -18,7 +22,7 @@ const [creator , setCreator]=useState("")
 const [title , setTitle]=useState("")
 const [material,setMaterial] = useState("")
 const [description,setDescription]=useState("")
-const [userId,setUserId] = useState(1)
+const [userId,setUserId] = useState(sessionUser.id)
 const [imageLoading, setImageLoading] = useState(false);
 
 
@@ -46,11 +50,21 @@ const [imageLoading, setImageLoading] = useState(false);
         formData.append('user_id', userId);
        
         setImageLoading(true);
-    
+        setCreator("")
+        setDescription("")
+        setMaterial("")
+        setTitle("")
+        setPrice(0)
+        setHandmade(false)
+        setVintage(false)
+        setmadeToOrder(false)
+       
       
         await dispatch(ProductActions.createProductThunk(formData))
-        // <EditProduct product={formData}/>
-      
+        // const updatedData = await dispatch(UserAction.getUserProductThunk(userId))
+        history.push(`/userProfile/${userId}`)
+        // return <UserProfile prop={updatedData}/>
+       
       }
 
 
