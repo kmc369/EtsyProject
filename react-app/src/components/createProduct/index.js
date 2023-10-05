@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as ProductActions from '../../store/products'
+
 import "./createProduct.css"
 import EditProduct from "../EditProduct";
 import { useHistory } from "react-router-dom/";
@@ -59,10 +60,12 @@ const [imageLoading, setImageLoading] = useState(false);
         setVintage(false)
         setmadeToOrder(false)
        
-      
+       
         await dispatch(ProductActions.createProductThunk(formData))
+        console.log("the submit form image is",formData.get("image") )
         // const updatedData = await dispatch(UserAction.getUserProductThunk(userId))
         history.push(`/userProfile/${userId}`)
+     
         // return <UserProfile prop={updatedData}/>
        
       }
