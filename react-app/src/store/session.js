@@ -195,9 +195,8 @@ export default function reducer(state = initialState, action) {
 		case EDIT_PRODUCT:{
            
 			const newState = {...state,user:{...state.user}, products:{...state.user.products}}
-            // newState.user.products[action.payload.id] = action.payload
 			const index = state.user.products.findIndex((product) => product.id === action.payload.id);
-			console.log("the index is",index)
+			
 			newState.user.products[index] = action.payload
 
 

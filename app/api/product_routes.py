@@ -165,7 +165,7 @@ def update_product(product_id):
             image3_url = upload3["url"]
     else:
         image3_url = ""
-    print("THE DATA AT THE CREATOR IS" ,data['creator'])
+
     if 'price' in data:
         product.price= data['price']
     if 'image' in data:
