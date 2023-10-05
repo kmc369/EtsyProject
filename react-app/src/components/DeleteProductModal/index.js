@@ -9,7 +9,9 @@ function DeleteProductModal ({ prop, buttonText, onDelete }){
     const dispatch = useDispatch()
     const history = useHistory()
      const sessionUser = useSelector(state=>state.session.user)
+
     const handleDelete = async () => {
+      dispatch(ProductActions.deleteProductThunk(prop.id))
       await onDelete(prop.id);
       history.push(`/userProfile/${sessionUser.id}`)
     };

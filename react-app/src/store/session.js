@@ -2,7 +2,7 @@
 const SET_USER = "session/SET_USER";
 const REMOVE_USER = "session/REMOVE_USER";
 const GET_PRODUCT_OF_USER = "user/products"
-const DELETE_PRODUCT='delete/product'
+const DELETE_PRODUCT='delete/product/user'
 const EDIT_PRODUCT = "edit/product"
 
 
@@ -161,6 +161,7 @@ export const editProductThunk = (product,product_id) => async (dispatch, getStat
 
    if (res.ok) {
        const data = await res.json();
+	   console.log("the data coming back is ",data)
        dispatch(edit_product(data));
        return data;
    } else {

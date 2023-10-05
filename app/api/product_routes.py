@@ -122,7 +122,7 @@ def update_product(product_id):
     
     data = request.form
  
-    print("THE DATA COMING BACK HERE IS ", data)
+
   
     image = data.get("image")
     if image:
@@ -165,10 +165,11 @@ def update_product(product_id):
             image3_url = upload3["url"]
     else:
         image3_url = ""
-    print("THE DATA COMING BACK HERE IS ", data)
+   
     if 'price' in data:
         product.price= data['price']
     if 'image' in data:
+        print("in image1 THE DATA",data["image"] )
         product.image = data["image"]
     if 'image1' in data:
         product.image1 = data["image1"]
