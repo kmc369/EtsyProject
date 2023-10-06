@@ -204,9 +204,10 @@ align-items: center;
     /* border:2px solid gold; */
 }
 
-.creator-word,.material-word{
+.creator-word,.material-word,.price-word{
     font-family: "Guardian-EgypTT",Charter,"Charter Bitstream",Cambria,"Noto Serif Light","Droid Serif",Georgia,serif;
     font-weight: 400; 
+    width: 25%;
    
     /* border:2px solid green; */
 }
@@ -255,6 +256,20 @@ align-items: center;
     width:fit-content;
     border-radius: 5px;
     border:1px solid rgba(180, 179, 179, 0.9);
+}
+.create-product-button-1-container{
+    text-align: right;
+}
+.create-product-button-1{
+    background-color: black;
+    color:white;
+    font-family: "Guardian-EgypTT",Charter,"Charter Bitstream",Cambria,"Noto Serif Light","Droid Serif",Georgia,serif;
+    height:50px;
+    width:170px;
+    border-radius: 10px;
+    border:none;
+    font-size: large;
+
 }
 
 
