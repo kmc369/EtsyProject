@@ -1,3 +1,41 @@
+
+.main-slide{
+width:55%;
+/* border:3px solid green; */
+display: flex;
+flex-direction: row;
+height:300px;
+align-items: center;
+justify-content: center;
+padding: 20px;
+}
+
+.main-slide .carousel {
+    flex: 1; /* Take up the remaining space in the flex container */
+  }
+  
+  .main-slide .carousel img {
+    width: 100%; /* Make the main image fill its container */
+    height: 100%; /* Make the main image fill its container */
+    object-fit: cover; /* Maintain the aspect ratio and cover the container */
+  }
+
+  .main-slide .carousel .thumbs {
+    width: 50px;
+    height: 100%; /* Make the thumbnails fill the entire height of the container */
+    display: flex; /* Use flex to align items */
+    flex-direction: column; /* Display thumbnails in a column */
+  }
+
+
+
+
+.carousel .thumbs{
+    width: 50px; 
+    height: 50px; 
+  }
+
+
 .images-container{
     display: flex;
     flex-direction: row;

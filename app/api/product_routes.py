@@ -41,6 +41,7 @@ def get_product_by_id(product_id):
 
 
 @products_bp.route('/new_product', methods=["POST"])
+@login_required
 def create_product():
     """create a new product """
     form = ProductForm()
@@ -113,10 +114,11 @@ def create_product():
     return jsonify({"error": form.errors}), 400
     
 @products_bp.route("/update/<int:product_id>", methods=["PUT"])
+@login_required
 def update_product(product_id):
   
     product  = Product.query.get(product_id)
-    print("product", request.form)
+
     if product is None:
         return jsonify({"Product not found"}), 404
     
@@ -124,7 +126,7 @@ def update_product(product_id):
     form = ProductForm()
    
  
-    print("the form data", form.data, "PLEAEEJSDKSAFGK:FSGSFG" )
+    
   
     image = form.data.get("image")
     if image:
@@ -134,9 +136,9 @@ def update_product(product_id):
             return jsonify({"error": "Failed to upload image to S3 1 "}), 400
 
     image1 = form.data.get("image1")
-    print("image 1 is", image1)
+   
     if image1 and image1 !="null":
-        print("how are we here if image1 is null")
+     
         image1.filename = get_unique_filename(image1.filename)
         upload1 = upload_file_to_s3(image1)
         if "url" not in upload1:
@@ -171,7 +173,7 @@ def update_product(product_id):
     if 'price' in form.data:
         product.price= form.data['price']
     if 'image' in form.data:
-        print("in image1 THE DATA",form.data["image"] )
+      
         product.image = upload["url"]
     if 'image1' in form.data:
         product.image1 = image1_url
@@ -209,7 +211,6 @@ def update_product(product_id):
     if 'user_id' in form.data:
         product.user_id = form.data['user_id']
 
-    print("the neCAPITALis 2@#@@#$#@#$#$%*(%^@#$#$) ", product.to_dict())
     db.session.commit()
 
     return jsonify(product.to_dict())

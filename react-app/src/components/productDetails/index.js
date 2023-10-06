@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,ReactDOM } from "react";
 import { useDispatch,useSelector  } from "react-redux";
 // import * as ReviewActions from '../../store/review'
 import * as ProductActions from '../../store/products'
@@ -8,9 +8,12 @@ import OpenModalButton from "../OpenModalButton";
 import './details.css'
 import EditReview from "../EditReview";
 import DeleteReview from "../DeleteReview";
+import { Carousel } from 'react-responsive-carousel';
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+
 
 const ProductDetails = () =>{
-   
+
     const dispatch = useDispatch()
     const {product_id} = useParams()
     const product_id_num = Number(product_id)
@@ -82,22 +85,51 @@ function dateFormat(timestamp){
     
     return (
         <>
+
+
+<Carousel className="main-slide" >
+                <div>
+                <img src={product.image} />   
+                  
+                </div>
+                <div>
+                <img src={product.image1} />
+         
+                </div>
+                <div>
+                <img src={product.image2} />
+                
+                </div>
+
+                <div>
+                <img src={product.image3} />
+                
+                </div>
+            
+            </Carousel>
+
+
+
+{/* 
        <div className="product-container">
               {product.title}
               {product.creator}
+      <Carousel>
+         
             <div className="images-container">
                 <div className="big-image">
-                    <img src={product.image} style={{height:"200px",width:"200px"}}/>
+                    <img src={product.image} />
                  
                 </div>
                 <div className="sideImages">
-                    <img src={product.image1} style={{height:"200px",width:"200px"}}/>
-                    <img src={product.image2} style={{height:"200px",width:"200px"}}/>
-                    <img src={product.image3} style={{height:"200px",width:"200px"}}/>
+                    <img src={product.image1} />
+                    <img src={product.image2} />
+                    <img src={product.image3} />
                 </div>
             </div>
 
-        </div>
+        </Carousel>
+        </div> */}
 
 
 
