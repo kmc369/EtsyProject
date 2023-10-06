@@ -27,13 +27,17 @@ function Navigation({ isLoaded }){
 
 				
 
-				<div className='profile-icon'>
+		<div className='profile-icon'>
 			{isLoaded && (
 			
 					<ProfileButton user={sessionUser} />
+					
 				
 			)}
 			</div>
+			<div><i class="fa-sharp fa-solid fa-cart-shopping" style={{color:"rgb(162, 162, 162)",fontSize:"20px"}}></i> </div>
+			<div><i class="fa-regular fa-heart"style={{color:"rgb(162, 162, 162)",fontSize:"20px"}}></i></div>
+			<div><i class="fa-regular fa-bell"style={{color:"rgb(162, 162, 162)",fontSize:"20px"}}></i></div>
 		</div>
 	
 	);
