@@ -87,22 +87,22 @@ function dateFormat(timestamp){
         <>
 
 
-<Carousel className="main-slide" >
-                <div>
-                <img src={product.image} />   
+<Carousel dynamicHeight="true" className="main-slide" >
+                <div className="main-image">
+                <img src={product.image}  height="320px" width="300px"/>   
                   
                 </div>
                 <div>
-                <img src={product.image1} />
+                <img src={product.image1} height="320px" width="300px"/>
          
                 </div>
                 <div>
-                <img src={product.image2} />
+                <img src={product.image2} height="320px" width="300px" />
                 
                 </div>
 
                 <div>
-                <img src={product.image3} />
+                <img src={product.image3} height="320px" width="300px"/>
                 
                 </div>
             

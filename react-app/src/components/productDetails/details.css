@@ -1,39 +1,57 @@
 
 .main-slide{
-width:55%;
-/* border:3px solid green; */
+width:100%;
+/* border:5px solid green; */
 display: flex;
 flex-direction: row;
-height:300px;
-align-items: center;
-justify-content: center;
+height:fit-content;
+
 padding: 20px;
 }
-
-.main-slide .carousel {
-    flex: 1; /* Take up the remaining space in the flex container */
+/* main image */
+.main-slide .main-image {
+    flex: 1;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border:3px solid limegreen; */
+    width:600px;
+    height:400px;
   }
   
-  .main-slide .carousel img {
+  .main-slide .main-image img {
     width: 100%; /* Make the main image fill its container */
-    height: 100%; /* Make the main image fill its container */
-    object-fit: cover; /* Maintain the aspect ratio and cover the container */
+    height: 80%; /* Make the main image fill its container */
   }
+  
+  .main-slide div {
+    /* Styles for other carousel items if needed */
+    /* border:3px solid red; */
+     height: fit-content;
+    /* width:fit-content  */
+  }
+
+  /* main image */
+  
+
 
   .main-slide .carousel .thumbs {
-    width: 50px;
-    height: 100%; /* Make the thumbnails fill the entire height of the container */
-    display: flex; /* Use flex to align items */
-    flex-direction: column; /* Display thumbnails in a column */
+    width: 30px;
+    height: 190px; 
+    display: flex; 
+    flex-direction: column; 
+    /* border:4px solid orange; */
+    padding-left: 0px;;
   }
 
 
 
 
-.carousel .thumbs{
+/* .carousel .thumbs{
     width: 50px; 
     height: 50px; 
-  }
+  } */
 
 
 .images-container{
