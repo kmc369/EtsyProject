@@ -223,10 +223,7 @@ align-items: center;
     height:250px;
   
 }
-.desc-word{
-    /* border:2px solid orange; */
-  
-}
+
 
 .price-container{
     display: flex;
@@ -243,7 +240,7 @@ align-items: center;
     outline: none;
 
  
-   width:87%
+   /* width:87% */
 }
 
 
@@ -257,6 +254,9 @@ align-items: center;
     border-radius: 5px;
     border:1px solid rgba(180, 179, 179, 0.9);
 }
+
+
+
 .create-product-button-1-container{
     text-align: right;
 }

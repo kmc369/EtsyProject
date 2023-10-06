@@ -341,7 +341,7 @@ const [imageLoading, setImageLoading] = useState(false);
                 <p className="p-header-listing">Tell the user what the total cost of your product is. Be sure to mention the set price</p>
                 </div>
 
-                <label className="price-label">
+                <label className="title-input">
                 <i class="fa-solid fa-dollar-sign" style={{color: "#5b6371"}}></i>
                 <input className="price-input"
                     type="number"
