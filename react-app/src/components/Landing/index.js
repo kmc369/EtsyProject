@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import './Landing.css'
 import * as ProductActions from '../../store/products'
 import ProductDetails from "../productDetails";
-
+import Footer from "../Footer";
 function Landing () {
 const dispatch = useDispatch()
 const products = useSelector(state=>state.products.allProducts)
@@ -69,7 +69,7 @@ return (
         ))}
       </div>
   
-   
+          <Footer/>
     </>
   );
 }
