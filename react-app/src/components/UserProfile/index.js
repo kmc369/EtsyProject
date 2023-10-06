@@ -46,8 +46,10 @@ const fetchData = async () => {
     <div>
       <div>
         <div className="header">
-          <img src={sessionUser.image} style={{ height: "60px", width: "60px", borderRadius: "15px" }} />
+          <div className="name-image">
+          <img src={sessionUser.image} style={{ height: "40px", width: "40px", borderRadius: "25px" }} />
           {sessionUser.username}
+          </div>
           <button className="create-product" onClick={() => history.push("/new_product")}>Create Product</button>
         </div>
       </div>
