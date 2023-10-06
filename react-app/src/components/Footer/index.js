@@ -9,7 +9,7 @@ function Footer(){
         <>
           <div className="extra-stuff">
           <div className="footer-etsy">
-            <i class="fa-solid fa-globe" style={{color:"white"}}> </i>
+            <i class="fa-solid fa-globe" style={{color:"black"}}> </i>
             <div className="powered">Etsy is powered by 100% renewable electricity.</div>
             </div>
 

@@ -293,7 +293,7 @@ const [imageLoading, setImageLoading] = useState(false);
                         Shoppers also like hearing about your process, and the story behind this item.</p>
                 </div>
 
-                <input className="desc-input"
+                <textarea className="desc-input"
                     type="text"
                     value={description}
                     onChange={(e)=>setDescription(e.target.value)}
@@ -306,10 +306,11 @@ const [imageLoading, setImageLoading] = useState(false);
 
             <div className="creator-container">
                 <div className="creator-word">
-                    Creator 
+                    <h5 className="title-header">Creator *</h5>
+                    <p className="p-header-listing">Tell the user what the name of your store is.</p>
                 </div>
 
-                <input className="creator-input"
+                <input className="title-input"
                     type="text"
                     value={creator}
                     onChange={(e)=>setCreator(e.target.value)}
@@ -321,10 +322,11 @@ const [imageLoading, setImageLoading] = useState(false);
 
             <div className="material-container">
                 <div className="material-word">
-                    Materials 
+                <h5 className="title-header">Material *</h5>
+                    <p className="p-header-listing">Tell the user what your item is composed of.</p>
                 </div>
 
-                <input className="material-input"
+                <input className="title-input"
                     type="text"
                     value={material}
                     onChange={(e)=>setMaterial(e.target.value)}
@@ -335,7 +337,8 @@ const [imageLoading, setImageLoading] = useState(false);
 
             <div className="price-container">
                 <div className="price-word">
-                   Price 
+                <h5 className="title-header">Price *</h5>
+                <p className="p-header-listing">Be sure to mention the set price</p>
                 </div>
 
                 <label className="price-label">
@@ -360,8 +363,9 @@ const [imageLoading, setImageLoading] = useState(false);
          </div>
 
         </div>
-
-             <button type="submit">Submit</button>
+        <div className="create-product-button-1-container" >
+             <button className="create-product-button-1" type="submit">Create Product</button>
+         </div>
     </form>
 
         </>

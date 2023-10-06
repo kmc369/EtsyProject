@@ -207,6 +207,7 @@ align-items: center;
 .creator-word,.material-word{
     font-family: "Guardian-EgypTT",Charter,"Charter Bitstream",Cambria,"Noto Serif Light","Droid Serif",Georgia,serif;
     font-weight: 400; 
+    width: 25%;
    
     /* border:2px solid green; */
 }
@@ -222,27 +223,27 @@ align-items: center;
     height:250px;
   
 }
-.desc-word{
-    /* border:2px solid orange; */
-  
-}
+
 
 .price-container{
     display: flex;
     flex-direction: row;
     padding: 10px;
     gap:40px;
-    
+    /* border:7px solid red; */
     align-items: center;
 
 
+}
+.price-word{
+    width: 23%;
 }
 .price-input{
     border:none;
     outline: none;
 
  
-   width:87%
+   /* width:87% */
 }
 
 
@@ -255,6 +256,29 @@ align-items: center;
     width:fit-content;
     border-radius: 5px;
     border:1px solid rgba(180, 179, 179, 0.9);
+    /* border:1px solid rgba(180, 179, 179, 0.9);
+    border-radius: 3px;
+    width: 80%;
+    height: 40px; */
+}
+
+
+
+
+
+.create-product-button-1-container{
+    text-align: right;
+}
+.create-product-button-1{
+    background-color: black;
+    color:white;
+    font-family: "Guardian-EgypTT",Charter,"Charter Bitstream",Cambria,"Noto Serif Light","Droid Serif",Georgia,serif;
+    height:50px;
+    width:170px;
+    border-radius: 10px;
+    border:none;
+    font-size: large;
+
 }
 
 
