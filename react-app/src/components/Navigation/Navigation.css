@@ -141,3 +141,28 @@ background-color: lightgray;
   cursor: pointer;
 }
 
+/* login sign up containers */
+.login-signup-container{
+  display: flex;
+  flex-direction: row;
+  gap:10px;
+  position: relative;
+
+
+  
+
+}
+
+
+.login-button,.signUp-button{
+ border:none;
+ width:90px;
+ height:26px;
+ border-radius: 10px;
+ background-color: black;
+ color:white;
+ margin:0 auto;
+ 
+
+}
+
