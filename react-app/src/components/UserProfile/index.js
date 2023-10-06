@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import * as UserAction from '../../store/session'
 import * as ProductActions from '../../store/products'
-
+import Landing from '../Landing'
 import { useDispatch,useSelector  } from "react-redux";
 import './userProfile.css'
 import { useHistory } from "react-router-dom/";
 import OpenModalButton from '../OpenModalButton'
 import DeleteProductModal from "../DeleteProductModal";
+import Footer from "../Footer";
 function UserProfile(){
 
 const dispatch = useDispatch()
@@ -18,6 +19,7 @@ const history = useHistory()
 
 
 useEffect(() => {
+
   fetchData();
 }, [dispatch, sessionUser.id]);
 
@@ -32,7 +34,10 @@ const fetchData = async () => {
       fetchData(); 
     };
 
-  
+    if (!sessionUser) {
+      return <Landing />;
+    }
+   
 
     if(!products){
         return null;
@@ -42,8 +47,36 @@ const fetchData = async () => {
     return (
 
         <>
-  
+
     <div>
+    <div className="dead-links-container">
+        <div>
+        <p>The Halloween Shop</p>
+        </div>
+
+        <div>
+        <p>Jewelry & Accessories</p>
+        </div>
+        <div>
+        <p>Home & Living</p>
+        </div>
+        <div>
+        <p>Wedding & Party</p>
+        </div>
+
+        <div>
+        <p>Craft Supplies</p>
+        </div>
+
+        <div>
+        <p>Gifts & Gift Cards</p>
+        </div>
+
+        <div>
+        <p>Etsy Registry</p>
+        </div>
+
+      </div>
       <div>
         <div className="header">
           <div className="name-image">
@@ -57,6 +90,8 @@ const fetchData = async () => {
           </div>
         </div>
       </div>
+
+    
 
       <div className="products-containers">
         <div className="product-items">
@@ -72,32 +107,11 @@ const fetchData = async () => {
         </div>
       </div>
 
-      <div className="extra-stuff">
-          <div className="footer-etsy">
-            <i class="fa-solid fa-globe" style={{color:"white"}}> </i>
-            <div className="powered">Etsy is powered by 100% renewable electricity.</div>
-            </div>
-
-          <div className="footer-container">
-            <div className="fetsy-download">
-                <div className="Fetsy-app" onClick={()=>{history.push('/')}}>Fetsy</div>
-                <div className="download-word" onClick={()=>{history.push('/')}} >Download the Fetsy App</div>
-            </div>
-
-            <div className="shop-contact">
-              <div className="contact-us">Contact us </div>
-              <div className="socials">
-                <div className="linkedIn"><i class="fa-brands fa-linkedin"style={{fontSize:"30px"}}></i> <div>linkedIn</div></div>
-                <div className="gitHub" ><i class="fa-brands fa-github"  style={{fontSize:"30px"}}></i> GitHub</div>
-                <div className="Twitter"> <i class="fa-brands fa-twitter" style={{fontSize:"30px"}}></i>Twitter</div>
-              </div>
-            </div>
-          </div>
-      </div>
+    
     </div>
+     
 
-
-
+<Footer/>
             
 
         </>
