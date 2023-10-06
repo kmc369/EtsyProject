@@ -87,9 +87,9 @@ const fetchData = async () => {
             <div className="shop-contact">
               <div className="contact-us">Contact us </div>
               <div className="socials">
-                <div className="linkedIn"> linkedIn</div>
-                <div className="gitHub"> GitHub</div>
-                <div className="Twitter"> Twitter</div>
+                <div className="linkedIn"><i class="fa-brands fa-linkedin"style={{fontSize:"30px"}}></i> <div>linkedIn</div></div>
+                <div className="gitHub" ><i class="fa-brands fa-github"  style={{fontSize:"30px"}}></i> GitHub</div>
+                <div className="Twitter"> <i class="fa-brands fa-twitter" style={{fontSize:"30px"}}></i>Twitter</div>
               </div>
             </div>
           </div>
