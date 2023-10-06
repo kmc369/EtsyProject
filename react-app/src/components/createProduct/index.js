@@ -293,7 +293,7 @@ const [imageLoading, setImageLoading] = useState(false);
                         Shoppers also like hearing about your process, and the story behind this item.</p>
                 </div>
 
-                <input className="desc-input"
+                <textarea className="desc-input"
                     type="text"
                     value={description}
                     onChange={(e)=>setDescription(e.target.value)}
@@ -338,10 +338,10 @@ const [imageLoading, setImageLoading] = useState(false);
             <div className="price-container">
                 <div className="price-word">
                 <h5 className="title-header">Price *</h5>
-                <p className="p-header-listing">Tell the user what the total cost of your product is. Be sure to mention the set price</p>
+                <p className="p-header-listing">Be sure to mention the set price</p>
                 </div>
 
-                <label className="title-input">
+                <label className="price-label">
                 <i class="fa-solid fa-dollar-sign" style={{color: "#5b6371"}}></i>
                 <input className="price-input"
                     type="number"

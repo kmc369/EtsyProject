@@ -115,7 +115,7 @@ const [imageLoading, setImageLoading] = useState(false);
     return (
         <>
  
-    <form className="create-listing-container"  method="POST" encType="multipart/form-data" onSubmit={handleSubmit}>
+ <form className="create-listing-container"  method="POST" encType="multipart/form-data" onSubmit={handleSubmit}>
             <h1 className="listing-header">Create a listing </h1>
             <h3 className="second-header">Add some photos and details about your item. Fill out what you can for now—you’ll be able to edit this later.</h3>
         <div className="photo-container">
@@ -148,6 +148,8 @@ const [imageLoading, setImageLoading] = useState(false);
                     className="input-image1" 
                     accept="image/*" />
                     </div>
+                    {(imageLoading)&& <p>Loading...</p>}
+
 
                     <div>
                     <label className='custom-file-input-label' htmlFor="file-input">
@@ -158,6 +160,8 @@ const [imageLoading, setImageLoading] = useState(false);
                     onChange={(e)=>setImage1(e.target.files[0])}
                     accept="image/*" />
                     </div>
+                    {(imageLoading)&& <p>Loading...</p>}
+
 
                     <div>
                     <label className='custom-file-input-label' htmlFor="file-input">
@@ -167,6 +171,8 @@ const [imageLoading, setImageLoading] = useState(false);
                     </label>
                     <input type="file" id="file-input" className="input-image1" accept="image/*" onChange={(e)=>setImage2(e.target.files[0])}/>
                     </div>
+                    {(imageLoading)&& <p>Loading...</p>}
+
 
                     <div>
                     <label className='custom-file-input-label' htmlFor="file-input">
@@ -174,7 +180,9 @@ const [imageLoading, setImageLoading] = useState(false);
                         <div>Add a photo</div>
                     </label>
                     <input type="file" id="file-input" className="input-image1" accept="image/*" onChange={(e)=>setImage3(e.target.files[0])} />
-                    </div>    
+                    </div>   
+                    {(imageLoading)&& <p>Loading...</p>}
+ 
 
                 </div>    
             </div>
@@ -326,7 +334,7 @@ const [imageLoading, setImageLoading] = useState(false);
                         Shoppers also like hearing about your process, and the story behind this item.</p>
                 </div>
 
-                <input className="desc-input"
+                <textarea className="desc-input"
                     type="text"
                     value={description}
                     onChange={(e)=>setDescription(e.target.value)}
@@ -339,10 +347,11 @@ const [imageLoading, setImageLoading] = useState(false);
 
             <div className="creator-container">
                 <div className="creator-word">
-                    Creator 
+                    <h5 className="title-header">Creator *</h5>
+                    <p className="p-header-listing">Tell the user what the name of your store is.</p>
                 </div>
 
-                <input className="creator-input"
+                <input className="title-input"
                     type="text"
                     value={creator}
                     onChange={(e)=>setCreator(e.target.value)}
@@ -354,10 +363,11 @@ const [imageLoading, setImageLoading] = useState(false);
 
             <div className="material-container">
                 <div className="material-word">
-                    Materials 
+                <h5 className="title-header">Material *</h5>
+                    <p className="p-header-listing">Tell the user what your item is composed of.</p>
                 </div>
 
-                <input className="material-input"
+                <input className="title-input"
                     type="text"
                     value={material}
                     onChange={(e)=>setMaterial(e.target.value)}
@@ -368,7 +378,8 @@ const [imageLoading, setImageLoading] = useState(false);
 
             <div className="price-container">
                 <div className="price-word">
-                   Price 
+                <h5 className="title-header">Price *</h5>
+                <p className="p-header-listing">Be sure to mention the set price</p>
                 </div>
 
                 <label className="price-label">
@@ -393,11 +404,10 @@ const [imageLoading, setImageLoading] = useState(false);
          </div>
 
         </div>
-
-             <button type="submit">Submit</button>
-            {(imageLoading)&& <p>Loading...</p>}
+        <div className="create-product-button-1-container" >
+             <button className="create-product-button-1" type="submit">Create Product</button>
+         </div>
     </form>
-
         </>
     )
 }
