@@ -30,6 +30,7 @@ function DeleteProductModal ({ prop, buttonText, onDelete }){
       )
       
 
+
 }
 
 export default DeleteProductModal
