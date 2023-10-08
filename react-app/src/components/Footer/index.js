@@ -20,7 +20,7 @@ function Footer(){
             </div>
 
             <div className="shop-contact">
-              <div className="contact-us">Contact us </div>
+              <div className="contact-us"><u>Contact us</u> </div>
               <div className="socials">
                 <a href="https://www.linkedin.com/in/keisha-coleman-1657bb1b4/"className="linkedIn"><i class="fa-brands fa-linkedin"style={{fontSize:"20px"}}></i> linkedIn</a>
                 <a href="https://github.com/kmc369" className="gitHub" ><i class="fa-brands fa-github"  style={{fontSize:"20px"}}></i> GitHub</a>
@@ -39,9 +39,29 @@ function Footer(){
         </div>
 
           <div className="extra-information-seller">
-          <div>Etsy United Kingdom</div>
-          <div>Etsy Germany</div>
-          <div>Etsy Canada</div>
+          <div style={{marginBottom:"10px", fontSize:"15px"}}><u>Sell</u></div>
+        
+          <div>Seller handbook</div>
+          <div>Teams</div>
+          <div>Forums</div>
+          <div>Affiliates & Creators</div>
+          </div>
+
+          <div className="extra-information-about">
+          <div style={{marginBottom:"10px", fontSize:"15px"}}><u>About</u></div>
+        
+          <div>Etsy, Inc.</div>
+          <div>Policy</div>
+          <div>Investors</div>
+          <div>Careers</div>
+          </div>
+
+          <div className="extra-information-help">
+          <div style={{marginBottom:"10px", fontSize:"15px"}}><u>About</u></div>
+        
+          <div>Help Center</div>
+          <div>Privacy settings</div>
+        
           </div>
          
 
