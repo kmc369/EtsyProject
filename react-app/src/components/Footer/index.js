@@ -27,7 +27,26 @@ function Footer(){
                 <a href="https://twitter.com/elonmusk?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" className="Twitter"> <i class="fa-brands fa-twitter" style={{fontSize:"20px"}}></i>Twitter</a>
               </div>
             </div>
+
+      <div className="extra-information-all">
+        <div className="extra-information-shop">
+        <div style={{marginBottom:"10px", fontSize:"15px"}}><u>Shop</u></div>
+        <div>Gift cards</div>
+        <div>Etsy Registry</div>
+        <div>Sitemap</div>
+        <div>Etsy blog</div>
+    
+        </div>
+
+          <div className="extra-information-seller">
+          <div>Etsy United Kingdom</div>
+          <div>Etsy Germany</div>
+          <div>Etsy Canada</div>
           </div>
+         
+
+      </div>
+      </div>
       </div>
         
         </>
