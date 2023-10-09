@@ -12,6 +12,20 @@ const sessionUser = useSelector(state=>state.session.user)
 const history = useHistory()
 
 
+// const sliceArray = (arr)=>{
+//   const result= []
+//   let subArr = []
+//   for(let i =0;i<arr.length;i+=4){
+
+//      subArr = arr.slice(i, i+4)
+//   }
+
+//   return result.push(subArr)
+  
+// }
+
+
+
 
 
 useEffect(()=>{
@@ -25,6 +39,7 @@ if(Object.values(products).length===0){
     return null
 }
 const values = Object.values(products)
+
 return (
     <>  
     <div className="welcom3-container">
@@ -55,21 +70,67 @@ return (
     </div>
 
 
-  
-      <div className="landing-container" >
-        {values.map((element, index) => (
+    <p>Because You views</p>
+      <div><img src={values[0].image1} style={{ width: '50px', height: '50px' }} /></div>
+     <div className="landing-container" >
+    
+        {values.slice(0,4).map((element, index) => (
+         
           <div key={index} className="product" id="products" onClick={()=>{history.push(`/products/${element.id}`)}}>
+              
            
             <img src={element.image1} alt={`Product ${index}`} style={{ width: '200px', height: '200px' }} />
             <div className="price">
             <i class="fa-solid fa-dollar-sign"  style={{color: "#000000",marginRight:"5px"}}></i>
             {element.price}
+          
             </div>
-
-          </div>
-         
+  
+           </div>
+    
         ))}
       </div>
+
+      <p>Because You views</p>
+      <div><img src={values[4].image1} style={{ width: '50px', height: '50px' }} /></div>
+      <div className="landing-container" >
+        {values.slice(4,8).map((element, index) => (
+          <div key={index} className="product" id="products" onClick={()=>{history.push(`/products/${element.id}`)}}>
+         
+           
+            <img src={element.image1} alt={`Product ${index}`} style={{ width: '200px', height: '200px' }} />
+            <div className="price">
+            <i class="fa-solid fa-dollar-sign"  style={{color: "#000000",marginRight:"5px"}}></i>
+            {element.price}
+          
+            </div>
+  
+           </div>
+    
+        ))}
+      </div>
+
+      <p>Because You views</p>
+      <div><img src={values[8].image1} style={{ width: '50px', height: '50px' }} /></div>
+      <div className="landing-container" >
+        {values.slice(8,12).map((element, index) => (
+          <div key={index} className="product" id="products" onClick={()=>{history.push(`/products/${element.id}`)}}>
+         
+           
+            <img src={element.image1} alt={`Product ${index}`} style={{ width: '200px', height: '200px' }} />
+            <div className="price">
+            <i class="fa-solid fa-dollar-sign"  style={{color: "#000000",marginRight:"5px"}}></i>
+            {element.price}
+          
+            </div>
+  
+           </div>
+    
+        ))}
+      </div>
+
+
+    
   
           <Footer/>
     </>

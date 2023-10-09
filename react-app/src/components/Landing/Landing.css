@@ -55,7 +55,7 @@ text-align: center;
 
 }
 .landing-container {
-  /* border: 1px solid green; */
+  border: 1px solid green;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -91,6 +91,14 @@ text-align: center;
   position: absolute;
   bottom: 20px;
   left: 20px;
+}
+
+.rounded-images-container{
+  border:4px solid blue;
+}
+
+.square-images-container{
+  border:4px solid orange;
 }
   
   
