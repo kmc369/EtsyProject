@@ -177,6 +177,7 @@ def update_product(product_id):
         product.image = upload["url"]
     if 'image1' in form.data:
         product.image1 = image1_url
+        
     if 'image2' in form.data:
         product.image2 = image2_url
     if 'image3' in form.data:

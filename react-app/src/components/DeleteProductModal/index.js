@@ -16,6 +16,7 @@ function DeleteProductModal ({ prop, buttonText, onDelete }){
       dispatch(ProductActions.deleteProductThunk(prop.id))
       await onDelete(prop.id);
       history.push(`/userProfile/${sessionUser.id}`)
+      closeModal()
     
     };
 
