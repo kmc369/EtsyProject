@@ -73,7 +73,7 @@ return (
           <div key={index} className="product" id="products" onClick={()=>{history.push(`/products/${element.id}`)}}>
               
            
-            <img src={element.image1} alt={`Product ${index}`} style={{ width: '200px', height: '200px' }} />
+            <img src={element.image} alt={`Product ${index}`} style={{ width: '200px', height: '200px' }} />
             <div className="price">
             <i class="fa-solid fa-dollar-sign"  style={{color: "#000000",marginRight:"5px"}}></i>
             {element.price}
@@ -95,7 +95,7 @@ return (
           <div key={index} className="product" id="products" onClick={()=>{history.push(`/products/${element.id}`)}}>
          
            
-            <img src={element.image1} alt={`Product ${index}`} style={{ width: '200px', height: '200px' }} />
+            <img src={element.image} alt={`Product ${index}`} style={{ width: '200px', height: '200px' }} />
             <div className="price">
             <i class="fa-solid fa-dollar-sign"  style={{color: "#000000",marginRight:"5px"}}></i>
             {element.price}
@@ -120,7 +120,7 @@ return (
           <div key={index} className="product" id="products" onClick={()=>{history.push(`/products/${element.id}`)}}>
          
            
-            <img src={element.image1} alt={`Product ${index}`} style={{ width: '200px', height: '200px' }} />
+            <img src={element.image} alt={`Product ${index}`} style={{ width: '200px', height: '200px' }} />
             <div className="price">
             <i class="fa-solid fa-dollar-sign"  style={{color: "#000000",marginRight:"5px"}}></i>
             {element.price}

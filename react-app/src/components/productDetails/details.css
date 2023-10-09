@@ -1,7 +1,7 @@
 
 .main-slide{
-width:100%;
-/* border:5px solid green; */
+width:70%;
+border:5px solid green;
 display: flex;
 flex-direction: row;
 height:fit-content;
@@ -173,4 +173,16 @@ color:rgb(103, 98, 98);
     border-radius: 6px;
     height:30px;
 
+}
+
+/* carousel and card  */
+
+.carouselandcard{
+    display: flex;
+    flex-direction: row;
+}
+
+.payment-container{
+    border:3px solid red;
+    width:40%;
 }

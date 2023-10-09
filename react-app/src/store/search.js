@@ -19,7 +19,7 @@ export const getSearchThunk = (search) => async (dispatch, getState) => {
    if (res.ok) {
        const data = await res.json();
        dispatch(get_search(data));
-        console.log("the data being retunred is",data)
+     
        return data;
    } 
 }

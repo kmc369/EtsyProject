@@ -87,29 +87,39 @@ function dateFormat(timestamp){
 
     
     return (
-        <>
+       <>
+    <div className="carouselandcard">
 
-
-<Carousel dynamicHeight="true" className="main-slide" >
+        <Carousel dynamicHeight="true" className="main-slide" >
                 <div className="main-image">
-                <img src={product.image}  height="320px" width="300px"/>   
+                <img src={product.image}  height="320px" width="280px"/>   
                   
                 </div>
                 <div>
-                <img src={product.image1} height="320px" width="300px"/>
+                <img src={product.image1} height="320px" width="280px"/>
          
                 </div>
                 <div>
-                <img src={product.image2} height="320px" width="300px" />
+                <img src={product.image2} height="320px" width="280px" />
                 
                 </div>
 
                 <div>
-                <img src={product.image3} height="320px" width="300px"/>
+                <img src={product.image3} height="320px" width="280px"/>
                 
                 </div>
             
             </Carousel>
+
+            <div className="payment-container">
+              <div><p>In 19 carts</p></div>
+              <div>${product.price}</div>
+
+            </div>
+
+
+
+            </div>`
 
 
 

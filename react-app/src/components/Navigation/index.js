@@ -16,7 +16,13 @@ function Navigation({ isLoaded }){
 
 
 	const handlesubmit = (e) =>{
+
 		e.preventDefault()
+		if(search==="" || search==="%" || search==="#"){
+		
+			return history.push("/")
+		}
+	
 
 		 history.push(`/search/${search}`)
 	
