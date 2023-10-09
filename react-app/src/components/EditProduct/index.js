@@ -81,14 +81,16 @@ const [imageLoading, setImageLoading] = useState(false);
           
               
             const result = await dispatch(ProductActions.getProductByIdThunk(product_id_num));
-            //   console.log("inside the use effect the resut", result.get("image"))
-            // console.log("the result is blah ", result.image)
-            // console.log("the result is blah ", result.image1)
+          
 
-            // setImage(result.image)
-            // setImage1(result.image1)
-            // setImage2(result.image2)
-            // setImage3(result.image3)
+            setImage(result.image)
+         
+            console.log("the actual image is ", image)
+        
+            console.log("the result is blah ", result.image1)
+            setImage1(result.image1)
+            setImage2(result.image2)
+            setImage3(result.image3)
 
             setPrice(result.price)
             setHandmade(result.handmade)
