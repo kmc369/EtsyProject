@@ -109,7 +109,12 @@ padding: 20px;
     /* border:2px solid orange; */
     display: flex;
     flex-direction: column;
-    gap:7px;
+    /* gap:7px; */
+    border-bottom: 1px solid rgb(208, 208, 208,0.9);
+    margin-bottom: 10px;
+    padding: 15px;
+    /* border:3px solid green; */
+
 }
 .star-container1{
     /* border:2px solid blue; */
@@ -145,9 +150,27 @@ color:rgb(103, 98, 98);
   gap:10px;
   align-items: center;  
   font-size: small;
-  border-bottom: 1px solid rgb(208, 208, 208);
  /* border:3px solid green; */
  padding: 10px;
  margin-bottom: 9px;;
 }
 
+.deletereviewButton{
+    background-color: white;
+    border:none;
+}
+
+.editReview{
+    background-color: white;
+    border:none; 
+}
+
+.createreview-button{
+    background-color: black;
+    font-family: Helvetica, sans-serif Arial, sans-serif;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    height:30px;
+
+}

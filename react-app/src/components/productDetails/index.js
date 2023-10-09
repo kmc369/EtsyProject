@@ -12,15 +12,18 @@ import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 
 
+
 const ProductDetails = () =>{
 
     const dispatch = useDispatch()
+   
+
     const {product_id} = useParams()
     const product_id_num = Number(product_id)
     const [product,setProduct]=useState({})
     // const [reviews, SetReviews] = useState([])
     const history = useHistory()
-
+    const sessionUser = useSelector(state=>state.session.user)
 
 function dateFormat(timestamp){
 
@@ -110,26 +113,7 @@ function dateFormat(timestamp){
 
 
 
-{/* 
-       <div className="product-container">
-              {product.title}
-              {product.creator}
-      <Carousel>
-         
-            <div className="images-container">
-                <div className="big-image">
-                    <img src={product.image} />
-                 
-                </div>
-                <div className="sideImages">
-                    <img src={product.image1} />
-                    <img src={product.image2} />
-                    <img src={product.image3} />
-                </div>
-            </div>
 
-        </Carousel>
-        </div> */}
 
 
 
@@ -143,7 +127,7 @@ function dateFormat(timestamp){
             <span className="heade-starts2"> ★ ★ ★ ★ ★</span>
         
       
-        <OpenModalButton  modalComponent={<CreateReview prop={product} onCreateReview={handleCreateReview}/>} buttonText="Leave a review"/>
+        <OpenModalButton className="createreview-button"  modalComponent={<CreateReview prop={product} onCreateReview={handleCreateReview}/>} buttonText="Leave a review"/>
          </div>
 
         {reviews
@@ -180,9 +164,12 @@ function dateFormat(timestamp){
              </div>
 
              <div> 
-                <OpenModalButton  modalComponent={<EditReview prop={element} index={index} onEditReview={handleEditReview}/>} buttonText="Edit Review"/>
-                <OpenModalButton  modalComponent={<DeleteReview prop={element} index={index} onDeleteReview={onDeleteReview}/>} buttonText="Delete Review"/>
-
+              {sessionUser.id === element.user.id &&
+              <>
+                <OpenModalButton  className="deletereviewButton"  modalComponent={<EditReview prop={element} index={index} onEditReview={handleEditReview}/>}  buttonText={<i class="fa-solid fa-pen-to-square"></i>}/>
+                <OpenModalButton className="editReview" modalComponent={<DeleteReview prop={element} index={index} onDeleteReview={onDeleteReview}/>} buttonText={<i class="fa-solid fa-trash"></i>}/>
+              </>
+              }
             </div>
             </div>
 

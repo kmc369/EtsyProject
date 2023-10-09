@@ -3,7 +3,10 @@ import { useDispatch,useSelector  } from "react-redux";
 import './editreview.css'
 import * as PostActions from '../../store/products'
 
+import { useModal } from '../../context/Modal';
 
+
+   
 
 
 function EditReview({prop,index,onEditReview}){
@@ -12,7 +15,7 @@ function EditReview({prop,index,onEditReview}){
     const [stars,setRating] = useState(prop.stars)
     const dispatch = useDispatch()
     const sessionUser = useSelector(state=>state.session.user)
-
+    const { closeModal } = useModal();
 
     const handleStarClick = (selectedRating) => {
         setRating(selectedRating);
@@ -34,6 +37,7 @@ function EditReview({prop,index,onEditReview}){
         await onEditReview(prop.id,reviewData);
         setDescription("")
         setRating(0)
+        closeModal()
     
     
     }
@@ -78,7 +82,7 @@ function EditReview({prop,index,onEditReview}){
                 />
             </label>
             <div className="button-container">
-            <button className="cancel-button">Cancel</button>
+            <button onClick={closeModal} className="cancel-button">Cancel</button>
             <button className="post-button" type="submit">Post your review</button>
             </div>
         </form>

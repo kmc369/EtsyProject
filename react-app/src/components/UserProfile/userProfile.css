@@ -83,7 +83,7 @@
    
 }
 .product-items:hover{
-  z-index: 3;
+  /* z-index: 3; */
    
 }
 #product-user{
@@ -95,7 +95,7 @@
 
 
 .manage-buttons{
-background-color: rgb(16, 116, 229);
+/* background-color: rgb(16, 116, 229); */
 display: flex;
 flex-direction: row;
 gap:20px;
