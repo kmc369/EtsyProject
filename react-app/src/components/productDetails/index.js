@@ -164,7 +164,7 @@ function dateFormat(timestamp){
              </div>
 
              <div> 
-              {sessionUser.id === element.user.id &&
+              {sessionUser && sessionUser.id === element.user.id &&
               <>
                 <OpenModalButton  className="deletereviewButton"  modalComponent={<EditReview prop={element} index={index} onEditReview={handleEditReview}/>}  buttonText={<i class="fa-solid fa-pen-to-square"></i>}/>
                 <OpenModalButton className="editReview" modalComponent={<DeleteReview prop={element} index={index} onDeleteReview={onDeleteReview}/>} buttonText={<i class="fa-solid fa-trash"></i>}/>
