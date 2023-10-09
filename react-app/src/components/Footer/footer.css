@@ -2,6 +2,7 @@
  
     background-color:#d5d5d5;
     height:fit-content;
+    margin-top: 70px;
 }
 .fa-globe{
     font-size: 20px;
@@ -89,8 +90,8 @@ font-size:medium;
     width:fit-content;
     gap:20px;
     color:black;
-    border:2px solid yellow;
-    margin-right: 15px;
+    /* border:2px solid yellow; */
+    margin-right: 25px;
 
 
 
@@ -126,15 +127,18 @@ font-size:medium;
     flex-direction: row;
     gap:65px;
 }
-.extra-information-shop{
+.extra-information-shop,.extra-information-seller,.extra-information-about,.extra-information-help{
     color:black;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: small;
     display: flex;
     flex-direction: column;
-    gap:10px
+    gap:10px;
+   cursor: pointer;
 
 }
+
+
 
 
 
