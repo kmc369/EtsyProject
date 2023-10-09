@@ -25,6 +25,7 @@ def seed_users():
     matthew = User(
         username='Matthew', email='Matthew@aa.io', password='password', 
         image="https://ih0.redbubble.net/image.618427277.3222/flat,1000x1000,075,f.u1.jpg")
+  
     db.session.add(demo)
     db.session.add(marnie)
     db.session.add(bobbie)
@@ -32,6 +33,7 @@ def seed_users():
     db.session.add(bella)
     db.session.add(olivia)
     db.session.add(matthew)
+   
     db.session.commit()
 
 
