@@ -12,17 +12,7 @@ const sessionUser = useSelector(state=>state.session.user)
 const history = useHistory()
 
 
-// const sliceArray = (arr)=>{
-//   const result= []
-//   let subArr = []
-//   for(let i =0;i<arr.length;i+=4){
 
-//      subArr = arr.slice(i, i+4)
-//   }
-
-//   return result.push(subArr)
-  
-// }
 
 
 
@@ -67,12 +57,16 @@ return (
       <img src="https://i.etsystatic.com/32516685/r/il/2f2f23/4963062963/il_794xN.4963062963_aisj.jpg" style={{width:"130px",height:"130px"}}/>
       <img src="https://i.etsystatic.com/25199519/r/il/3df845/4968305885/il_794xN.4968305885_l8pb.jpg" style={{width:"130px",height:"130px"}}/>
 
-    </div>
+    </div >
 
-
-    <p>Because You views</p>
-      <div><img src={values[0].image1} style={{ width: '50px', height: '50px' }} /></div>
+      <div className="entire-landing-container">
+      <div className="because-image-container">
+    <div className="because-container">
+    <p>Because You viewed</p>
+      <div><img src={values[0].image1} style={{ width: '50px', height: '50px', borderRadius:"5px" }} /></div>
+      </div>
      <div className="landing-container" >
+      
     
         {values.slice(0,4).map((element, index) => (
          
@@ -90,9 +84,12 @@ return (
     
         ))}
       </div>
-
-      <p>Because You views</p>
+      </div>
+      <div className="because-image-container">
+      <div className="because-container">
+      <p>Because You viewed</p>
       <div><img src={values[4].image1} style={{ width: '50px', height: '50px' }} /></div>
+      </div>
       <div className="landing-container" >
         {values.slice(4,8).map((element, index) => (
           <div key={index} className="product" id="products" onClick={()=>{history.push(`/products/${element.id}`)}}>
@@ -109,10 +106,16 @@ return (
     
         ))}
       </div>
+      </div>
 
-      <p>Because You views</p>
+
+ <div className="because-image-container">
+    <div className="because-container">
+      <p>Because You viewed</p>
       <div><img src={values[8].image1} style={{ width: '50px', height: '50px' }} /></div>
+      </div>
       <div className="landing-container" >
+        
         {values.slice(8,12).map((element, index) => (
           <div key={index} className="product" id="products" onClick={()=>{history.push(`/products/${element.id}`)}}>
          
@@ -127,6 +130,9 @@ return (
            </div>
     
         ))}
+      </div>
+      </div>
+
       </div>
 
 
