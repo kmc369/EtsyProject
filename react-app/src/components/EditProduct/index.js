@@ -81,17 +81,13 @@ const [imageLoading, setImageLoading] = useState(false);
           
               
             const result = await dispatch(ProductActions.getProductByIdThunk(product_id_num));
-          
+            
 
-            setImage(result.image)
-         
-            console.log("the actual image is ", image)
-        
-            console.log("the result is blah ", result.image1)
-            setImage1(result.image1)
-            setImage2(result.image2)
-            setImage3(result.image3)
-
+            // setImage(result.image)
+            // setImage1(result.image1)
+            // setImage2(result.image2)
+            // setImage3(result.image3)
+            // console.log("image is ", result.image)
             setPrice(result.price)
             setHandmade(result.handmade)
             setVintage(result.vintage)
@@ -148,7 +144,9 @@ const [imageLoading, setImageLoading] = useState(false);
                     type="file" 
                     id="file-input" 
                     className="input-image1" 
-                    accept="image/*" />
+                    accept="image/*"
+                  
+                    />
                     </div>
                     {(imageLoading)&& <p>Loading...</p>}
 
@@ -159,7 +157,9 @@ const [imageLoading, setImageLoading] = useState(false);
                         <div>Add a photo</div>
                     </label>
                     <input type="file" id="file-input" className="input-image1" 
+
                     onChange={(e)=>setImage1(e.target.files[0])}
+
                     accept="image/*" />
                     </div>
                     {(imageLoading)&& <p>Loading...</p>}
