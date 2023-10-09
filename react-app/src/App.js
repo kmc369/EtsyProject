@@ -11,6 +11,7 @@ import EditProduct from "./components/EditProduct";
 import CreateReview from "./components/createReview";
 import ProductDetails from "./components/productDetails";
 import UserProfile from './components/UserProfile'
+import Search from './components/Search'
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -23,9 +24,14 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
+          
            <Route exact path="/">
             <Landing />
           </Route>
+          <Route exact path="/search/:search">
+            <Search />
+          </Route>
+        
           <Route exact path="/new_product">
             <NewProduct />
           </Route>

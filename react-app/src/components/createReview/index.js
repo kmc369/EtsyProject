@@ -3,13 +3,13 @@ import { useDispatch } from "react-redux";
 import { useSelector } from 'react-redux';
 import * as PostActions from '../../store/products'
 import "./createReview.css"
-
+import { useModal } from '../../context/Modal';
 
 function CreateReview({prop, onCreateReview}) {
 const [description,setDescription] = useState("")
 const [stars,setRating] = useState(0)
 const dispatch = useDispatch()
-
+const { closeModal } = useModal();
 const sessionUser = useSelector(state=>state.session.user)
 
 const handleStarClick = (selectedRating) => {
@@ -34,6 +34,7 @@ const handleSubmit = async (e) =>{
 
     setDescription("")
     setRating(0)
+    closeModal()
 
 
 }
@@ -85,7 +86,7 @@ useEffect(()=>{
                 />
             </label>
             <div className="button-container">
-            <button className="cancel-button">Cancel</button>
+            <button className="cancel-button" onClick={closeModal} >Cancel</button>
             <button className="post-button" type="submit">Post your review</button>
             </div>
         </form>
