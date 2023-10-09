@@ -5,11 +5,23 @@ import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import * as sessionActions from '../../store/session'
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const ulRef = useRef();
   const history = useHistory()
+
+
+  const handleClick = () => {
+    
+      const email = "olivia@aa.io"
+      const password = "password"
+
+   
+    // closeModal()
+    return dispatch(sessionActions.login(email,password))
+  }
 
   const openMenu = () => {
     if (showMenu) return;
@@ -64,6 +76,11 @@ function ProfileButton({ user }) {
               onItemClick={closeMenu}
               modalComponent={<LoginFormModal />}
             />
+
+          <button onClick={handleClick}   className="login-button">
+          Demo Login
+          </button>
+          
 
             <OpenModalButton
               className="signUp-button"
