@@ -6,6 +6,7 @@ const DELETE_PRODUCT='delete/product/user'
 const EDIT_PRODUCT = "edit/product"
 
 const ADD_TO_CART = 'add/cart'
+const DELETE_FROM_CART = 'delete/product/cart'
 
 
 const setUser = (user) => ({
@@ -50,6 +51,28 @@ export const add_to_cart = (data)=>{
     }
 }
 
+export const delete_from_cart = (data)=>{
+	
+    return {
+        type:DELETE_FROM_CART,
+        payload:data
+		
+    }
+}
+export const deleteFromCartThunk= (productId, cartId) => async (dispatch) => {
+	const response = await fetch(`/api/shopping/delete/${productId}/shopping_cart/${cartId}`, {
+		method: "DELETE",
+
+	});
+	if(response.ok){
+		const data = await response.json();
+		console.log("the data coming back is ",data)
+		dispatch(add_to_cart(data))
+		return data
+	}
+
+
+}
 
 export const addToCartThunk= (productId, cartId) => async (dispatch) => {
 	const response = await fetch(`/api/shopping/${productId}/${cartId}`, {
@@ -61,7 +84,7 @@ export const addToCartThunk= (productId, cartId) => async (dispatch) => {
 	});
 	if(response.ok){
 		const data = await response.json();
-		console.log("the data coming back is ",data)
+	
 		dispatch(add_to_cart(data))
 		return data
 	}
@@ -178,8 +201,6 @@ export const deleteProductThunk = (product_id) => async(dispatch,getState) =>{
 
 export const editProductThunk = (product,product_id) => async (dispatch, getState) => {
   
-	
-	console.log("the thunk image is ", product.get("image"))
     const res = await fetch(`/api/products/update/${product_id}`,{
         method:"PUT",
         body:product
