@@ -3,7 +3,7 @@
     
     width: 600px;
     height: 550px;
-    border: 5px solid yellow;
+    /* border: 5px solid yellow; */
     margin-right: 90px;
     display: flex;
     flex-direction: row;
@@ -35,7 +35,7 @@
   .main-slide .carousel {
     position: absolute; 
     height:fit-content;
-    border:3px solid green;
+    /* border:3px solid green; */
   
 
 }

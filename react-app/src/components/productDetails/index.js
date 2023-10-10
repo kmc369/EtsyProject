@@ -102,22 +102,22 @@ function dateFormat(timestamp){
     
        
                 <div className="main-image">
-                <img src={product.image} height="520px" width="280px" alt="Product Image 1" />   
+                <img src={product.image} height="420px" width="280px" alt="Product Image 1" />   
               </div>
 
         
          
                 <div>
-                <img src={product.image1} height="520px" width="280px" alt="Product Image 2"/>
+                <img src={product.image1} height="420px" width="280px" alt="Product Image 2"/>
          
                 </div>
                 <div>
-                <img src={product.image2} height="520px" width="280px" alt="Product Image 3"  />
+                <img src={product.image2} height="420px" width="280px" alt="Product Image 3"  />
                 
                 </div>
 
                 <div>
-                <img src={product.image3} height="520px" width="280px" alt="Product Image 4" />
+                <img src={product.image3} height="420px" width="280px" alt="Product Image 4" />
                 
                
                 </div>
