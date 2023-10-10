@@ -98,7 +98,7 @@ function dateFormat(timestamp){
        <>
     <div className="carouselandcard">
 
-        <Carousel dynamicHeight={true} className="main-slide" >
+        <Carousel dynamicHeight="true" className="main-slide" >
     
        
                 <div className="main-image">
