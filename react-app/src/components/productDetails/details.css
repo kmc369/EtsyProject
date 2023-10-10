@@ -1,72 +1,73 @@
 
-.main-slide{
-width:70%;
-border:5px solid green;
-display: flex;
-flex-direction: row;
-height:fit-content;
-
-padding: 20px;
-}
-/* main image */
-.main-slide .main-image {
+.main-slide {
+    
+    max-width: 50%;
+    /* border: 5px solid green; */
+    margin-right: 90px;
+    display: flex;
+    flex-direction: row;
+    margin-top:50px;
+    justify-content:space-between;
+    height: fit-content;
+    overflow: hidden;
+    box-sizing: border-box;
+    position: relative; /* Set position relative for absolute positioning */
+  }
+  
+  .main-slide .main-image {
     flex: 1;
     overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* border:3px solid limegreen; */
-    width:600px;
-    height:400px;
+    /* border: 3px solid red; */
+    width: 60%;
+    margin: 0 auto 0 auto; 
+    margin-left: auto; 
+    margin-right: 0;    
+    position: relative;
   }
   
   .main-slide .main-image img {
-    width: 100%; /* Make the main image fill its container */
-    height: 80%; /* Make the main image fill its container */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
+  
+  .main-slide .carousel {
+    position: absolute; 
+    height:fit-content;
+  
+
+}
   
   .main-slide div {
-    /* Styles for other carousel items if needed */
-    /* border:3px solid red; */
-     height: fit-content;
-    /* width:fit-content  */
+    height: fit-content;
   }
-
-  /* main image */
   
-
-
-  .main-slide .carousel .thumbs {
-    width: 30px;
-    height: 190px; 
-    display: flex; 
-    flex-direction: column; 
-    /* border:4px solid orange; */
-    padding-left: 0px;;
+  .thumbs-wrapper {
+    width: fit-content;
   }
-
-
-
-
-/* .carousel .thumbs{
-    width: 50px; 
-    height: 50px; 
-  } */
-
-
-.images-container{
+  
+  .carousel {
+    width: 50px;
+  }
+  
+  .main-slide .carousel .thumbs {
+    width: 70px;
+    height: 190px;
+    display: flex;
+    flex-direction: column;
+    /* border: 4px solid orange; */
+    padding-left: 0;
+    position:absolute;
+   
+    top:5px;
+    left:123px;
+  }
+  
+  .images-container {
     display: flex;
     flex-direction: row;
-    /* border:1px solid green; */
+  }
 
-}
-.big-image{
-/* border:2px solid red; */
-}
-
-.sideImages{
-    /* border:3px solid purple; */
-}
 
 
 
@@ -182,7 +183,91 @@ color:rgb(103, 98, 98);
     flex-direction: row;
 }
 
-.payment-container{
-    border:3px solid red;
+.add-to-cart-container{
+    /* border:3px solid red; */
+    margin-top:50px;
     width:40%;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    padding: 10px;
+}
+
+.cart-items-words{
+    color:#A61A2E;
+    font-family:  Helvetica, sans-serif;
+    margin:0px;
+}
+.cart-item-cost{
+  color:  #258635;
+  margin-right:10px;
+  margin-top:0px;
+  margin-bottom:0px;
+  font-size: xx-large;
+  font-weight: bolder;
+
+}
+.price-cross{
+    color:rgb(99, 99, 99);
+    text-decoration:line-through;
+    font-weight: 400;
+    margin-bottom:0px;
+}
+
+.cart-item-sale{
+    font-family:  Helvetica, sans-serif;
+    color:  #258635;
+    margin: 0px;
+}
+.cart-items-title{
+    font-family:  sans-serif;
+    font-weight:lighter;
+   
+
+}
+
+
+
+
+.ship-from{
+    margin-left: 10px;
+    font-family: sans-serif;
+    font-weight: lighter;
+}
+
+.quanity{
+    font-family: sans-serif;
+    font-weight: lighter;
+}
+
+.star-icon{
+    color:#A61A2E;
+    
+}
+#dropdown{
+    width:70%;
+    height:50px;
+    border-radius: 5px;
+    border: 2px solid rgba(14,14,14,.1803921569);
+    box-shadow: 2px 2px 2px lightgray;
+  
+    }
+
+.buy-button{
+    background-color: white;;
+    font-family:  Helvetica, sans-serif;
+    color: black;
+    border:2px solid black;
+    height:50px;
+    width:70%;
+    border-radius: 25px;
+}
+.add-to-cart{
+    background-color: black;
+    font-family:  Helvetica, sans-serif;
+    color: white;
+    border:2px solid black;
+    height:50px;
+    width:70%;
+    border-radius: 25px;
 }
