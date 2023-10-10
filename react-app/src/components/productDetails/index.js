@@ -96,7 +96,7 @@ function dateFormat(timestamp){
     
     return (
        <>
-    {/* <div className="carouselandcard"> */}
+    <div className="carouselandcard">
 
         <Carousel dynamicHeight="true" className="main-slide" >
         
@@ -123,7 +123,7 @@ function dateFormat(timestamp){
                 </div>
             
             </Carousel>
-            
+
             <div className="add-to-cart-container">
               <div><p className="cart-items-words">In demand. 3 people bought this in the last 24 hours.</p></div>
               <div><span className="cart-item-cost">${product.price}</span><span className="price-cross">234.00</span></div>
@@ -154,7 +154,7 @@ function dateFormat(timestamp){
 
 
 
-            {/* </div>` */}
+            </div>`
 
 
 
