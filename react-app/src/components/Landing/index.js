@@ -14,6 +14,10 @@ const history = useHistory()
 
 
 
+
+
+
+
 useEffect(()=>{
     const products = async() =>{
         await dispatch(ProductActions.getAllProductThunk())
@@ -25,6 +29,7 @@ if(Object.values(products).length===0){
     return null
 }
 const values = Object.values(products)
+
 return (
     <>  
     <div className="welcom3-container">
@@ -52,24 +57,86 @@ return (
       <img src="https://i.etsystatic.com/32516685/r/il/2f2f23/4963062963/il_794xN.4963062963_aisj.jpg" style={{width:"130px",height:"130px"}}/>
       <img src="https://i.etsystatic.com/25199519/r/il/3df845/4968305885/il_794xN.4968305885_l8pb.jpg" style={{width:"130px",height:"130px"}}/>
 
-    </div>
+    </div >
 
-
-  
-      <div className="landing-container" >
-        {values.map((element, index) => (
+      <div className="entire-landing-container">
+      <div className="because-image-container">
+    <div className="because-container">
+    <p>Because You viewed</p>
+      <div><img src={values[0].image1} style={{ width: '50px', height: '50px', borderRadius:"5px" }} /></div>
+      </div>
+     <div className="landing-container" >
+      
+    
+        {values.slice(0,4).map((element, index) => (
+         
           <div key={index} className="product" id="products" onClick={()=>{history.push(`/products/${element.id}`)}}>
+              
            
-            <img src={element.image1} alt={`Product ${index}`} style={{ width: '200px', height: '200px' }} />
+            <img src={element.image} alt={`Product ${index}`} style={{ width: '200px', height: '200px' }} />
             <div className="price">
             <i class="fa-solid fa-dollar-sign"  style={{color: "#000000",marginRight:"5px"}}></i>
             {element.price}
+          
             </div>
-
-          </div>
-         
+  
+           </div>
+    
         ))}
       </div>
+      </div>
+      <div className="because-image-container">
+      <div className="because-container">
+      <p>Because You viewed</p>
+      <div><img src={values[4].image1} style={{ width: '50px', height: '50px' }} /></div>
+      </div>
+      <div className="landing-container" >
+        {values.slice(4,8).map((element, index) => (
+          <div key={index} className="product" id="products" onClick={()=>{history.push(`/products/${element.id}`)}}>
+         
+           
+            <img src={element.image} alt={`Product ${index}`} style={{ width: '200px', height: '200px' }} />
+            <div className="price">
+            <i class="fa-solid fa-dollar-sign"  style={{color: "#000000",marginRight:"5px"}}></i>
+            {element.price}
+          
+            </div>
+  
+           </div>
+    
+        ))}
+      </div>
+      </div>
+
+
+ <div className="because-image-container">
+    <div className="because-container">
+      <p>Because You viewed</p>
+      <div><img src={values[8].image1} style={{ width: '50px', height: '50px' }} /></div>
+      </div>
+      <div className="landing-container" >
+        
+        {values.slice(8,12).map((element, index) => (
+          <div key={index} className="product" id="products" onClick={()=>{history.push(`/products/${element.id}`)}}>
+         
+           
+            <img src={element.image} alt={`Product ${index}`} style={{ width: '200px', height: '200px' }} />
+            <div className="price">
+            <i class="fa-solid fa-dollar-sign"  style={{color: "#000000",marginRight:"5px"}}></i>
+            {element.price}
+          
+            </div>
+  
+           </div>
+    
+        ))}
+      </div>
+      </div>
+
+      </div>
+
+
+    
   
           <Footer/>
     </>

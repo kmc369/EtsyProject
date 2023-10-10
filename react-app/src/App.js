@@ -12,6 +12,7 @@ import CreateReview from "./components/createReview";
 import ProductDetails from "./components/productDetails";
 import UserProfile from './components/UserProfile'
 import Search from './components/Search'
+import ShoppingCart from "./components/shopping_cart";
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -30,6 +31,9 @@ function App() {
           </Route>
           <Route exact path="/search/:search">
             <Search />
+          </Route>
+          <Route exact path="/shopping_cart/:shopping_cart_id/user/:id">
+            <ShoppingCart />
           </Route>
         
           <Route exact path="/new_product">

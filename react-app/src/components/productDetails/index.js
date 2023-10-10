@@ -10,6 +10,7 @@ import EditReview from "../EditReview";
 import DeleteReview from "../DeleteReview";
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import * as SessionActions from '../../store/session'
 
 
 
@@ -75,6 +76,13 @@ function dateFormat(timestamp){
         const updatedProduct = await dispatch(ProductActions.getProductByIdThunk(product_id_num));
         setProduct(updatedProduct);
       };
+
+      const addToCart = async () =>{
+      
+         await dispatch(SessionActions.addToCartThunk(product.id,sessionUser.shopping_cart.id))
+         await dispatch(SessionActions.getUserProductThunk(sessionUser.id))
+        history.push(`/shopping_cart/${sessionUser.shopping_cart.id}/user/${sessionUser.id}`)
+      }
   
     if(Object.keys(product).length===0){
      
@@ -87,29 +95,66 @@ function dateFormat(timestamp){
 
     
     return (
-        <>
+       <>
+    <div className="carouselandcard">
 
+        <Carousel dynamicHeight="true" className="main-slide" >
 
-<Carousel dynamicHeight="true" className="main-slide" >
+       
                 <div className="main-image">
-                <img src={product.image}  height="320px" width="300px"/>   
-                  
-                </div>
+                <img src={product.image}  height="520px" width="280px"/>   
+              </div>
+
+        
+         
                 <div>
-                <img src={product.image1} height="320px" width="300px"/>
+                <img src={product.image1} height="520px" width="280px"/>
          
                 </div>
                 <div>
-                <img src={product.image2} height="320px" width="300px" />
+                <img src={product.image2} height="520px" width="280px" />
                 
                 </div>
 
                 <div>
-                <img src={product.image3} height="320px" width="300px"/>
+                <img src={product.image3} height="520px" width="280px"/>
                 
+               
                 </div>
             
             </Carousel>
+
+            <div className="add-to-cart-container">
+              <div><p className="cart-items-words">In demand. 3 people bought this in the last 24 hours.</p></div>
+              <div><span className="cart-item-cost">${product.price}</span><span className="price-cross">234.00</span></div>
+              <div><p className="cart-item-sale">72% off sale ends October 31st</p></div>
+              <div><div className="cart-items-title">{product.title}</div></div>
+              <div><i class="fa-solid fa-location-dot" style={{color:"rgb(81, 181, 242)",fontSize:"19px"}}></i><span className="ship-from">Ships From NY</span></div>
+              <div>
+              <label for="dropdown" className="quanity">Quanity and Amount <span className="star-icon">*</span></label>
+                <br></br>
+                <br></br>
+                    <div> 
+                      <select id="dropdown" name="dropdown">
+                      <option  value="option1">Order Bulk</option>
+                      <option  value="option2">Order single item </option>
+                      <option c value="option3">Order for party</option>
+                    
+                    </select>
+                    </div>
+                
+                </div>
+              {sessionUser &&
+              <>
+            <button className="buy-button">Buy it now</button>
+            <button className="add-to-cart" onClick={addToCart}>Add to cart</button>
+            </>
+              }
+            </div>
+
+
+
+            </div>`
 
 
 

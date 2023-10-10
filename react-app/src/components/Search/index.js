@@ -15,12 +15,18 @@ function Search(){
     useEffect(()=>{
 
         const fetchData = async() =>{
-        		if(search!==""){
-			const data = await dispatch(SearchAction.getSearchThunk(search))
-		
-			setSearchData(data)
-		
-        }
+       
+       
+			    const data = await dispatch(SearchAction.getSearchThunk(search))
+          console.log("data is ",data)
+          if(data.length===0){
+            console.log("data length is zero")
+            history.push("/")
+          }
+			     setSearchData(data)
+       
+       
+     
     }
     fetchData()
     },[dispatch,search])
