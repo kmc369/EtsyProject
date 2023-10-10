@@ -441,7 +441,7 @@ const [errors,setErrors] = useState({})
 
         </div>
         <div className="create-product-button-1-container" >
-             <button className="create-product-button-1" type="submit">Create Product</button>
+             <button className="create-product-button-1" type="submit">Update Product</button>
          </div>
     </form>
         </>
