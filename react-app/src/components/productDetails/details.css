@@ -2,14 +2,14 @@
 .carousel-root {
     
     width: 600px;
-    /* height: 550px; */
-    /* border: 5px solid yellow; */
+    height: 550px;
+    border: 5px solid yellow;
     margin-right: 90px;
     display: flex;
     flex-direction: row;
     margin-top:50px;
     justify-content:space-between;
-    height: fit-content;
+    /* height: fit-content; */
     overflow: hidden;
     box-sizing: border-box;
     position: relative; 
@@ -26,16 +26,16 @@
     position: relative;
   }
   
-  .main-slide .main-image img {
+  /* .main-slide .main-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-  }
+  } */
   
   .main-slide .carousel {
     position: absolute; 
-    height: 300px;
-    /* border:3px solid green; */
+    height:fit-content;
+    border:3px solid green;
   
 
 }
