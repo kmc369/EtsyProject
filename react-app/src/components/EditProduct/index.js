@@ -29,6 +29,7 @@ const [material,setMaterial] = useState("")
 const [description,setDescription]=useState("")
 const [userId,setUserId] = useState(1)
 const [imageLoading, setImageLoading] = useState(false);
+const [errors,setErrors] = useState({})
 
 
     
@@ -36,9 +37,27 @@ const [imageLoading, setImageLoading] = useState(false);
         e.preventDefault();
       
     
-        const handmadeValue = JSON.parse(handmade);
-        const vintageValue = JSON.parse(vintage);  
-        const madeToOrderValue = JSON.parse(madeToOrder);
+        const err = {}
+
+        if(title.length<4){
+            err.title = "Title must be greater than 4 character"
+        }
+
+        if(creator.length<4){
+            err.creator = "Creator must be greater than 4 character"
+        }
+        if(material.length<4){
+            err.material = "material must be greater than 4 character"
+        }
+        if(price<=0){
+            err.price = "price must be greater than 0"
+        }
+      
+        if(description.length<30){
+            err.description = "description must be greater than 30 character"
+        }
+     
+        setErrors(err)
         
 
     
@@ -57,18 +76,21 @@ const [imageLoading, setImageLoading] = useState(false);
         formData.append('description', description);
         formData.append('user_id', userId);
        
-        setImageLoading(true);
-        setDescription("")
-        setMaterial("")
-        setTitle("")
-        setPrice(0)
-        setHandmade(false)
-        setVintage(false)
-        setmadeToOrder(false)
-       const updated= await dispatch(UserAction.editProductThunk(formData,result.id))
+        if(Object.values(err).length===0){
+            const updated= await dispatch(UserAction.editProductThunk(formData,result.id))
+
+            setImageLoading(true);
+            setDescription("")
+            setMaterial("")
+            setTitle("")
+            setPrice(0)
+            setHandmade(false)
+            setVintage(false)
+            setmadeToOrder(false)
+            return history.push(`/products/${product_id_num}`)
+        }
 
       
-       history.push(`/products/${product_id_num}`)
 
    
         
@@ -109,11 +131,17 @@ const [imageLoading, setImageLoading] = useState(false);
         return null
     }
 
+    const errorsArr = Object.values(errors)
 
     return (
         <>
  
  <form className="create-listing-container"  method="POST" encType="multipart/form-data" onSubmit={handleSubmit}>
+ <ul className="errors">
+					{errorsArr.map((error, idx) => (
+						<li key={idx}>{error}</li>
+					))}
+				</ul>
             <h1 className="listing-header">Create a listing </h1>
             <h3 className="second-header">Add some photos and details about your item. Fill out what you can for now—you’ll be able to edit this later.</h3>
         <div className="photo-container">
@@ -207,6 +235,7 @@ const [imageLoading, setImageLoading] = useState(false);
                  <input
                  className="title-input"
                 type="text"
+                required
                 value={title}
                 onChange={(e)=>setTitle(e.target.value)}
             
@@ -338,6 +367,7 @@ const [imageLoading, setImageLoading] = useState(false);
 
                 <textarea className="desc-input"
                     type="text"
+                    required
                     value={description}
                     onChange={(e)=>setDescription(e.target.value)}
                 />
@@ -355,6 +385,7 @@ const [imageLoading, setImageLoading] = useState(false);
 
                 <input className="title-input"
                     type="text"
+                    required
                     value={creator}
                     onChange={(e)=>setCreator(e.target.value)}
                 />
@@ -371,6 +402,7 @@ const [imageLoading, setImageLoading] = useState(false);
 
                 <input className="title-input"
                     type="text"
+                    required
                     value={material}
                     onChange={(e)=>setMaterial(e.target.value)}
                 />
@@ -389,6 +421,8 @@ const [imageLoading, setImageLoading] = useState(false);
                 <input className="price-input"
                     type="number"
                     value={price}
+                    min={0}
+                    required
                     onChange={(e)=>setPrice(e.target.value)}
                 />
                 </label>
