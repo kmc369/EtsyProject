@@ -25,6 +25,7 @@ def get_product(product_id,shopping_cart_id):
 
 @shopping_bp.route("/delete/<int:product_id>/shopping_cart/<int:shopping_cart_id>", methods=["DELETE"])
 def delete_product(product_id, shopping_cart_id):
+  
     user_cart = ShoppingCart.query.get(shopping_cart_id)
     
     if user_cart:
@@ -37,9 +38,9 @@ def delete_product(product_id, shopping_cart_id):
             product_to_delete.shopping_cart = None
             db.session.commit()
 
-        # updated_products_dict = [product.to_dict() for product in updated_products]
-        
-        return jsonify(updated_products)
+        updated_products_dict = [product.to_dict() for product in updated_products]
+        print('updated products is', updated_products)
+        return jsonify(updated_products_dict)
 
     return jsonify({"error": "Shopping cart or product not found"}), 404
 

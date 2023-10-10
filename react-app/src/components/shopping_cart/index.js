@@ -7,7 +7,8 @@ import './shoppingcart.css'
 
 function ShoppingCart (){
 const [product,setProduct] = useState([])
-const products = useSelector(state=>state.session.user.shopping_cart.products)
+const productsArr = useSelector(state=>state.session.user.shopping_cart.products)
+console.log("the product array is ", productsArr)
 const history = useHistory()
 const dispatch = useDispatch()
 const {shopping_cart_id, id} = useParams()
@@ -19,13 +20,22 @@ const shopping_cart_id_num = Number(shopping_cart_id)
 const handleDelete= async(product_id) =>{
   
    await  dispatch(SessionActions.deleteFromCartThunk(product_id,shopping_cart_id_num))
+   setProduct(productsArr)
+
+}
+useEffect(()=>{
+    setProduct(productsArr)
+},[productsArr])
+
+if(productsArr.length===0){
+    return null
 }
 
     return (
         <>
         <div>Shopping Cart</div>
         <div className="cart-container" >
-        {products.map((element, index) => (
+        {product.map((element, index) => (
           <div key={index}  id="products">
             <img src={element.image} alt={`Product ${index}`} style={{ width: '200px', height: '200px' }} />
             <div className="price">
