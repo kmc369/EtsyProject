@@ -1,7 +1,7 @@
 
 .main-slide {
     
-    max-width: 50%;
+    width: 50%;
     /* border: 5px solid green; */
     margin-right: 90px;
     display: flex;
