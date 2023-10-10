@@ -1,14 +1,15 @@
 
-.main-slide {
+.carousel-root {
     
-    width: 50%;
+    width: 600px;
+    height: 550px;
     border: 5px solid yellow;
     margin-right: 90px;
     display: flex;
     flex-direction: row;
     margin-top:50px;
     justify-content:space-between;
-    height: fit-content;
+    /* height: fit-content; */
     overflow: hidden;
     box-sizing: border-box;
     position: relative; 
@@ -22,7 +23,7 @@
     margin: 0 auto 0 auto; 
     margin-left: auto; 
     margin-right: 0;    
-    /* position: relative; */
+    position: relative;
   }
   
   .main-slide .main-image img {
@@ -33,7 +34,7 @@
   
   .main-slide .carousel {
     position: absolute; 
-    height:fit-content;
+    height: 300px;
     border:3px solid green;
   
 
