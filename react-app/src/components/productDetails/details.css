@@ -2,7 +2,7 @@
 .main-slide {
     
     width: 50%;
-    /* border: 5px solid green; */
+    border: 5px solid yellow;
     margin-right: 90px;
     display: flex;
     flex-direction: row;
@@ -11,18 +11,18 @@
     height: fit-content;
     overflow: hidden;
     box-sizing: border-box;
-    position: relative; /* Set position relative for absolute positioning */
+    position: relative; 
   }
   
   .main-slide .main-image {
     flex: 1;
     overflow: hidden;
-    /* border: 3px solid purple; */
+   
     width: 60%;
     margin: 0 auto 0 auto; 
     margin-left: auto; 
     margin-right: 0;    
-    position: relative;
+    /* position: relative; */
   }
   
   .main-slide .main-image img {
@@ -34,6 +34,7 @@
   .main-slide .carousel {
     position: absolute; 
     height:fit-content;
+    border:3px solid green;
   
 
 }
@@ -48,15 +49,10 @@
   }
   
   .carousel {
-    width: 50px;
+    width: 300px;
   }
 
-  /* .carousel .thumbs-wrapper {
-    position: absolute; */
-    /* top: -510px;
-    left: -150px; */
- 
-  /* } */
+
   
    .main-slide .carousel .thumbs {
     width: 70px;
