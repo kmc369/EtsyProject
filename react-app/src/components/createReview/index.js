@@ -21,40 +21,7 @@ const handleStarClick = (selectedRating) => {
 const handleSubmit = async (e) =>{
     e.preventDefault()
 
-    const reviewData = {
-        stars:stars,
-        description: description,
-        user_id:sessionUser.id,
-        product_id:prop.id
-
-    }
-
-   
-   
- 
-    //  await dispatch(PostActions.createReviewThunk(prop.id,reviewData))
-    
-     await onCreateReview(reviewData);
-//    console.log("the data is ",data)
-//    if(data){
-//     console.log("the data errors in front is",data.errors.description[0])
-//    }
-
-    setDescription("")
-    setRating(0)
-
-
-   
-      
-        closeModal()
-    
-        
-
-
-}
-useEffect(()=>{
-
-    const err ={}
+    let err ={}
     if(stars===0){
         err.stars = "Star count must be greater than 0"
     }
@@ -64,17 +31,60 @@ useEffect(()=>{
       SetErrors(err)
   
 
+
+    const reviewData = {
+        stars:stars,
+        description: description,
+        user_id:sessionUser.id,
+        product_id:prop.id
+
+    }
+
+   
+    console.log("the error is", err)
+ 
+ 
+    if(Object.values(err).length===0){
+        await onCreateReview(reviewData);
+        setDescription("")
+        setRating(0)
+        closeModal()
+
+    }    
+
+
+
+
+   
+      
+       
+    
+        
+
+
+}
+useEffect(()=>{
+
+   
+
     async function FetchData(){
       await dispatch(PostActions.getProductByIdThunk(prop.id))
     }
     FetchData()
 },[dispatch,prop.id,description,stars])
 
+const errorsArr = Object.values(errors)
+
     return (
     <>
 
     <div className="review-container">
     <form className="review-form-container" onSubmit={handleSubmit}>
+    <ul className="errors">
+					{errorsArr.map((error, idx) => (
+						<li key={idx}>{error}</li>
+					))}
+				</ul>
             <h1 className="review-header">Leave a Review</h1>
 
             {/* put the product item here  */}

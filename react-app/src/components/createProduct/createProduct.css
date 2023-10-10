@@ -281,6 +281,11 @@ align-items: center;
 
 }
 
+.errors{
+    color:red;
+    text-decoration: none;
+}
+
 
 
 

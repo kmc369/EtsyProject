@@ -108,7 +108,7 @@ const [errors,setErrors] = useState({})
         <>
    
     <form className="create-listing-container"  method="POST" encType="multipart/form-data" onSubmit={handleSubmit}>
-                <ul>
+                <ul className="errors">
 					{errorsArr.map((error, idx) => (
 						<li key={idx}>{error}</li>
 					))}
