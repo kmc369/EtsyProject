@@ -41,7 +41,8 @@ def create_review():
         db.session.add(new_review)
         db.session.commit()
         return new_review.to_dict()
-    return jsonify({"error": form.errors}), 400
+    print("the form erros is", form.errors)
+    return jsonify(errors=form.errors), 400
 
 @review_bp.route("/update/<int:review_id>", methods=["PUT"])
 def edit_review(review_id):

@@ -77,6 +77,7 @@ function EditReview({prop,index,onEditReview}){
             <label className="description-label" >
                 <textarea className="text-input"
                 type="text"
+                required
                 value = {description}
                 onChange={(e)=>setDescription(e.target.value)}
                 />

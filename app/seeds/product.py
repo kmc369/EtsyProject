@@ -3,7 +3,7 @@ from sqlalchemy.sql import text
 
 def seed_products():
     product1 = Product(
-        price= 17.90,
+        price= 17.95,
         image= 'https://i.etsystatic.com/36401895/r/il/aa05ef/4782689222/il_794xN.4782689222_3rdq.jpg',
         image1= 'https://i.etsystatic.com/36401895/r/il/75a5cc/4830944321/il_794xN.4830944321_q9h1.jpg',
         image2= 'https://i.etsystatic.com/36401895/r/il/815281/4830944319/il_794xN.4830944319_lhds.jpg',
@@ -20,7 +20,7 @@ def seed_products():
         
     )
     product2 = Product(
-        price=75.50,
+        price=75.55,
         image='https://i.etsystatic.com/6436456/r/il/55da5b/5057661177/il_794xN.5057661177_st7t.jpg',
         image1='https://i.etsystatic.com/6436456/r/il/4f2164/5057657859/il_794xN.5057657859_35s7.jpg',
         image2='https://i.etsystatic.com/6436456/r/il/b96a9e/5057660887/il_794xN.5057660887_hlad.jpg',
@@ -56,7 +56,7 @@ def seed_products():
 
   
     product4 = Product(
-        price=85.00,
+        price=85.15,
         image='https://i.etsystatic.com/16123146/r/il/19ea8f/5293725553/il_794xN.5293725553_8zak.jpg',
         image1='https://i.etsystatic.com/16123146/r/il/11e633/5360391165/il_794xN.5360391165_8ubn.jpg',
         image2='https://i.etsystatic.com/16123146/r/il/ebfcf5/5360391169/il_794xN.5360391169_jf7x.jpg',
@@ -74,7 +74,7 @@ def seed_products():
 
 
     product5 = Product(
-        price=65.00,
+        price=65.15,
         image='https://i.etsystatic.com/40991023/r/il/0cc3a4/4929994815/il_794xN.4929994815_ok73.jpg',
         image1='https://i.etsystatic.com/40991023/r/il/9e2207/4929995591/il_794xN.4929995591_3ph0.jpg',
         image2='https://i.etsystatic.com/40991023/r/il/f14f0c/4881716226/il_794xN.4881716226_fvmb.jpg',
@@ -92,7 +92,7 @@ def seed_products():
 
 
     product6 = Product(
-        price=150.00,
+        price=150.75,
         image='https://i.etsystatic.com/29336514/r/il/7b95ae/4908692894/il_794xN.4908692894_m2p2.jpg',
         image1='https://i.etsystatic.com/29336514/r/il/bd3670/4956950095/il_794xN.4956950095_dq76.jpg',
         image2='https://i.etsystatic.com/29336514/r/il/815953/5252300278/il_794xN.5252300278_jjj4.jpg',
@@ -109,7 +109,7 @@ def seed_products():
     )
 
     product7 = Product(
-        price=95.00,
+        price=95.55,
         image='https://i.etsystatic.com/24150074/r/il/296237/5119025627/il_794xN.5119025627_il3a.jpg',
         image1='https://i.etsystatic.com/24150074/r/il/4aa263/5119023489/il_794xN.5119023489_khmr.jpg',
         image2='https://i.etsystatic.com/24150074/r/il/7418c0/5119023423/il_794xN.5119023423_4k7x.jpg',
@@ -145,7 +145,7 @@ def seed_products():
 
 # Product 10
     product9 = Product(
-        price=110.00,
+        price=110.99,
         image='https://i.etsystatic.com/22470627/r/il/24f061/5054324750/il_794xN.5054324750_rt44.jpg',
         image1='https://i.etsystatic.com/22470627/r/il/fed773/5097807973/il_794xN.5097807973_iw2p.jpg',
         image2='https://i.etsystatic.com/22470627/r/il/fdedc2/5097808119/il_794xN.5097808119_8xk3.jpg',
@@ -163,7 +163,7 @@ def seed_products():
     
 #     # Product 11
     product10 = Product(
-        price=90.00,
+        price=90.99,
         image='https://i.etsystatic.com/26933694/r/il/bcb267/5173567623/il_794xN.5173567623_4owe.jpg',
         image1='https://i.etsystatic.com/26933694/r/il/7999f2/3543805249/il_794xN.3543805249_msmo.jpg',
         image2='https://i.etsystatic.com/26933694/r/il/bbf507/3594029812/il_794xN.3594029812_b369.jpg',

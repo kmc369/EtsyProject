@@ -11,6 +11,8 @@ const [stars,setRating] = useState(0)
 const dispatch = useDispatch()
 const { closeModal } = useModal();
 const sessionUser = useSelector(state=>state.session.user)
+const [errors, SetErrors]= useState({})
+
 
 const handleStarClick = (selectedRating) => {
   setRating(selectedRating);
@@ -19,6 +21,17 @@ const handleStarClick = (selectedRating) => {
 const handleSubmit = async (e) =>{
     e.preventDefault()
 
+    let err ={}
+    if(stars===0){
+        err.stars = "Star count must be greater than 0"
+    }
+    if(description.length<15){
+        err.description = "Description be greater than 15 character"
+      }
+      SetErrors(err)
+  
+
+
     const reviewData = {
         stars:stars,
         description: description,
@@ -26,30 +39,52 @@ const handleSubmit = async (e) =>{
         product_id:prop.id
 
     }
-   
- 
-    //  await dispatch(PostActions.createReviewThunk(prop.id,reviewData))
-    
-    await onCreateReview(reviewData);
 
-    setDescription("")
-    setRating(0)
-    closeModal()
+   
+    console.log("the error is", err)
+ 
+ 
+    if(Object.values(err).length===0){
+        await onCreateReview(reviewData);
+        setDescription("")
+        setRating(0)
+        closeModal()
+
+    }    
+
+
+
+
+   
+      
+       
+    
+        
 
 
 }
 useEffect(()=>{
+
+   
+
     async function FetchData(){
       await dispatch(PostActions.getProductByIdThunk(prop.id))
     }
     FetchData()
-},[dispatch,prop.id])
+},[dispatch,prop.id,description,stars])
+
+const errorsArr = Object.values(errors)
 
     return (
     <>
 
     <div className="review-container">
     <form className="review-form-container" onSubmit={handleSubmit}>
+    <ul className="errors">
+					{errorsArr.map((error, idx) => (
+						<li key={idx}>{error}</li>
+					))}
+				</ul>
             <h1 className="review-header">Leave a Review</h1>
 
             {/* put the product item here  */}
@@ -66,8 +101,10 @@ useEffect(()=>{
              ★
             </span>
             ))}
-    
+           
+
          </div>
+         <p className="errors">{errors.stars}</p>
 
          <div className="list-container">
          <p className="para-help">Helpful reviews on Fetsy mention:</p>
@@ -85,6 +122,7 @@ useEffect(()=>{
                 onChange={(e)=>setDescription(e.target.value)}
                 />
             </label>
+            <p className="errors">{errors.description}</p>
             <div className="button-container">
             <button className="cancel-button" onClick={closeModal} >Cancel</button>
             <button className="post-button" type="submit">Post your review</button>

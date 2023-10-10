@@ -5,6 +5,9 @@ const GET_PRODUCT_OF_USER = "user/products"
 const DELETE_PRODUCT='delete/product/user'
 const EDIT_PRODUCT = "edit/product"
 
+const ADD_TO_CART = 'add/cart'
+const DELETE_FROM_CART = 'delete/product/cart'
+
 
 const setUser = (user) => ({
 	type: SET_USER,
@@ -41,6 +44,52 @@ export const edit_product = (data)=>{
     }
 }
 
+export const add_to_cart = (data)=>{
+    return {
+        type:ADD_TO_CART,
+        payload:data
+    }
+}
+
+export const delete_from_cart = (data)=>{
+	
+    return {
+        type:DELETE_FROM_CART,
+        payload:data
+		
+    }
+}
+export const deleteFromCartThunk= (productId, cartId) => async (dispatch) => {
+	const response = await fetch(`/api/shopping/delete/${productId}/shopping_cart/${cartId}`, {
+		method: "DELETE",
+
+	});
+	if(response.ok){
+		const data = await response.json();
+		console.log("the data coming back is ",data)
+		dispatch(add_to_cart(data))
+		return data
+	}
+
+
+}
+
+export const addToCartThunk= (productId, cartId) => async (dispatch) => {
+	const response = await fetch(`/api/shopping/${productId}/${cartId}`, {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		
+	});
+	if(response.ok){
+		const data = await response.json();
+	
+		dispatch(add_to_cart(data))
+		return data
+	}
+
+}
 
 
 export const authenticate = () => async (dispatch) => {
@@ -152,8 +201,6 @@ export const deleteProductThunk = (product_id) => async(dispatch,getState) =>{
 
 export const editProductThunk = (product,product_id) => async (dispatch, getState) => {
   
-	
-	console.log("the thunk image is ", product.get("image"))
     const res = await fetch(`/api/products/update/${product_id}`,{
         method:"PUT",
         body:product
@@ -161,7 +208,7 @@ export const editProductThunk = (product,product_id) => async (dispatch, getStat
 
    if (res.ok) {
        const data = await res.json();
-	   console.log("the data coming back is ",data)
+	
        dispatch(edit_product(data));
        return data;
    } else {
@@ -199,13 +246,22 @@ export default function reducer(state = initialState, action) {
 			const index = state.user.products.findIndex((product) => product.id === action.payload.id);
 			
 			newState.user.products[index] = action.payload
-
-
-
-
 			
             return newState
         }
+		case ADD_TO_CART:{
+			
+			const newState = {...state,user:{...state.user}, products:{...state.user.shopping_cart.products}}
+			newState.user.shopping_cart.products = action.payload
+			return newState
+		}
+		case DELETE_FROM_CART:{
+			const newState = {...state, user: {...state.user,shopping_cart: {...state.user.shopping_cart, products: [...action.payload]}} };
+			return newState;
+			}
+	
+		
+		
 		default:
 			return state;
 	}
