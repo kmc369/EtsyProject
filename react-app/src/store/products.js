@@ -96,7 +96,7 @@ const delete_review = (review_id,index) =>{
 
 export const createProductThunk = (product) => async(dispatch,getState) =>{
  
- 
+ try{
     const res = await fetch("/api/products/new_product",{
         method:"POST",
         body:product
@@ -105,7 +105,14 @@ export const createProductThunk = (product) => async(dispatch,getState) =>{
         const data = await res.json()
         dispatch(create_product(data))
         return data
+    }else{
+        const error = await res.json()
+        console.log("the thunk error is",error)
     }
+}catch(error){
+    console.log("the error is", error)
+}
+   
 }
 
 
@@ -172,18 +179,31 @@ export const editProductThunk = (product,product_id) => async (dispatch, getStat
 
 export const createReviewThunk = (product_id,review)=>async(dispatch,getState) =>{
 
- 
+
     const res = await fetch('/api/review/new_review',{
         method:"POST",
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(review),
 
     })
+
+
     if(res.ok){
         const data = await res.json()
         dispatch(create_review(product_id,data))
         return data
     }
+    else{
+    
+
+        const error = await res.json()
+        // console.log("the error in thunk is",error)
+        return error
+        // console.log("the error is",error)
+    
+  
+    }
+
 
 
 }

@@ -11,6 +11,8 @@ const [stars,setRating] = useState(0)
 const dispatch = useDispatch()
 const { closeModal } = useModal();
 const sessionUser = useSelector(state=>state.session.user)
+const [errors, SetErrors]= useState({})
+
 
 const handleStarClick = (selectedRating) => {
   setRating(selectedRating);
@@ -26,24 +28,47 @@ const handleSubmit = async (e) =>{
         product_id:prop.id
 
     }
+
+   
    
  
     //  await dispatch(PostActions.createReviewThunk(prop.id,reviewData))
     
-    await onCreateReview(reviewData);
+     await onCreateReview(reviewData);
+//    console.log("the data is ",data)
+//    if(data){
+//     console.log("the data errors in front is",data.errors.description[0])
+//    }
 
     setDescription("")
     setRating(0)
-    closeModal()
+
+
+   
+      
+        closeModal()
+    
+        
 
 
 }
 useEffect(()=>{
+
+    const err ={}
+    if(stars===0){
+        err.stars = "Star count must be greater than 0"
+    }
+    if(description.length<15){
+        err.description = "Description be greater than 15 character"
+      }
+      SetErrors(err)
+  
+
     async function FetchData(){
       await dispatch(PostActions.getProductByIdThunk(prop.id))
     }
     FetchData()
-},[dispatch,prop.id])
+},[dispatch,prop.id,description,stars])
 
     return (
     <>
@@ -66,8 +91,10 @@ useEffect(()=>{
              ★
             </span>
             ))}
-    
+           
+
          </div>
+         <p className="errors">{errors.stars}</p>
 
          <div className="list-container">
          <p className="para-help">Helpful reviews on Fetsy mention:</p>
@@ -85,6 +112,7 @@ useEffect(()=>{
                 onChange={(e)=>setDescription(e.target.value)}
                 />
             </label>
+            <p className="errors">{errors.description}</p>
             <div className="button-container">
             <button className="cancel-button" onClick={closeModal} >Cancel</button>
             <button className="post-button" type="submit">Post your review</button>
