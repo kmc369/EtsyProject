@@ -1,4 +1,6 @@
-
+.carouselandcard{
+    position: relative;
+}
 .main-slide {
     
     max-width: 50%;
@@ -17,7 +19,7 @@
   .main-slide .main-image {
     flex: 1;
     overflow: hidden;
-    /* border: 3px solid red; */
+    /* border: 3px solid purple; */
     width: 60%;
     margin: 0 auto 0 auto; 
     margin-left: auto; 
@@ -44,24 +46,32 @@
   
   .thumbs-wrapper {
     width: fit-content;
+    /* border:3px solid gold; */
   }
   
   .carousel {
     width: 50px;
   }
+
+  /* .carousel .thumbs-wrapper {
+    position: absolute; */
+    /* top: -510px;
+    left: -150px; */
+ 
+  /* } */
   
-  .main-slide .carousel .thumbs {
+   .main-slide .carousel .thumbs {
     width: 70px;
     height: 190px;
     display: flex;
     flex-direction: column;
-    /* border: 4px solid orange; */
+   
     padding-left: 0;
     position:absolute;
-   
+    /* border:2px solid orange; */
     top:5px;
     left:123px;
-  }
+  } 
   
   .images-container {
     display: flex;
