@@ -25,16 +25,38 @@ const [material,setMaterial] = useState("")
 const [description,setDescription]=useState("")
 const [userId,setUserId] = useState(sessionUser.id)
 const [imageLoading, setImageLoading] = useState(false);
-
+const [errors,setErrors] = useState({})
 
 
 
     async function handleSubmit(e){
         e.preventDefault();
       
+    
+        const err = {}
+
+        if(title.length<4){
+            err.title = "Title must be greater than 4 character"
+        }
+
+        if(creator.length<4){
+            err.creator = "Creator must be greater than 4 character"
+        }
+        if(material.length<4){
+            err.material = "material must be greater than 4 character"
+        }
+        if(price<=0){
+            err.price = "price must be greater than 0"
+        }
       
+        if(description.length<30){
+            err.description = "description must be greater than 30 character"
+        }
+     
+        setErrors(err)
+     
     
-    
+        
         const formData = new FormData();
         formData.append('image', image);
         formData.append('image1', image1);
@@ -49,33 +71,48 @@ const [imageLoading, setImageLoading] = useState(false);
         formData.append('material', material);
         formData.append('description', description);
         formData.append('user_id', userId);
+        
        
-        setImageLoading(true);
-        setCreator("")
-        setDescription("")
-        setMaterial("")
-        setTitle("")
-        setPrice(0)
-        setHandmade(false)
-        setVintage(false)
-        setmadeToOrder(false)
+
        
+        if(Object.values(err).length===0){
+            await dispatch(ProductActions.createProductThunk(formData))
+            setImageLoading(true);
+            setCreator("")
+            setDescription("")
+            setMaterial("")
+            setTitle("")
+            setPrice(0)
+            setHandmade(false)
+            setVintage(false)
+            setmadeToOrder(false)
+        return history.push(`/userProfile/${userId}`)
+        }
+        
+        
        
-       const data = await dispatch(ProductActions.createProductThunk(formData))
-       console.log("the data is ",data)
-        // console.log("the submit form image is",formData.get("image") )
-        // const updatedData = await dispatch(UserAction.getUserProductThunk(userId))
-        history.push(`/userProfile/${userId}`)
+      
      
-        // return <UserProfile prop={updatedData}/>
+      
+     
+       
        
       }
+
+      
+
+      const errorsArr = Object.values(errors)
 
 
     return (
         <>
    
     <form className="create-listing-container"  method="POST" encType="multipart/form-data" onSubmit={handleSubmit}>
+                <ul>
+					{errorsArr.map((error, idx) => (
+						<li key={idx}>{error}</li>
+					))}
+				</ul>
             <h1 className="listing-header">Create a listing </h1>
             <h3 className="second-header">Add some photos and details about your item. Fill out what you can for now—you’ll be able to edit this later.</h3>
         <div className="photo-container">
@@ -164,6 +201,7 @@ const [imageLoading, setImageLoading] = useState(false);
             
                  <input
                  className="title-input"
+                 required
                 type="text"
                 value={title}
                 onChange={(e)=>setTitle(e.target.value)}
@@ -296,6 +334,8 @@ const [imageLoading, setImageLoading] = useState(false);
 
                 <textarea className="desc-input"
                     type="text"
+                    required
+                    minLength={15}
                     value={description}
                     onChange={(e)=>setDescription(e.target.value)}
                 />
@@ -313,6 +353,7 @@ const [imageLoading, setImageLoading] = useState(false);
 
                 <input className="title-input"
                     type="text"
+                    required
                     value={creator}
                     onChange={(e)=>setCreator(e.target.value)}
                 />
@@ -329,6 +370,7 @@ const [imageLoading, setImageLoading] = useState(false);
 
                 <input className="title-input"
                     type="text"
+                    required
                     value={material}
                     onChange={(e)=>setMaterial(e.target.value)}
                 />
@@ -346,6 +388,8 @@ const [imageLoading, setImageLoading] = useState(false);
                 <i class="fa-solid fa-dollar-sign" style={{color: "#5b6371"}}></i>
                 <input className="price-input"
                     type="number"
+                    min={0}
+                    required
                     value={price}
                     onChange={(e)=>setPrice(e.target.value)}
                 />
