@@ -27,7 +27,7 @@ const handleDelete= async(product_id) =>{
         <div className="cart-container" >
         {products.map((element, index) => (
           <div key={index}  id="products">
-            <img src={element.image1} alt={`Product ${index}`} style={{ width: '200px', height: '200px' }} />
+            <img src={element.image} alt={`Product ${index}`} style={{ width: '200px', height: '200px' }} />
             <div className="price">
             <i class="fa-solid fa-dollar-sign"  style={{color: "#000000",marginRight:"5px"}}></i>
             {element.price}

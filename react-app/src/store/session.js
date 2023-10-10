@@ -255,6 +255,11 @@ export default function reducer(state = initialState, action) {
 			newState.user.shopping_cart.products = action.payload
 			return newState
 		}
+		case DELETE_FROM_CART:{
+			const newState = {...state, user: {...state.user,shopping_cart: {...state.user.shopping_cart, products: [...action.payload]}} };
+			return newState;
+			}
+	
 		
 		
 		default:
