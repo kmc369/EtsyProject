@@ -10,6 +10,7 @@ import EditReview from "../EditReview";
 import DeleteReview from "../DeleteReview";
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import * as SessionActions from '../../store/session'
 
 
 
@@ -75,6 +76,12 @@ function dateFormat(timestamp){
         const updatedProduct = await dispatch(ProductActions.getProductByIdThunk(product_id_num));
         setProduct(updatedProduct);
       };
+
+      const addToCart = async () =>{
+      
+        const data= await dispatch(SessionActions.addToCartThunk(product.id,sessionUser.shopping_cart.id))
+        console.log("the data in the front end is",data)
+      }
   
     if(Object.keys(product).length===0){
      
@@ -136,9 +143,12 @@ function dateFormat(timestamp){
                     </div>
                 
                 </div>
+              {sessionUser &&
+              <>
             <button className="buy-button">Buy it now</button>
-            <button className="add-to-cart">Add to cart</button>
-
+            <button className="add-to-cart" onClick={addToCart}>Add to cart</button>
+            </>
+              }
             </div>
 
 

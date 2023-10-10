@@ -5,6 +5,8 @@ const GET_PRODUCT_OF_USER = "user/products"
 const DELETE_PRODUCT='delete/product/user'
 const EDIT_PRODUCT = "edit/product"
 
+const ADD_TO_CART = 'add/cart'
+
 
 const setUser = (user) => ({
 	type: SET_USER,
@@ -41,6 +43,29 @@ export const edit_product = (data)=>{
     }
 }
 
+export const add_to_cart = (data)=>{
+    return {
+        type:ADD_TO_CART,
+        payload:data
+    }
+}
+
+
+export const addToCartThunk= (productId, cartId) => async (dispatch) => {
+	const response = await fetch(`/api/shopping/${productId}/${cartId}`, {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		
+	});
+	if(response.ok){
+		const data = await response.json();
+		dispatch(add_to_cart(data))
+		return data
+	}
+
+}
 
 
 export const authenticate = () => async (dispatch) => {
