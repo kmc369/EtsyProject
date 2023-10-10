@@ -79,8 +79,9 @@ function dateFormat(timestamp){
 
       const addToCart = async () =>{
       
-        const data= await dispatch(SessionActions.addToCartThunk(product.id,sessionUser.shopping_cart.id))
-        console.log("the data in the front end is",data)
+         await dispatch(SessionActions.addToCartThunk(product.id,sessionUser.shopping_cart.id))
+         await dispatch(SessionActions.getUserProductThunk(sessionUser.id))
+        history.push(`/shopping_cart/${sessionUser.shopping_cart.id}/user/${sessionUser.id}`)
       }
   
     if(Object.keys(product).length===0){

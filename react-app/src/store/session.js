@@ -61,6 +61,7 @@ export const addToCartThunk= (productId, cartId) => async (dispatch) => {
 	});
 	if(response.ok){
 		const data = await response.json();
+		console.log("the data coming back is ",data)
 		dispatch(add_to_cart(data))
 		return data
 	}
@@ -186,7 +187,7 @@ export const editProductThunk = (product,product_id) => async (dispatch, getStat
 
    if (res.ok) {
        const data = await res.json();
-	   console.log("the data coming back is ",data)
+	
        dispatch(edit_product(data));
        return data;
    } else {
@@ -224,13 +225,17 @@ export default function reducer(state = initialState, action) {
 			const index = state.user.products.findIndex((product) => product.id === action.payload.id);
 			
 			newState.user.products[index] = action.payload
-
-
-
-
 			
             return newState
         }
+		case ADD_TO_CART:{
+			
+			const newState = {...state,user:{...state.user}, products:{...state.user.shopping_cart.products}}
+			newState.user.shopping_cart.products = action.payload
+			return newState
+		}
+		
+		
 		default:
 			return state;
 	}
