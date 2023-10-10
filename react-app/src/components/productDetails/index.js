@@ -98,29 +98,29 @@ function dateFormat(timestamp){
        <>
     <div className="carouselandcard">
 
-        <Carousel dynamicHeight="true" className="main-slide" >
+        <Carousel dynamicHeight={true} className="main-slide" >
         {/* height="520px" width="280px"
 height="520px" width="280px"
 height="520px" width="280px"
 height="520px" width="280px" */}
        
                 <div className="main-image">
-                <img src={product.image}  />   
+                <img src={product.image} alt="Product Image 1" />   
               </div>
 
         
          
                 <div>
-                <img src={product.image1} />
+                <img src={product.image1} alt="Product Image 2"/>
          
                 </div>
                 <div>
-                <img src={product.image2}  />
+                <img src={product.image2} alt="Product Image 3"  />
                 
                 </div>
 
                 <div>
-                <img src={product.image3} />
+                <img src={product.image3} alt="Product Image 4" />
                 
                
                 </div>
