@@ -41,7 +41,6 @@ const handleSubmit = async (e) =>{
     }
 
    
-    console.log("the error is", err)
  
  
     if(Object.values(err).length===0){
@@ -85,9 +84,10 @@ const errorsArr = Object.values(errors)
 						<li key={idx}>{error}</li>
 					))}
 				</ul>
+        
             <h1 className="review-header">Leave a Review</h1>
-
-            {/* put the product item here  */}
+            
+        
 
             <h3 className="smaller-header">My Review</h3>
         <div className="star-rating">
