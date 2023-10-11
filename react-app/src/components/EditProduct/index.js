@@ -62,10 +62,10 @@ const [errors,setErrors] = useState({})
 
     
         const formData = new FormData();
-        formData.append('image', image);
-        formData.append('image1', image1);
-        formData.append('image2', image2);
-        formData.append('image3', image3);
+        // formData.append('image', image);
+        // formData.append('image1', image1);
+        // formData.append('image2', image2);
+        // formData.append('image3', image3);
         formData.append('price', price);
         formData.append('handmade', handmade);
         formData.append('vintage', vintage);
@@ -144,11 +144,11 @@ const [errors,setErrors] = useState({})
 				</ul>
             <h1 className="listing-header">Create a listing </h1>
             <h3 className="second-header">Add some photos and details about your item. Fill out what you can for now—you’ll be able to edit this later.</h3>
-        <div className="photo-container">
+        {/* <div className="photo-container">
                 <h3 className="photo-header">Photos</h3>
-                <p className="p-header">Add as many as you can so buyers can see every detail.</p>
+                <p className="p-header">Add as many as you can so buyers can see every detail.</p> */}
             
-            <div className="photo-image-container">
+            {/* <div className="photo-image-container">
                 <div className="photo-words">
                     <h4 className="photo-header4">Photos *</h4>
                     <p className="para-4">Use up to ten photos to show your item's most important qualities.</p>
@@ -216,7 +216,7 @@ const [errors,setErrors] = useState({})
 
                 </div>    
             </div>
-        </div>
+        </div> */}
 
 
     <div className="listing-details-container">

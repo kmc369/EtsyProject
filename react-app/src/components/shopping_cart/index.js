@@ -36,8 +36,9 @@ if(productsArr.length===0){
         <div>Shopping Cart</div>
         <div className="cart-container" >
         {product.map((element, index) => (
-          <div key={index}  id="products">
-            <img src={element.image} alt={`Product ${index}`} style={{ width: '200px', height: '200px' }} />
+          <div key={index}  id="cart-image-container">
+            <div><img className="cart-small-image"src={element.image2}/>{element.creator} </div>
+            <img src={element.image} alt={`Product ${index}`} style={{ width: '240px', height: '200px' }} />
             <div className="price">
             <i class="fa-solid fa-dollar-sign"  style={{color: "#000000",marginRight:"5px"}}></i>
             {element.price}
