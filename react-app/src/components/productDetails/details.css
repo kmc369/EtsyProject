@@ -21,10 +21,21 @@ ul.thumbs{
     flex-direction: column !important;
     transform: unset !important;
 }
+li.thumb{
+    width:50px !important;
+    height: 50px !important;
+    text-decoration: none !important;
+}
+ul {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
 
 .thumbs-wrapper{
     border:3px solid blue;
     width: fit-content;
+
 
    
 }
