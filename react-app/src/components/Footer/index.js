@@ -28,7 +28,7 @@ function Footer(){
               </div>
             </div>
 
-      <div className="extra-information-all">
+      {/* <div className="extra-information-all">
         <div className="extra-information-shop">
         <div style={{marginBottom:"10px", fontSize:"15px"}}><u>Shop</u></div>
         <div>Gift cards</div>
@@ -65,7 +65,7 @@ function Footer(){
           </div>
          
 
-      </div>
+      </div> */}
       </div>
       </div>
         
