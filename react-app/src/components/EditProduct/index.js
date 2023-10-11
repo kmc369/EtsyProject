@@ -16,10 +16,10 @@ const history = useHistory()
 const result = useSelector(state =>state.products.singleProduct)
 const dispatch = useDispatch()
 const [price,setPrice] = useState(0)
-const [image,setImage]=useState(null)
-const [image1,setImage1]=useState(null)
-const [image2,setImage2]=useState(null)
-const [image3,setImage3]=useState(null)
+// const [image,setImage]=useState(null)
+// const [image1,setImage1]=useState(null)
+// const [image2,setImage2]=useState(null)
+// const [image3,setImage3]=useState(null)
 const [handmade , setHandmade]=useState(false)
 const [vintage , setVintage]=useState(false)
 const [madeToOrder , setmadeToOrder]=useState(false)
@@ -39,21 +39,21 @@ const [errors,setErrors] = useState({})
     
         const err = {}
 
-        if(title.length<4){
+        if(title.length<=4){
             err.title = "Title must be greater than 4 character"
         }
 
-        if(creator.length<4){
+        if(creator.length<=4){
             err.creator = "Creator must be greater than 4 character"
         }
-        if(material.length<4){
+        if(material.length<=4){
             err.material = "material must be greater than 4 character"
         }
         if(price<=0){
             err.price = "price must be greater than 0"
         }
       
-        if(description.length<30){
+        if(description.length<=30){
             err.description = "description must be greater than 30 character"
         }
      
@@ -137,11 +137,7 @@ const [errors,setErrors] = useState({})
         <>
  
  <form className="create-listing-container"  method="POST" encType="multipart/form-data" onSubmit={handleSubmit}>
- <ul className="errors">
-					{errorsArr.map((error, idx) => (
-						<li key={idx}>{error}</li>
-					))}
-				</ul>
+
             <h1 className="listing-header">Create a listing </h1>
             <h3 className="second-header">Add some photos and details about your item. Fill out what you can for now—you’ll be able to edit this later.</h3>
         {/* <div className="photo-container">
@@ -229,6 +225,7 @@ const [errors,setErrors] = useState({})
             <div className="title">
                 <div className="title-words">
                     <h5 className="title-header">Title *</h5>
+                    <p className="errors">{errors.title}</p>
                     <p className="p-header-listing">Include keywords that buyers would use to search for your item.</p>
                 </div>
             
@@ -357,6 +354,8 @@ const [errors,setErrors] = useState({})
             <div className="descr-container">
                 <div className="desc-word">
                   <h5 className="desc-header"> Description *</h5>
+                  <p className="errors">{errors.description}</p>
+
                    <p className="p-header-listing">Start with a brief overview that describes your item’s finest features. Shoppers will only see the first few lines of your description at first, so make it count!
                         Not sure what else to say? 
                         <br></br>
@@ -380,6 +379,8 @@ const [errors,setErrors] = useState({})
             <div className="creator-container">
                 <div className="creator-word">
                     <h5 className="title-header">Creator *</h5>
+                    <p className="errors">{errors.creator}</p>
+
                     <p className="p-header-listing">Tell the user what the name of your store is.</p>
                 </div>
 
@@ -397,6 +398,8 @@ const [errors,setErrors] = useState({})
             <div className="material-container">
                 <div className="material-word">
                 <h5 className="title-header">Material *</h5>
+                <p className="errors">{errors.material}</p>
+
                     <p className="p-header-listing">Tell the user what your item is composed of.</p>
                 </div>
 
@@ -413,6 +416,8 @@ const [errors,setErrors] = useState({})
             <div className="price-container">
                 <div className="price-word">
                 <h5 className="title-header">Price *</h5>
+                <p className="errors">{errors.price}</p>
+
                 <p className="p-header-listing">Be sure to mention the set price</p>
                 </div>
 
