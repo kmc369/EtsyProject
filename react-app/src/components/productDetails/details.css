@@ -1,4 +1,18 @@
+.carousel-root{
+    border:3px solid green;
 
+}
+.carousel-slider{
+    border:3px solid red;
+    width: 70% !important;
+
+}
+
+
+.thumbs-wrapper{
+    border:3px solid blue;
+   
+}
 /* .carousel-root {
     
     width: 600px;

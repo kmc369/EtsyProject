@@ -100,26 +100,26 @@ function dateFormat(timestamp){
       <div className="product-center-container">
     <div className="carouselandcard">
 
-        <Carousel dynamicHeight="true" className="main-slide" >
+        <Carousel  >
     
        
-                <div className="main-image">
-                <img src={product.image} height="420px" width="280px" alt="Product Image 1" />   
+                <div >
+                <img className="main-image" src={product.image} />   
               </div>
 
         
          
                 <div>
-                <img src={product.image1} height="420px" width="280px" alt="Product Image 2"/>
+                <img src={product.image1}/>
          
                 </div>
                 <div>
-                <img src={product.image2} height="420px" width="280px" alt="Product Image 3"  />
+                <img src={product.image2}   />
                 
                 </div>
 
                 <div>
-                <img src={product.image3} height="420px" width="280px" alt="Product Image 4" />
+                <img src={product.image3}  />
                 
                
                 </div>
