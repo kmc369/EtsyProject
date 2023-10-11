@@ -67,7 +67,7 @@
   
 }
 .product-items{
-    /* border:2px solid purple; */
+    border:2px solid purple;
     display: flex;
     flex-direction: row;
     flex-wrap:wrap;
@@ -77,8 +77,9 @@
     cursor: pointer;
     height:fit-content;
     padding:10px;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
+    /* margin: 0 auto; */
   
    
    
