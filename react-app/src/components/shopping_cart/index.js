@@ -8,7 +8,7 @@ import './shoppingcart.css'
 function ShoppingCart (){
 const [product,setProduct] = useState([])
 const productsArr = useSelector(state=>state.session.user.shopping_cart.products)
-console.log("the product array is ", productsArr)
+const [cartPrice, setCartPrice]=useState(0)
 const history = useHistory()
 const dispatch = useDispatch()
 const {shopping_cart_id, id} = useParams()
@@ -25,26 +25,38 @@ const handleDelete= async(product_id) =>{
 }
 useEffect(()=>{
     setProduct(productsArr)
-},[productsArr])
+  
+    let totalPrice = 0;
+    for(let i=0; i<product.length;i++){
+      let price = product[i].price
+    
+      if (!isNaN(price)) {
+        totalPrice = totalPrice+price;
+      }
+    }
+   
+    setCartPrice(totalPrice)
+},[productsArr,product])
 
 if(productsArr.length===0){
     return null
 }
 
     return (
-        <>
-        <div>Shopping Cart</div>
+        <div className="cart-payment-container">
+        <div className="center-container">
         <div className="cart-container" >
         {product.map((element, index) => (
+         
           <div key={index}  id="cart-image-container">
             <div className="header-shop">
-            <div><img className="cart-small-image"src={element.image2}/>{element.creator} </div>
-            <div><p>Contact Shop</p></div>
+            <div className="image-creator"><img className="cart-small-image"src={element.image2}/>{element.creator} </div>
+            <div><p className="save-words">Contact Shop</p></div>
           </div>
 
           <div className="image-price-container">
               <div className="image-desc-container">
-            <img className="image-cart" src={element.image} alt={`Product ${index}`} style={{ width: '240px', height: '200px' }} />
+            <img className="image-cart" src={element.image} alt={`Product ${index}`} style={{ width: '200px', height: '200px' }} />
             <div style={{width:"60%"}}><p>{element.title}</p> </div>
               </div>
             <div><h3>${element.price}</h3></div>
@@ -70,8 +82,74 @@ if(productsArr.length===0){
 
          
         ))}
+
+        
+
+        </div>
+        <div className="card-infomration-container">
+         
+          <h3 className="pay-header">How you'll pay</h3>
+            <div className="Master-cards">
+            <input
+            type="radio"
+            style={{ width: '23px', height: '23px',marginRight:"2px" }}
+            />
+            <i class="fa-brands fa-cc-visa" style={{color: "#e60000",fontSize:"40px"}}></i>
+            <i class="fa-brands fa-cc-mastercard" style={{color: "#f07e14",fontSize:"40px"}}></i>
+            <i class="fa-brands fa-cc-amex" style={{color: "#bb9d07",fontSize:"40px"}}></i>
+            <i class="fa-brands fa-cc-discover" style={{color: "#f37712", fontSize:"40px"}}></i>
+            </div>
+
+            <div className="paypal">
+            <input
+            type="radio"
+            style={{ width: '23px', height: '23px',marginRight:"2px" }}
+            />
+            <i class="fa-brands fa-cc-paypal" style={{color: "#2b72ee", fontSize:"40px"}}></i>
+           
+           
+            </div>
+
+            <div className="google-pay">
+            <input
+            type="radio"
+            style={{ width: '23px', height: '23px',marginRight:"2px" }}
+            />
+          
+            <i class="fa-brands fa-google-pay" style={{color: "#f83f3f" ,fontSize:"40px"}}></i>
+           
+            </div>
+
+            <div className="apple-pay">
+            <input
+            type="radio"
+            style={{ width: '23px', height: '23px',marginRight:"2px" }}
+            />
+          
+          <i class="fa-brands fa-cc-apple-pay" style={{color: "#000000",fontSize:"40px"}}></i>
+           
+            </div>
+          
+          <div className="item-price-checkout">
+            <p className="item-words">Item(s) total</p>
+            <p className="save-words">${cartPrice}</p>
+        </div>
+
+        <div className="early-discount">
+            <p className="item-words">Shop discount</p>
+            <p className="save-words">$5.00</p>
+        </div>
+
+        <div className="sub-total">
+            <p className="item-words">Subtotal</p>
+            <p className="save-words">{cartPrice-5.00}</p>
+        </div>
+
+        <button className="checkout" onClick={()=>{window.alert("This feature isnt available as this is not a real site")}}>Proceed to checkout</button>
+            
       </div>
-        </>
+      </div>
+      </div>
     )
 }
 
