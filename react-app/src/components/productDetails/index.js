@@ -171,7 +171,7 @@ function dateFormat(timestamp){
             <div className="header-stars1" >{reviews.length}  reviews</div>
             <span className="heade-starts2"> ★ ★ ★ ★ ★</span>
         
-      {sessionUser.id !== product.user.id &&
+      {sessionUser && sessionUser.id !== product.user.id &&
         <OpenModalButton className="createreview-button"  modalComponent={<CreateReview prop={product} onCreateReview={handleCreateReview}/>} buttonText="Leave a review"/>
       }
          </div>
