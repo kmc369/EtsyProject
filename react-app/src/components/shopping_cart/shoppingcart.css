@@ -17,4 +17,70 @@
   border:1px solid blue;
   width:50%;
   height:400px;
+  padding: 20px;
+ }
+
+ .header-shop{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+ }
+
+ /* images */
+ .image-price-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+ }
+ .image-desc-container{
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  font-family: sans-serif;
+  font-weight: lighter;
+ }
+ .image-cart{
+  border-radius: 10px;
+  margin-bottom: 10px;
+ }
+
+
+ /* Delete icon and remove */
+
+ .fa-xmark{
+  margin-right: 7px;;
+ }
+
+
+ .save-for-container{
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+  gap:20px;
+  align-items: center;
+ }
+ .delete-remove-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-family: sans-serif;
+  font-weight: lighter;
+ }
+
+ .save-words{
+  font-family: sans-serif;
+  font-weight: lighter;
+ }
+
+ /* footer inform */
+
+ .footer-container{
+  display: flex;
+  justify-content:right;
+  color:#595959;
+  
+ }
+ .date{
+  border-bottom:1px dashed #595959;
  }

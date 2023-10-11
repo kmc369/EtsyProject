@@ -14,7 +14,7 @@ const dispatch = useDispatch()
 const {shopping_cart_id, id} = useParams()
 
 const shopping_cart_id_num = Number(shopping_cart_id)
-
+const user_id_num = Number(id)
 
 
 const handleDelete= async(product_id) =>{
@@ -37,14 +37,38 @@ if(productsArr.length===0){
         <div className="cart-container" >
         {product.map((element, index) => (
           <div key={index}  id="cart-image-container">
+            <div className="header-shop">
             <div><img className="cart-small-image"src={element.image2}/>{element.creator} </div>
-            <img src={element.image} alt={`Product ${index}`} style={{ width: '240px', height: '200px' }} />
-            <div className="price">
-            <i class="fa-solid fa-dollar-sign"  style={{color: "#000000",marginRight:"5px"}}></i>
-            {element.price}
-            </div>
-            <button className="deletefromcart" onClick={()=>handleDelete(element.id)}>Delete</button>
+            <div><p>Contact Shop</p></div>
+          </div>
+
+          <div className="image-price-container">
+              <div className="image-desc-container">
+            <img className="image-cart" src={element.image} alt={`Product ${index}`} style={{ width: '240px', height: '200px' }} />
+            <div style={{width:"60%"}}><p>{element.title}</p> </div>
+              </div>
+            <div><h3>${element.price}</h3></div>
+          </div>
+         
+         <div className="save-for-container">
+          <div className="delete-remove-container">
+            <i class="fa-solid fa-xmark" style={{fontSize:"22px"}} onClick={()=>handleDelete(element.id)}></i>
+          <p>Remove</p>
+          </div>
+          <div><p className="save-words" onClick={()=>history.push(`/shopping_cart/${shopping_cart_id_num}/user/${user_id_num}`)}> Save for later</p></div>
+          </div>
+
+          <div className="footer-container">  
+            <div> </div>
+              <div><p>
+                Estimated delivery: <span className="date">Oct 20-27 </span> 
+                <br></br>
+                from United Kingdom</p> </div>
+          </div>
+
            </div>
+
+         
         ))}
       </div>
         </>
