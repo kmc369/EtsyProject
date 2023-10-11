@@ -96,11 +96,13 @@ const fetchData = async () => {
       <div className="products-containers">
         <div className="product-items">
           {values.map((element, index) => (
-            <div key={index} id="product-user" className={`productz${index}` }>
-              <img className="user-image-product" src={element.image} style={{ height: "230px", width: "230px",borderRadius:"10px" }} />
+            <div key={index} id="product-user"  className={`productz${index}`  }>
+
+              <div><img className="user-image-product" src={element.image} style={{ height: "230px", width: "300px",borderRadius:"10px" }} onClick={()=>history.push(`/products/${element.id}`)}/></div>
+              <p className="user-title">{element.title}</p>
               <div className="manage-buttons">
-              <span><OpenModalButton className="delete-product" buttonText="Delete Product" modalComponent={<DeleteProductModal prop={element}  onDelete={() => handleDelete(element.id)}/>}/></span>
-              <span><button className="edit-product"  onClick={() => history.push(`/edit_product/${element.id}`)}>Edit Product</button></span>
+             <span> <OpenModalButton className="delete-product"  modalComponent={<DeleteProductModal prop={element}  onDelete={() => handleDelete(element.id)}/>} buttonText={<i class="fa-solid fa-trash" style={{color: "#000000"}}></i>}/></span>
+              <span><i class="fa-solid fa-pen-to-square" onClick={() => history.push(`/edit_product/${element.id}`)} style={{color: "#000000"}}></i></span>
               </div>
             </div>
           ))}
