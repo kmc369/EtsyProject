@@ -1,16 +1,31 @@
 .carousel-root{
     border:3px solid green;
+    width: fit-content !important;
+    height: fit-content !important;
+    margin-bottom: 0px !important;
+    display: flex;
+    flex-direction: row;
+    
 
 }
 .carousel-slider{
     border:3px solid red;
-    width: 70% !important;
+    width: 150% !important;
+    height: 50%;
+  
 
 }
 
+ul.thumbs{
+    display: flex  !important;
+    flex-direction: column !important;
+    transform: unset !important;
+}
 
 .thumbs-wrapper{
     border:3px solid blue;
+    width: fit-content;
+
    
 }
 /* .carousel-root {
