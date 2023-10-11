@@ -231,9 +231,9 @@ function dateFormat(timestamp){
 
         <div className="prod-details-desc-container">
           
-              <div>Item details</div>
+              <div><h2>Item details</h2></div>
 
-              <div>{product.creator}</div>
+              <div ><i class="fa-regular fa-user" style={{color: "#000000" ,marginRight:"9px"}}></i>{product.creator}</div>
               {product.handmade &&
               <div><i class="fa-solid fa-hand" style={{color: "000000",marginRight:"9px"}}></i>Handmade</div>
               }
@@ -246,9 +246,9 @@ function dateFormat(timestamp){
               }
 
           {product.material &&
-              <div><i class="fa-solid fa-paint-roller" style={{color: "#000000",marginRight:"9px"}}></i>Material</div>
+              <div><i class="fa-solid fa-paint-roller" style={{color: "#000000",marginRight:"9px"}}></i>Material: {product.material}</div>
              }
-             <div>{product.description}</div>
+             <div className="product-detail-descr">{product.description}</div>
              
         </div>
 

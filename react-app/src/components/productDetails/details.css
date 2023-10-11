@@ -1,7 +1,7 @@
 
 .carousel-root {
     
-    width: 600px;
+    width: 70%;
     height: 550px;
     /* border: 5px solid yellow; */
     margin-right: 90px;
@@ -13,12 +13,14 @@
     overflow: hidden;
     box-sizing: border-box;
     position: relative; 
+    margin-bottom: 0px;
+    height: fit-content;
   }
   
   .main-slide .main-image {
     flex: 1;
     overflow: hidden;
-   
+    object-fit: cover;
     width: 60%;
     margin: 0 auto 0 auto; 
     margin-left: auto; 
@@ -105,7 +107,9 @@
 .review-container-location{
     display: flex;
     flex-direction: column;
-    border:2px solid green;
+    /* border:2px solid green; */
+    width:60%
+    
 }
 .review-container1{
     /* border:2px solid orange; */
@@ -115,6 +119,7 @@
     border-bottom: 1px solid rgb(208, 208, 208,0.9);
     margin-bottom: 10px;
     padding: 15px;
+    width: 90%;
     /* border:3px solid green; */
 
 }
@@ -187,7 +192,7 @@ color:rgb(103, 98, 98);
 .add-to-cart-container{
     /* border:3px solid red; */
     margin-top:50px;
-    width:40%;
+    width:35%;
     display: flex;
     flex-direction: column;
     gap:20px;
@@ -198,6 +203,7 @@ color:rgb(103, 98, 98);
     color:#A61A2E;
     font-family:  Helvetica, sans-serif;
     margin:0px;
+    width:80%
 }
 .cart-item-cost{
   color:  #258635;
@@ -278,10 +284,10 @@ color:rgb(103, 98, 98);
 
 /* div and desci container */
 .product-entire-container{
-    border:3px solid gold;
+    /* border:3px solid gold; */
 }
 .product-center-container{
-    border:3px solid red;
+    /* border:3px solid red; */
     width: 80%;
     margin: 0 auto;
     display: flex;
@@ -290,13 +296,25 @@ color:rgb(103, 98, 98);
     align-items: center;
 }
 .div-and-description{
-border: 5px solid purple;
+/* border: 5px solid purple; */
 display: flex;
 flex-direction: row;
 width: fit-content;
+gap:120px;
 }   
 
 .prod-details-desc-container{
-    border:3px solid peru;
-    width:60%;
+    /* border:3px solid peru; */
+    width:30%;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    padding: 20px;
+    font-family: Helvetica, sans-serif;
+    font-weight: lighter;
+}
+.product-detail-descr{
+    margin-top: 20px;
+    font-family: Helvetica, sans-serif;
+    width:98%;
 }

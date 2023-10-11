@@ -38,7 +38,7 @@ function Navigation({ isLoaded }){
 		<>
 		<div className='nav-container'>
 				<div className='home-link-container'>
-					<NavLink className='home-link' exact to="/">Fetsy</NavLink>
+					<NavLink className='home-link' exact to="/">Vetsy</NavLink>
 				</div>
 			
 				
