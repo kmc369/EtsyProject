@@ -128,60 +128,60 @@ def update_product(product_id):
  
     
   
-    image = form.data.get("image")
-    if image:
-        image.filename = get_unique_filename(image.filename)
-        upload = upload_file_to_s3(image)
-        if "url" not in upload:
-            return jsonify({"error": "Failed to upload image to S3 1 "}), 400
+    # image = form.data.get("image")
+    # if image:
+    #     image.filename = get_unique_filename(image.filename)
+    #     upload = upload_file_to_s3(image)
+    #     if "url" not in upload:
+    #         return jsonify({"error": "Failed to upload image to S3 1 "}), 400
 
-    image1 = form.data.get("image1")
+    # image1 = form.data.get("image1")
    
-    if image1 and image1 !="null":
+    # if image1 and image1 !="null":
      
-        image1.filename = get_unique_filename(image1.filename)
-        upload1 = upload_file_to_s3(image1)
-        if "url" not in upload1:
-            return jsonify({"error": "Failed to upload image1 to S3 2"}), 400
-        else:
-            image1_url = upload1["url"]
-    else:
-        image1_url = ""
+    #     image1.filename = get_unique_filename(image1.filename)
+    #     upload1 = upload_file_to_s3(image1)
+    #     if "url" not in upload1:
+    #         return jsonify({"error": "Failed to upload image1 to S3 2"}), 400
+    #     else:
+    #         image1_url = upload1["url"]
+    # else:
+    #     image1_url = ""
 
-    image2 = form.data.get("image2")
-    if image2 and image2 !="null":
-        image2.filename = get_unique_filename(image2.filename)
-        upload2 = upload_file_to_s3(image2)
-        if "url" not in upload2:
-            return jsonify({"error": "Failed to upload image2 to S3 3"}), 400
-        else:
-            image2_url = upload2["url"]
-    else:
-        image2_url = ""
+    # image2 = form.data.get("image2")
+    # if image2 and image2 !="null":
+    #     image2.filename = get_unique_filename(image2.filename)
+    #     upload2 = upload_file_to_s3(image2)
+    #     if "url" not in upload2:
+    #         return jsonify({"error": "Failed to upload image2 to S3 3"}), 400
+    #     else:
+    #         image2_url = upload2["url"]
+    # else:
+    #     image2_url = ""
 
-    image3 = form.data.get("image3")
-    if image3 and image3 != "null":
-        image3.filename = get_unique_filename(image3.filename)
-        upload3 = upload_file_to_s3(image3)
-        if "url" not in upload3:
-            return jsonify({"error": "Failed to upload image3 to S3 4"}), 400
-        else:
-            image3_url = upload3["url"]
-    else:
-        image3_url = ""
+    # image3 = form.data.get("image3")
+    # if image3 and image3 != "null":
+    #     image3.filename = get_unique_filename(image3.filename)
+    #     upload3 = upload_file_to_s3(image3)
+    #     if "url" not in upload3:
+    #         return jsonify({"error": "Failed to upload image3 to S3 4"}), 400
+    #     else:
+    #         image3_url = upload3["url"]
+    # else:
+    #     image3_url = ""
    
     if 'price' in form.data:
         product.price= form.data['price']
-    if 'image' in form.data:
+    # if 'image' in form.data:
       
-        product.image = upload["url"]
-    if 'image1' in form.data:
-        product.image1 = image1_url
+    #     product.image = upload["url"]
+    # if 'image1' in form.data:
+    #     product.image1 = image1_url
         
-    if 'image2' in form.data:
-        product.image2 = image2_url
-    if 'image3' in form.data:
-        product.image3 = image3_url
+    # if 'image2' in form.data:
+    #     product.image2 = image2_url
+    # if 'image3' in form.data:
+    #     product.image3 = image3_url
         
     if 'title' in form.data:
         product.title = form.data['title']
