@@ -10,13 +10,13 @@ function Footer(){
           <div className="extra-stuff">
           <div className="footer-etsy">
             <i class="fa-solid fa-globe" style={{color:"black"}}> </i>
-            <div className="powered">Etsy is powered by 100% renewable electricity.</div>
+            <div className="powered">Vetsy is powered by 100% renewable electricity.</div>
             </div>
 
           <div className="footer-container">
             <div className="fetsy-download">
-                <div className="Fetsy-app" onClick={()=>{history.push('/')}}>Fetsy</div>
-                <div className="download-word" onClick={()=>{history.push('/')}} >Download the Fetsy App</div>
+                <div className="Fetsy-app" onClick={()=>{history.push('/')}}>Vetsy</div>
+                <div className="download-word" onClick={()=>{history.push('/')}} >Download the Vetsy App</div>
             </div>
 
             <div className="shop-contact">
@@ -28,7 +28,7 @@ function Footer(){
               </div>
             </div>
 
-      <div className="extra-information-all">
+      {/* <div className="extra-information-all">
         <div className="extra-information-shop">
         <div style={{marginBottom:"10px", fontSize:"15px"}}><u>Shop</u></div>
         <div>Gift cards</div>
@@ -65,7 +65,7 @@ function Footer(){
           </div>
          
 
-      </div>
+      </div> */}
       </div>
       </div>
         

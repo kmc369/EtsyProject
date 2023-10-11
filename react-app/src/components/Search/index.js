@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom/";
 import { useDispatch } from "react-redux";
 import * as SearchAction from '../../store/search'
 import { useParams } from 'react-router-dom'; 
+import "./searchItem.css"
 
 function Search(){
     
@@ -18,9 +19,9 @@ function Search(){
        
        
 			    const data = await dispatch(SearchAction.getSearchThunk(search))
-          console.log("data is ",data)
+        
           if(data.length===0){
-            console.log("data length is zero")
+           
             history.push("/")
           }
 			     setSearchData(data)
@@ -38,16 +39,16 @@ function Search(){
   
     return (
         <>
-          <div className="landing-container" >
+          <div className="search-container-frame" >
         {searchData.map((element, index) => (
-          <div key={index} className="product" id="products" onClick={()=>{history.push(`/products/${element.id}`)}
-          }>
-            <img src={element.image1} alt={`Product ${index}`} style={{ width: '200px', height: '200px' }} />
-            <div className="price">
-            <i class="fa-solid fa-dollar-sign"  style={{color: "#000000",marginRight:"5px"}}></i>
-            {element.price}
+           
+            <div key={index} className="search-products-container">
+            <div> <img src={element.image1} alt={`Product ${index}`} style={{ width: '200px', height: '200px' ,borderRadius:"10px"}} onClick={()=>{history.push(`/products/${element.id}`)}}/></div>
+              <div className="search-title">{element.title} </div>
+              {/* <div>${element.price} </div> */}
             </div>
-          </div>
+          
+      
         ))}
       </div>
         

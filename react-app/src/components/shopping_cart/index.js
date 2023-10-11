@@ -64,13 +64,13 @@ if(productsArr.length===0){
          
          <div className="save-for-container">
           <div className="delete-remove-container">
-            <i class="fa-solid fa-xmark" style={{fontSize:"22px"}} onClick={()=>handleDelete(element.id)}></i>
-          <p>Remove</p>
+            <i class="fa-solid fa-xmark"  style={{fontSize:"22px",cursor:"pointer"}} onClick={()=>handleDelete(element.id)}></i>
+          <p onClick={()=>handleDelete(element.id)} style={{cursor:"pointer"}}>Remove</p>
           </div>
-          <div><p className="save-words" onClick={()=>history.push(`/shopping_cart/${shopping_cart_id_num}/user/${user_id_num}`)}> Save for later</p></div>
+          <div><p className="save-words" style={{cursor:"pointer"}} onClick={()=>history.push(`/shopping_cart/${shopping_cart_id_num}/user/${user_id_num}`)}> Save for later</p></div>
           </div>
 
-          <div className="footer-container">  
+          <div className="footer-container-cart">  
             <div> </div>
               <div><p>
                 Estimated delivery: <span className="date">Oct 20-27 </span> 

@@ -60,6 +60,7 @@ return (
     </div >
 
       <div className="entire-landing-container">
+      <div className="landing-center-container">
       <div className="because-image-container">
     <div className="because-container">
     <p>Because You viewed</p>
@@ -132,7 +133,7 @@ return (
         ))}
       </div>
       </div>
-
+      </div>
       </div>
 
 

@@ -105,10 +105,11 @@
 
  /* footer inform */
 
- .footer-container{
+ .footer-container-cart{
   display: flex;
   justify-content:right;
   color:#595959;
+  /* border:3px solid green; */
   
  }
  .date{

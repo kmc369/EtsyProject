@@ -96,6 +96,8 @@ function dateFormat(timestamp){
     
     return (
        <>
+      <div className="product-entire-container">
+      <div className="product-center-container">
     <div className="carouselandcard">
 
         <Carousel dynamicHeight="true" className="main-slide" >
@@ -163,10 +165,10 @@ function dateFormat(timestamp){
 
 
 
-
+<div className="div-and-description">
 
         <div className="review-container-location">
-        {/* <CreateReview product={product}/> */}
+   
         <div className="header-reviews">
             <div className="header-stars1" >{reviews.length}  reviews</div>
             <span className="heade-starts2"> ★ ★ ★ ★ ★</span>
@@ -227,8 +229,32 @@ function dateFormat(timestamp){
 
         </div>
 
+        <div className="prod-details-desc-container">
+          
+              <div><h2>Item details</h2></div>
 
+              <div ><i class="fa-regular fa-user" style={{color: "#000000" ,marginRight:"9px"}}></i>{product.creator}</div>
+              {product.handmade &&
+              <div><i class="fa-solid fa-hand" style={{color: "000000",marginRight:"9px"}}></i>Handmade</div>
+              }
+               {product.vintage &&
+              <div><i class="fa-solid fa-clock" style={{color: "#000000",marginRight:"9px"}}></i>Vintage</div>
+              }
 
+            {product.made_to_order &&
+              <div><i class="fa-solid fa-hammer" style={{color: "#000000",marginRight:"9px"}}></i>Made to order</div>
+              }
+
+          {product.material &&
+              <div><i class="fa-solid fa-paint-roller" style={{color: "#000000",marginRight:"9px"}}></i>Material: {product.material}</div>
+             }
+             <div className="product-detail-descr">{product.description}</div>
+             
+        </div>
+
+        </div>
+        </div>
+        </div>
         </>
     )
 
