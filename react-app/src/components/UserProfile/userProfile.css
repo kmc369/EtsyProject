@@ -129,7 +129,8 @@ bottom: 1px;
 .delete-product,.edit-product{
 background-color: white;
 color:black;
-border: 1px solid black;
+border:none;
+/* border: 1px solid black; */
 border-radius: 20px;
 font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
