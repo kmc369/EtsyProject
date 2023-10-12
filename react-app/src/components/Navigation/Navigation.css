@@ -73,6 +73,7 @@ margin-left: 5px;
   font-size: small;
 }
 
+
 .profile-dropdown{
   list-style: none;
   cursor: pointer;
@@ -87,6 +88,12 @@ margin-left: 5px;
  
 
 }
+.cart-con:hover{
+  background-color: rgb(227, 227, 227);
+  padding:10px;
+  border-radius: 10px;
+}
+
 /* style={{position:'absolute',right:"150px"}} */
 .list-item{
 
@@ -98,7 +105,8 @@ margin-left: 5px;
   padding-left: 40px;
   padding-Right: 40px;
   margin-bottom: 15px;
-  font-family:  Helvetica, sans-serif;
+  font-family: sans-serif;
+  font-weight: lighter;
   font-size: medium;
   font-weight: 400;
   color:rgb(85, 83, 83);
@@ -114,33 +122,48 @@ margin-left: 5px;
   padding-left: 40px;
   padding-Right: 40px;
   margin-bottom: 20px;
+  padding-bottom: 10px;
   margin-top: 15px;
   font-family:  Helvetica, sans-serif;
   font-size: large;
   font-weight: 400;
   cursor: pointer;
+  font-family: sans-serif;
+  font-weight: lighter;
+
  
 
 
   /* padding: 10px; */
 }
 .logoutButton{
-  background:white ;
-  border:none;
+  font-family: sans-serif;
+  font-weight: lighter;
+}
+.div-list2{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 20px;
+  gap:5px;
+
+  padding-left: 40px;
+  padding-Right: 40px;
+  margin-bottom: 0px;
+  margin-top: 15px;
   font-family:  Helvetica, sans-serif;
-  font-size: medium;
-  color:rgb(85, 83, 83);
-
-}
-
-.div-list:hover,.div-list1:hover{
-background-color: lightgray;
-}
-
-.logoutButton:hover{
-  background-color: lightgray;
+  font-size: large;
+  font-weight: 400;
   cursor: pointer;
 }
+
+
+.div-list:hover,.div-list1:hover,.div-list2:hover{
+background-color: lightgray;
+cursor: pointer;
+}
+
+
 
 /* login sign up containers */
 .login-signup-container{

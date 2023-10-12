@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../store/session";
 import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import * as sessionActions from '../../store/session'
+import './Navigation.css';
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
@@ -59,13 +60,12 @@ function ProfileButton({ user }) {
       <ul className={ulClassName} ref={ulRef} >
         {user ? (
           <>
-          
-          <div className="div-list1"><img src={user.image} alt="userimage" style={{height:"30px", width:"30px",borderRadius:"19px",paddingBottom:"3px"}} onClick={()=>history.push(`/userProfile/${user.id}`)}/><li className="list-item">{user.username}</li></div>
-          <div className="div-list"><li className="list-item">{user.email}</li></div>
-           <div className="div-list"><li className="list-item" onClick={()=>history.push(`/userProfile/${user.id}`)}>Manage Products</li></div> 
-            <div className="div-list"><li className="list-item">
-              <button className="logoutButton" onClick={handleLogout}>Log Out</button>
-            </li></div>
+         
+          <div className="div-list1"><img src={user.image} alt="userimage" style={{height:"24px", width:"24px",borderRadius:"19px",paddingBottom:"3px",marginRight:"5px"}} onClick={()=>history.push(`/userProfile/${user.id}`)}/><li className="list-item">{user.username}</li></div>
+          <div className="div-list"><li className="list-item"  style={{fontFamily:"sans-serif", fontWeight:"lighter"}} onClick={()=>history.push(`/userProfile/${user.id}`)}>{user.email}</li></div>
+           <div className="div-list"><li className="list-item" onClick={()=>history.push(`/userProfile/${user.id}`)} style={{fontFamily:"sans-serif", fontWeight:"lighter"}}>Manage Products</li></div> 
+            <div className="div-list2"><li className="list-item" style={{fontFamily:"sans-serif", fontWeight:"lighter"}} onClick={handleLogout}>
+          Log Out</li></div>
           </>
         ) : (
           <>
