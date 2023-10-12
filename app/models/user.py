@@ -14,7 +14,9 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
     image = db.Column(db.String(2000),default="https://wallpapers.com/images/hd/netflix-profile-pictures-1000-x-1000-qo9h82134t9nv0j0.jpg")
-    #relationships if you were to delete a use you should cascade all 
+    
+    
+    
     products = db.relationship("Product", back_populates="user", cascade="all, delete-orphan")
     reviews = db.relationship("Review", back_populates="user",cascade="all, delete-orphan")
     shopping_cart = db.relationship('ShoppingCart', back_populates='user', uselist=False)
