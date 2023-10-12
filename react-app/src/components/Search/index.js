@@ -39,6 +39,7 @@ function Search(){
   
     return (
         <>
+        <div className="search-entire-frame">
           <div className="search-container-frame" >
         {searchData.map((element, index) => (
            
@@ -50,6 +51,7 @@ function Search(){
           
       
         ))}
+      </div>
       </div>
         
         </>
