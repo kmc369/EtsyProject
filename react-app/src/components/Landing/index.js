@@ -64,7 +64,7 @@ return (
       <div className="because-image-container">
     <div className="because-container">
     <p>Because You viewed</p>
-      <div><img src={values[0].image1} style={{ width: '50px', height: '50px', borderRadius:"5px" }} /></div>
+      <div><img src={values[0].image} style={{ width: '50px', height: '50px', borderRadius:"5px" }} /></div>
       </div>
      <div className="landing-container" >
       
@@ -89,7 +89,7 @@ return (
       <div className="because-image-container">
       <div className="because-container">
       <p>Because You viewed</p>
-      <div><img src={values[4].image1} style={{ width: '50px', height: '50px' }} /></div>
+      <div><img src={values[4].image} style={{ width: '50px', height: '50px' }} /></div>
       </div>
       <div className="landing-container" >
         {values.slice(4,8).map((element, index) => (
@@ -113,7 +113,7 @@ return (
  <div className="because-image-container">
     <div className="because-container">
       <p>Because You viewed</p>
-      <div><img src={values[8].image1} style={{ width: '50px', height: '50px' }} /></div>
+      <div><img src={values[8].image} style={{ width: '50px', height: '50px' }} /></div>
       </div>
       <div className="landing-container" >
         
