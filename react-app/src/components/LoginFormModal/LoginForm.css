@@ -1,0 +1,43 @@
+.login-form-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.login-form-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    gap:15px;
+}
+
+.login-header{
+    font-family: Helvetica, sans-serif;
+    
+}
+
+.options-login{
+    margin: 0px;
+    font-family: sans-serif;
+    font-weight: lighter;
+}
+.input-box-login{
+    height:30px;
+    width:200px;
+    border-radius:3px;
+    border:1px solid lightgrey;
+}
+
+.login-button-form{
+    background-color: black;
+    color:white;
+    padding:10px;
+    width:150px;
+    border:none;
+    border-radius: 20px;
+
+}
+
+
+
