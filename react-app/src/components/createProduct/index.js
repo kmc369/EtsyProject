@@ -52,6 +52,9 @@ const [errors,setErrors] = useState({})
         if(description.length<=30){
             err.description = "description must be greater than 30 character"
         }
+        if(image===null){
+            err.image = "at least one image is required"
+        }
      
         setErrors(err)
      
@@ -76,7 +79,7 @@ const [errors,setErrors] = useState({})
 
        
         if(Object.values(err).length===0){
-            await dispatch(ProductActions.createProductThunk(formData))
+          const data=  await dispatch(ProductActions.createProductThunk(formData))
             setImageLoading(true);
             setCreator("")
             setDescription("")
@@ -86,6 +89,8 @@ const [errors,setErrors] = useState({})
             setHandmade(false)
             setVintage(false)
             setmadeToOrder(false)
+            console.log("the error is ",image)
+            
         return history.push(`/userProfile/${userId}`)
         }
         
@@ -119,7 +124,9 @@ const [errors,setErrors] = useState({})
             <div className="photo-image-container">
                 <div className="photo-words">
                     <h4 className="photo-header4">Photos *</h4>
-                    <p className="para-4">Use up to ten photos to show your item's most important qualities.</p>
+                    <p className="errors">{errors.image}</p>
+
+                    <p className="para-4">Use up to four photos to show your item's most important qualities.</p>
                     <ul className="list-elements">
                         <li>Use natural light and no flash.</li>
                         <li>Include a common object for scale.</li>
