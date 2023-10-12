@@ -91,6 +91,7 @@ if(productsArr.length===0){
           <h3 className="pay-header">How you'll pay</h3>
             <div className="Master-cards">
             <input
+             name="paymentMethod"
             type="radio"
             style={{ width: '23px', height: '23px',marginRight:"2px" }}
             />
@@ -102,6 +103,7 @@ if(productsArr.length===0){
 
             <div className="paypal">
             <input
+             name="paymentMethod"
             type="radio"
             style={{ width: '23px', height: '23px',marginRight:"2px" }}
             />
@@ -112,6 +114,7 @@ if(productsArr.length===0){
 
             <div className="google-pay">
             <input
+             name="paymentMethod"
             type="radio"
             style={{ width: '23px', height: '23px',marginRight:"2px" }}
             />
@@ -122,6 +125,7 @@ if(productsArr.length===0){
 
             <div className="apple-pay">
             <input
+             name="paymentMethod"
             type="radio"
             style={{ width: '23px', height: '23px',marginRight:"2px" }}
             />
