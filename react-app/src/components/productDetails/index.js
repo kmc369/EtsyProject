@@ -103,7 +103,7 @@ function dateFormat(timestamp){
         <Carousel  >
     
        
-                <div >
+                <div  >
                 <img className="main-image" src={product.image} />   
               </div>
 
