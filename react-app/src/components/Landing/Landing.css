@@ -57,13 +57,23 @@ text-align: center;
 .landing-container {
    /* border: 1px solid green; */
    display: flex; 
-  flex-direction: row;
+  flex-direction: column;
   
-
+margin:0 auto;
   gap:30px;
  
-  margin-bottom: 20px; 
   
+}
+
+.images-and-price{
+  display: flex;
+  flex-direction: row;
+  gap:30px;
+}
+
+.holding-item{
+  display: flex;
+  flex-direction: column;
 }
 
 
@@ -94,13 +104,15 @@ text-align: center;
   bottom: 20px;
   left: 20px;
 }
-
+.center-container{
+  /* border:3px solid gold; */
+}
 
 
 .because-container{
   /* border:1px solid rgb(167, 167, 167,0.5); */
   width: fit-content;
-  width: 25%;
+ 
   font-family: Helvetica, sans-serif;
   border-radius: 20px;
   padding: 5px;
