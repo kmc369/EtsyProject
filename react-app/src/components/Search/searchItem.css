@@ -4,7 +4,7 @@
     margin-top: 70px;
 }
 .search-container-frame{
-    border:3px solid blue;
+    /* border:3px solid blue; */
     display: flex;
     flex-direction: row;
     gap:15px;
