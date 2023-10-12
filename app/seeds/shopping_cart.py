@@ -11,10 +11,38 @@ def seed_shopping_cart():
         user_id=2, 
      
     )
+    shoppingcar3 = ShoppingCart(
+        user_id=3, 
+     
+    )
+    shoppingcar4 = ShoppingCart(
+        user_id=4, 
+     
+    )
+    shoppingcar5 = ShoppingCart(
+        user_id=5, 
+     
+    )
+    
+    shoppingcar6 = ShoppingCart(
+        user_id=6, 
+     
+    )
+    
+    shoppingcar7 = ShoppingCart(
+        user_id=7, 
+     
+    )
+    
     
    
     db.session.add(shoppingcart)
     db.session.add(shoppingcar2)
+    db.session.add(shoppingcar3)
+    db.session.add(shoppingcar4)
+    db.session.add(shoppingcar5)
+    db.session.add(shoppingcar6)
+    db.session.add(shoppingcar7)
   
     db.session.commit()
 
