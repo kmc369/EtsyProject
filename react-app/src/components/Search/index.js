@@ -20,10 +20,10 @@ function Search(){
        
 			    const data = await dispatch(SearchAction.getSearchThunk(search))
         
-          if(data.length===0){
+          // if(data.length===0){
            
-            history.push("/")
-          }
+            // history.push("/")
+          // }
 			     setSearchData(data)
        
        
@@ -32,16 +32,18 @@ function Search(){
     fetchData()
     },[dispatch,search])
 
-    if (searchData.length===0){
-     
-        return null
-    }
+   
   
     return (
         <>
         <div className="search-entire-frame">
           <div className="search-container-frame" >
-        {searchData.map((element, index) => (
+        {searchData.length===0 ? (
+          
+          <div className="no-result">No result found  </div>
+          
+        ):(
+        searchData.map((element, index) => (
            
             <div key={index} className="search-products-container">
             <div> <img src={element.image1} alt={`Product ${index}`} style={{ width: '200px', height: '200px' ,borderRadius:"10px"}} onClick={()=>{history.push(`/products/${element.id}`)}}/></div>
@@ -50,7 +52,9 @@ function Search(){
             </div>
           
       
-        ))}
+        ))
+
+        )}
       </div>
       </div>
         

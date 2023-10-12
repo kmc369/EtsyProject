@@ -107,7 +107,7 @@ export const createProductThunk = (product) => async(dispatch,getState) =>{
         return data
     }else{
         const error = await res.json()
-        console.log("the thunk error is",error)
+        return error
     }
 }catch(error){
     console.log("the error is", error)
