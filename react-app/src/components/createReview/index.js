@@ -79,11 +79,11 @@ const errorsArr = Object.values(errors)
 
     <div className="review-container">
     <form className="review-form-container" onSubmit={handleSubmit}>
-    <ul className="errors">
+    {/* <ul className="errors">
 					{errorsArr.map((error, idx) => (
 						<li key={idx}>{error}</li>
 					))}
-				</ul>
+				</ul> */}
         
             <h1 className="review-header">Leave a Review</h1>
             
