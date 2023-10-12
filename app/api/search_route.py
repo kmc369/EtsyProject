@@ -12,5 +12,5 @@ search_bp = Blueprint('search', __name__)
 def search(params):
  
     
-    results = Product.query.filter(Product.title.like(f"%{params}%")).all()
+    results = Product.query.filter(Product.title.ilike(f"%{params}%")).all()
     return jsonify([result.to_dict() for result in results])
