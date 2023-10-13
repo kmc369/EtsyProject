@@ -95,7 +95,7 @@ const delete_review = (review_id,index) =>{
 
 
 export const createProductThunk = (product) => async(dispatch,getState) =>{
- 
+    console.log("the data doing in is",product.get("image"))
  try{
     const res = await fetch("/api/products/new_product",{
         method:"POST",
@@ -117,7 +117,7 @@ export const createProductThunk = (product) => async(dispatch,getState) =>{
 
 
 export const getProductByIdThunk = (product_id) => async (dispatch, getState) => {
-    
+   
     const res = await fetch(`/api/products/single_product/${product_id}`,{
        method: "GET"
    });
