@@ -146,7 +146,7 @@ if(productsArr.length===0){
 
         <div className="sub-total">
             <p className="item-words">Subtotal</p>
-            <p className="save-words">{cartPrice-5.00}</p>
+            <p className="save-words">${cartPrice-5.00}</p>
         </div>
 
         <button className="checkout" onClick={()=>{window.alert("This feature isnt available as this is not a real site")}}>Proceed to checkout</button>
