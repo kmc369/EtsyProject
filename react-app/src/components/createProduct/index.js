@@ -57,14 +57,46 @@ const [errors,setErrors] = useState({})
         }
      
         setErrors(err)
+        
      
     
         
         const formData = new FormData();
-        formData.append('image', image);
-        formData.append('image1', image1);
-        formData.append('image2', image2);
-        formData.append('image3', image3);
+        if (image !== null) {
+            const mainFile = await fetch(image)
+                .then(response => response.blob())
+                .then(blob => new File([blob], 'main_image.jpg', { type: blob.type }));
+    
+            formData.append('image', mainFile);
+        }
+        if (image1 !== null) {
+            const file1 = await fetch(image1)
+                .then(response => response.blob())
+                .then(blob => new File([blob], 'image1.jpg', { type: blob.type }));
+    
+            formData.append('image1', file1);
+        }
+    
+        if (image2 !== null) {
+            const file2 = await fetch(image2)
+                .then(response => response.blob())
+                .then(blob => new File([blob], 'image2.jpg', { type: blob.type }));
+    
+            formData.append('image2', file2);
+        }
+    
+     
+        if (image3 !== null) {
+            const file3 = await fetch(image3)
+                .then(response => response.blob())
+                .then(blob => new File([blob], 'image3.jpg', { type: blob.type }));
+    
+            formData.append('image3', file3);
+        }
+    
+       
+     
+       
         formData.append('price', price);
         formData.append('handmade', handmade);
         formData.append('vintage', vintage);
@@ -89,7 +121,7 @@ const [errors,setErrors] = useState({})
             setHandmade(false)
             setVintage(false)
             setmadeToOrder(false)
-            console.log("the error is ",image)
+            // console.log("the error is ",image)
             
         return history.push(`/userProfile/${userId}`)
         }
@@ -137,13 +169,22 @@ const [errors,setErrors] = useState({})
                 </div>
                 <div className="photo-images">
                     <div>
-                    <label className='custom-file-input-label' htmlFor="file-input">
-                        <div><i class="fa-solid fa-camera" style={{"color": "#121416"}}></i></div>
-                        <div>Add a photo</div>
-                        </label>
+
+                        
+                    <label style={{width:"fit-content"}}  className='custom-file-input-label' htmlFor="file-input">
+                    {image ? (
+                      
+                     <img src={image} style={{width:"90px",height:"90px"}}  alt="Preview" className="preview-image" />
+                         ) : (
+                         <>
+                    <i className="fa-solid fa-camera" style={{ color: "#121416" }}></i> 
+                     <div>Add a photo</div> 
+                             </>
+                    )}
+                         </label>
                     
                     <input  
-                    onChange={(e)=>setImage(e.target.files[0])}
+                    onChange={(e)=>setImage(URL.createObjectURL(e.target.files[0]))}
                     type="file" 
                     id="file-input" 
                     className="input-image1" 
@@ -153,36 +194,77 @@ const [errors,setErrors] = useState({})
 
 
                     <div>
-                    <label className='custom-file-input-label' htmlFor="file-input">
-                        <i class="fa-solid fa-camera" style={{"color": "#121416"}}></i>
-                        <div>Add a photo</div>
-                    </label>
-                    <input type="file" id="file-input" className="input-image1" 
-                    onChange={(e)=>setImage1(e.target.files[0])}
+
+                        
+                    <label style={{width:"fit-content"}} className='custom-file-input-label' htmlFor="file-input">
+                    {image1 ? (
+                      
+                     <img src={image1} alt="Preview" style={{width:"90px",height:"90px"}} className="preview-image" />
+                         ) : (
+                         <>
+                    <i className="fa-solid fa-camera" style={{ color: "#121416" }}></i> 
+                     <div>Add a photo</div> 
+                             </>
+                    )}
+                         </label>
+                    
+                    <input  
+                    onChange={(e)=>setImage1(URL.createObjectURL(e.target.files[0]))}
+                    type="file" 
+                    id="file-input" 
+                    className="input-image1" 
                     accept="image/*" />
                     </div>
                     {(imageLoading)&& <p>Loading...</p>}
 
-
                     <div>
-                    <label className='custom-file-input-label' htmlFor="file-input">
-                    <i class="fa-solid fa-camera" style={{"color": "#121416"}}></i>
-                    <div>Add a photo</div>
+
                         
+                <label style={{width:"fit-content"}} className='custom-file-input-label' htmlFor="file-input">
+                {image2 ? (
+                
+                <img src={image2} alt="Preview" style={{width:"90px",height:"90px"}} className="preview-image" />
+                    ) : (
+                    <>
+                <i className="fa-solid fa-camera" style={{ color: "#121416" }}></i> 
+                <div>Add a photo</div> 
+                        </>
+                )}
                     </label>
-                    <input type="file" id="file-input" className="input-image1" accept="image/*" onChange={(e)=>setImage2(e.target.files[0])}/>
-                    </div>
-                    {(imageLoading)&& <p>Loading...</p>}
+
+                <input  
+                onChange={(e)=>setImage2(URL.createObjectURL(e.target.files[0]))}
+                type="file" 
+                id="file-input" 
+                className="input-image1" 
+                accept="image/*" />
+                </div>
+                {(imageLoading)&& <p>Loading...</p>}
 
 
-                    <div>
-                    <label className='custom-file-input-label' htmlFor="file-input">
-                    <i class="fa-solid fa-camera" style={{"color": "#121416"}}></i>
-                        <div>Add a photo</div>
-                    </label>
-                    <input type="file" id="file-input" className="input-image1" accept="image/*" onChange={(e)=>setImage3(e.target.files[0])} />
-                    </div>   
-                    {(imageLoading)&& <p>Loading...</p>}
+                <div>
+
+                        
+            <label style={{width:"fit-content"}} className='custom-file-input-label' htmlFor="file-input">
+            {image3 ? (
+
+            <img src={image3} alt="Preview" style={{width:"90px",height:"90px"}} className="preview-image" />
+                ) : (
+                <>
+            <i className="fa-solid fa-camera" style={{ color: "#121416" }}></i> 
+            <div>Add a photo</div> 
+                    </>
+            )}
+                </label>
+
+            <input  
+            onChange={(e)=>setImage3(URL.createObjectURL(e.target.files[0]))}
+            type="file" 
+            id="file-input" 
+            className="input-image1" 
+            accept="image/*" />
+            </div>
+            {(imageLoading)&& <p>Loading...</p>}
  
 
                 </div>    
