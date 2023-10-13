@@ -148,7 +148,7 @@ function dateFormat(timestamp){
                 </div>
               {sessionUser &&
               <>
-            <button className="buy-button">Buy it now</button>
+            <button className="buy-button" onClick={addToCart}>Buy it now</button>
             <button className="add-to-cart" onClick={addToCart}>Add to cart</button>
             </>
               }
