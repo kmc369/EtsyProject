@@ -256,9 +256,11 @@ const productReducer = (state=inital_state, action)=>{
             const newState = {...state, allProducts:{...state.allProducts}}
             //make a copy of all the keys in the data not whats in them
 
-            action.payload.forEach((element)=>{
-                newState.allProducts[element.id]=element
-            })
+            // action.payload.forEach((element)=>{
+            //     newState.allProducts[element.id]=element
+            // })
+            newState.allProducts = action.payload
+
             return newState
         }
      
