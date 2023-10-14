@@ -38,11 +38,16 @@ useEffect(()=>{
     setCartPrice(totalPrice)
 },[productsArr,product])
 
-if(productsArr.length===0){
-    return null
-}
+// if(productsArr.length===0){
+//     return null
+// }
 
     return (
+      <>
+      {!productsArr.length? (
+
+        <div className="empty-cart-div">Add something to your cart</div>
+    ) :(
         <div className="cart-payment-container">
         <div className="center-container">
         <div className="cart-container" >
@@ -50,7 +55,7 @@ if(productsArr.length===0){
          
           <div key={index}  id="cart-image-container">
             <div className="header-shop">
-            <div className="image-creator"><img className="cart-small-image"src={element.image2}/>{element.creator} </div>
+            <div className="image-creator"><img className="cart-small-image"src={element.image}/>{element.creator} </div>
             <div><p className="save-words">Contact Shop</p></div>
           </div>
 
@@ -154,6 +159,8 @@ if(productsArr.length===0){
       </div>
       </div>
       </div>
+    )}
+    </>
     )
 }
 

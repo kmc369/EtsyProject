@@ -167,8 +167,8 @@ const [errors,setErrors] = useState({})
                         <li>Add photos to your variations so buyers can see all their options.</li>
                     </ul>
                 </div>
-                <div className="photo-images">
-                    <div>
+                <div className="photo-images1">
+                <div className="image-create-container1">
 
                         
                     <label style={{width:"fit-content"}}  className='custom-file-input-label' htmlFor="file-input">
@@ -193,7 +193,7 @@ const [errors,setErrors] = useState({})
                     {(imageLoading)&& <p>Loading...</p>}
 
 
-                    <div>
+                    <div className="image-create-container1">
 
                         
                     <label style={{width:"fit-content"}} className='custom-file-input-label' htmlFor="file-input">
@@ -217,9 +217,8 @@ const [errors,setErrors] = useState({})
                     </div>
                     {(imageLoading)&& <p>Loading...</p>}
 
-                    <div>
-
-                        
+                    
+                <div className="image-create-container1">        
                 <label style={{width:"fit-content"}} className='custom-file-input-label' htmlFor="file-input">
                 {image2 ? (
                 
@@ -242,8 +241,8 @@ const [errors,setErrors] = useState({})
                 {(imageLoading)&& <p>Loading...</p>}
 
 
-                <div>
-
+             
+        <div className="image-create-container1">
                         
             <label style={{width:"fit-content"}} className='custom-file-input-label' htmlFor="file-input">
             {image3 ? (
