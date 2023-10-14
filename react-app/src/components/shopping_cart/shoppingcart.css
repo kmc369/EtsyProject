@@ -25,6 +25,13 @@
   margin-right: 10px;
 
  }
+
+ .empty-cart-div{
+  font-family: sans-serif;
+  font-weight: lighter;
+  text-align: center;
+  margin-top:90px;
+ }
  .image-creator{
  
   display: flex;
