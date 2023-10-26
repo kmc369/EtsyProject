@@ -34,7 +34,7 @@
     -4px -4px 4px lightgray; 
     cursor: pointer;
     height:250px;
-    width: 200px;
+    width: 200px;margin-top: 40px;
 
 }
 
@@ -54,7 +54,23 @@
 }
 
 .no-result{
+    margin-top: 30px;
       font-family:  Helvetica, sans-serif;
       font-size: larger;
+}
+
+.top-image-search{
+/* border:3px solid orange; */
+width: 95%;
+height: 30%;
+margin: 0 auto;
+
+}
+
+.image-search-interval{
+   /* border:3px solid red;  */
+   width:100%;
+   height: 250px;
+  
 }
 
