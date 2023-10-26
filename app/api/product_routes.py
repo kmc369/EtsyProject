@@ -68,7 +68,7 @@ def create_product():
                 image1_url = upload1["url"]
         else:
         
-            image1_url = "https://spotify-audio-bucket.s3.amazonaws.com/image.png"
+            image1_url = "https://cdn-icons-png.flaticon.com/512/4598/4598380.png"
 
         image2 = form.data.get("image2")
         if image2:
@@ -79,7 +79,7 @@ def create_product():
             else:
                 image2_url = upload2["url"]
         else:
-            image2_url = "https://spotify-audio-bucket.s3.amazonaws.com/image.png"
+            image2_url = "https://cdn-icons-png.flaticon.com/512/4598/4598380.png"
 
         image3 = form.data.get("image3")
         if image3:
@@ -90,7 +90,7 @@ def create_product():
             else:
                 image3_url =  upload3["url"]
         else:
-            image3_url = "https://spotify-audio-bucket.s3.amazonaws.com/image.png"
+            image3_url = "https://cdn-icons-png.flaticon.com/512/4598/4598380.png"
 
         new_product = Product(
             price=form.data["price"],
