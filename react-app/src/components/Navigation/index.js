@@ -68,8 +68,8 @@ function Navigation({ isLoaded }){
 			{sessionUser &&
 			<div className='cart-con'><i class="fa-sharp fa-solid fa-cart-shopping" style={{color:"rgb(162, 162, 162)",fontSize:"20px",cursor:"pointer"}} onClick={()=>{ history.push(`/shopping_cart/${sessionUser.shopping_cart.id}/user/${sessionUser.id}`)}}></i> </div>
 			}
-			<div><i class="fa-regular fa-heart"style={{color:"rgb(162, 162, 162)",fontSize:"20px"}}></i></div>
-			<div><i class="fa-regular fa-bell"style={{color:"rgb(162, 162, 162)",fontSize:"20px"}}></i></div>
+			{/* <div><i class="fa-regular fa-heart"style={{color:"rgb(162, 162, 162)",fontSize:"20px"}}></i></div>
+			<div><i class="fa-regular fa-bell"style={{color:"rgb(162, 162, 162)",fontSize:"20px"}}></i></div> */}
 		</div>
 
 	
