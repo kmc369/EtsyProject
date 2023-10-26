@@ -25,6 +25,10 @@
     
 }
 
+.footer-entire-container{
+    /* border:3px solid purple */
+}
+
 /* contact-download */
 .footer-container{
     display: flex !important;

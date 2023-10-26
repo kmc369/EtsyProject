@@ -48,7 +48,7 @@ const fetchData = async () => {
 
         <>
 
-    <div>
+    <div className="total-container">
     <div className="dead-links-container">
         <div>
         <p>The Halloween Shop</p>
@@ -95,25 +95,39 @@ const fetchData = async () => {
 
       <div className="products-containers">
         <div className="product-items">
-          {values.map((element, index) => (
+          {values.length>=1 ?(
+          values.map((element, index) => (
             <div key={index} id="product-user"  className={`productz${index}`  }>
 
-              <div><img className="user-image-product" src={element.image} style={{ height: "230px", width: "300px",borderRadius:"10px" }} onClick={()=>history.push(`/products/${element.id}`)}/></div>
-              <p className="user-title">{element.title}</p>
+              <div><img className="user-image-product" src={element.image}  onClick={()=>history.push(`/products/${element.id}`)}/></div>
+              {element.title.length > 90 ? (
+              <div className="user-title">{element.title.substring(0, 100) + '...'}</div>
+                   ) : (
+                  <div className="user-title">{element.title}</div>
+          )}
               <div className="manage-buttons">
              <span> <OpenModalButton className="delete-product"  modalComponent={<DeleteProductModal prop={element}  onDelete={() => handleDelete(element.id)}/>} buttonText={<i class="fa-solid fa-trash" style={{color: "#000000"}}></i>}/></span>
               <span><i class="fa-solid fa-pen-to-square" onClick={() => history.push(`/edit_product/${element.id}`)} style={{color: "#000000"}}></i></span>
               </div>
             </div>
-          ))}
+          ))
+          ) :(
+              <div onClick={() => history.push("/new_product")} className="create-product-button-circ"> 
+    
+                  
+                    <div className="extra-just-blah"><u>Start favoriting items to compare, shop, and keep track of things you love. Add some Products! Increase your engagement</u></div>
+                   <div> <button className="create-product-button1" onClick={() => history.push("/new_product")}>New Product</button></div>
+
+                 </div>
+          )}
         </div>
       </div>
 
     
+<Footer/>
     </div>
      
 
-<Footer/>
             
 
         </>

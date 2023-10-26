@@ -46,8 +46,15 @@ function Search(){
         searchData.map((element, index) => (
            
             <div key={index} className="search-products-container">
-            <div> <img src={element.image1} alt={`Product ${index}`} style={{ width: '200px', height: '200px' ,borderRadius:"10px"}} onClick={()=>{history.push(`/products/${element.id}`)}}/></div>
-              <div className="search-title">{element.title} </div>
+            <div> <img src={element.image} alt={`Product ${index}`} style={{ width: '200px', height: '200px' ,borderRadius:"10px"}} onClick={()=>{history.push(`/products/${element.id}`)}}/></div>
+              <div className="search-title">
+              {element.title.length > 100 ? (
+            element.title.substring(0, 100) + '...'
+          ) : (
+            element.title
+          )}
+                
+              </div>
               {/* <div>${element.price} </div> */}
             </div>
           

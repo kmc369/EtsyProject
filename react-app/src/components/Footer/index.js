@@ -7,6 +7,7 @@ function Footer(){
 
     return (
         <>
+        <div className="footer-entire-container">
           <div className="extra-stuff">
           <div className="footer-etsy">
             <i class="fa-solid fa-globe" style={{color:"black"}}> </i>
@@ -66,6 +67,7 @@ function Footer(){
          
 
       </div> */}
+      </div>
       </div>
       </div>
         
