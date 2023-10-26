@@ -104,8 +104,13 @@ margin:0 auto;
   bottom: 20px;
   left: 20px;
 }
-.center-container{
+.center-container1{
   /* border:3px solid gold; */
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  margin: 0 auto;
+ 
 }
 
 

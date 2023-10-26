@@ -80,7 +80,7 @@ return (
 
     </div>
          
-    <div className="center-container">
+    <div className="center-container1">
     <div className="landing-container">
   {breakFour(values).map((element, index) => (
     <div className="holding-item" key={index}> 
