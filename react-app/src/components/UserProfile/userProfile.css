@@ -47,7 +47,14 @@
 /* header information */
 
 /* dead links  */
-
+.total-container{
+    /* border:4px solid orange; */
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap:20px
+}
 .dead-links-container{
     display: flex;
     flex-direction: row;
@@ -61,6 +68,7 @@
 
     /* border:5px solid green; */
     width:80%;
+    height: 80%;
     margin: 0 auto;
     margin-bottom: 5px;;
 
@@ -90,9 +98,11 @@
 }
 #product-user{
     /* border:1px solid rgb(145, 145, 145); */
+    position: relative;
     border-radius: 10px;;
     /* border:5px solid red; */
-    width:400px;
+    width:200px;
+    height:240px;
     /* height: fit-content; */
     box-shadow: 4px 4px 4px lightgray,  
               -4px 4px 4px lightgray,  
@@ -104,9 +114,23 @@
     align-items: center;
     padding: 20px;
 }
+
+.user-image-product{
+    position: absolute;
+    top:13px;
+    width:80%;
+    height: 49%;
+    left:20px;
+    margin-bottom: 10px;;
+    border-radius: 10px;;
+}
 .user-title{
     /* border:2px solid green; */
-    width: 80%;
+    position: absolute;
+    max-width: 70%;
+ 
+    font-size: 12px;
+    margin-top: 130px;
     font-family: sans-serif;
     font-weight: lighter;
 }
@@ -122,7 +146,7 @@ gap:20px;
 /* bottom:1px; */
 padding: 5px;
 margin-top:0px;
-/* position: absolute; */
+position: absolute;
 bottom: 1px;
 
 
@@ -137,4 +161,52 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
 
 }
 
+.create-product-button-circ{
+
+    display: flex;
+    flex-direction: row;
+
+    /* border:3px solid greenyellow; */
+    padding: 80px;
+    gap:50px;
+    margin: 0 auto;
+
+}
+
+.create-header-last{
+
+    color:white;
+    background-color: rgb(161, 163, 167);
+   
+    border-radius:50%;
+    font-size: 20px;
+    width:200px;
+    height: 200px;
+    margin: 0 auto;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   
+}
+.create-product-button1{
+    background-color: rgb(20, 76, 167,0.5);
+    color:white;
+    border:none;
+    border-radius:50%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    height:120px;
+    width:120px;
+}
+
+.create-product-button1:hover{
+    height:170px;
+    width:170px;
+    box-shadow: 4px 4px 4px rgb(157, 153, 153);
+}
+
+.extra-just-blah{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color:rgb(151, 149, 149);
+    font-size: 21px;
+    font-weight: lighter;
+
+}
 /* footer imformation */
