@@ -76,6 +76,17 @@ const [errors,setErrors] = useState({})
     
             formData.append('image1', file1);
         }
+        if (image1 === null) {
+            // const file1 = await fetch(image1)
+            //     .then(response => response.blob())
+            //     .then(blob => new File([blob], 'image1.jpg', { type: blob.type }));
+
+            const file1 = "https://static.thenounproject.com/png/187803-200.png"
+    
+            formData.append('image1', file1);
+        }
+     
+
     
         if (image2 !== null) {
             const file2 = await fetch(image2)

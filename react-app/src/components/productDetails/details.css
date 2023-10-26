@@ -105,6 +105,7 @@ ul {
     margin-bottom: 10px;
     padding: 15px;
     width: 90%;
+    word-break: break-all;
     /* border:3px solid green; */
 
 }
@@ -259,6 +260,7 @@ color:rgb(103, 98, 98);
     height:50px;
     width:85%;
     border-radius: 25px;
+    cursor: pointer;
 }
 .add-to-cart{
     background-color: black;
@@ -268,6 +270,7 @@ color:rgb(103, 98, 98);
     height:50px;
     width:85%;
     border-radius: 25px;
+    cursor: pointer;
 }
 
 

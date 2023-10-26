@@ -127,8 +127,8 @@
 .user-title{
     /* border:2px solid green; */
     position: absolute;
-    max-width: 70%;
- 
+    width: 70%;
+    word-break: break-all;
     font-size: 12px;
     margin-top: 130px;
     font-family: sans-serif;
