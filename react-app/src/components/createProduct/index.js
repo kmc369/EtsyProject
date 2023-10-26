@@ -97,8 +97,7 @@ const [errors,setErrors] = useState({})
             formData.append('image3', file3);
         }
     
-       const x = formData.get("image1")
-       console.log("image1 is", x)
+       
        
        
         formData.append('price', price);
