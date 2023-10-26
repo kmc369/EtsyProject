@@ -5,8 +5,9 @@
   /* border:5px solid blue; */
   display: flex;
   flex-direction: row;
-  width: 90%;
+  width: 80%;
   margin: 0 auto;
+  padding-top: 60px;
 }
 .cart-container {
     
