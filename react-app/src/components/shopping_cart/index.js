@@ -7,7 +7,7 @@ import './shoppingcart.css'
 
 function ShoppingCart (){
 const [product,setProduct] = useState([])
-const productsArr = useSelector(state=>state.session.user.shopping_cart.products)
+let productsArr = useSelector(state=>state.session.user.shopping_cart.products)
 const [cartPrice, setCartPrice]=useState(0)
 const history = useHistory()
 const dispatch = useDispatch()
@@ -18,13 +18,24 @@ const user_id_num = Number(id)
 
 
 const handleDelete= async(product_id) =>{
-  
+
    await  dispatch(SessionActions.deleteFromCartThunk(product_id,shopping_cart_id_num))
+  
    setProduct(productsArr)
 
 }
 useEffect(()=>{
-    setProduct(productsArr)
+
+ 
+
+     setProduct(productsArr)
+
+    
+   
+
+  
+  
+    
   
     let totalPrice = 0;
     for(let i=0; i<product.length;i++){
@@ -38,9 +49,7 @@ useEffect(()=>{
     setCartPrice(totalPrice)
 },[productsArr,product])
 
-// if(productsArr.length===0){
-//     return null
-// }
+
 
     return (
       <>
@@ -72,7 +81,8 @@ useEffect(()=>{
             <i class="fa-solid fa-xmark"  style={{fontSize:"22px",cursor:"pointer"}} onClick={()=>handleDelete(element.id)}></i>
           <p onClick={()=>handleDelete(element.id)} style={{cursor:"pointer"}}>Remove</p>
           </div>
-          <div><p className="save-words" style={{cursor:"pointer"}} onClick={()=>history.push(`/shopping_cart/${shopping_cart_id_num}/user/${user_id_num}`)}> Save for later</p></div>
+
+          {/* <div><p className="save-words" style={{cursor:"pointer"}} onClick={()=>history.push(`/shopping_cart/${shopping_cart_id_num}/user/${user_id_num}`)}> Save for later</p></div> */}
           </div>
 
           <div className="footer-container-cart">  
@@ -154,7 +164,7 @@ useEffect(()=>{
             <p className="save-words">${cartPrice-5.00}</p>
         </div>
 
-        <button className="checkout" onClick={()=>{window.alert("This feature isnt available as this is not a real site")}}>Proceed to checkout</button>
+        <button className="checkout" onClick={()=>window.alert("this action isnt available as this is not a real site")}>Proceed to checkout</button>
             
       </div>
       </div>
