@@ -49,7 +49,7 @@ const fetchData = async () => {
         <>
 
     <div className="total-container">
-    <div className="dead-links-container">
+    {/* <div className="dead-links-container">
         <div>
         <p>The Halloween Shop</p>
         </div>
@@ -76,7 +76,7 @@ const fetchData = async () => {
         <p>Etsy Registry</p>
         </div>
 
-      </div>
+      </div> */}
       <div>
         <div className="header">
           <div className="name-image">
