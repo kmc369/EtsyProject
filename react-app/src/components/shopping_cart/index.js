@@ -164,7 +164,7 @@ useEffect(()=>{
             <p className="save-words">${cartPrice-5.00}</p>
         </div>
 
-        <button className="checkout" onClick={()=>window.alert("this action isnt available as this is not a real site")}>Proceed to checkout</button>
+        {/* <button className="checkout" onClick={()=>window.alert("")}>Proceed to checkout</button> */}
             
       </div>
       </div>
