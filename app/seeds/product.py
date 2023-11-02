@@ -13,7 +13,7 @@ def seed_products():
         vintage=False,
         made_to_order=True,
         creator= 'Lilo and Stitch Co.',
-        material= 'Plasticm wood, glass',
+        material= 'Plastic wood, glass',
         description= '16 oz Frosted Glass Libbey Sublimation Can Tumbler with Bamboo Lid and Clear Straw. These designs were heat pressed on the glass. No vinyl was used so no peeling on the design. Wash gently to avoid scratches on surface.',
         user_id= 1,  
         shopping_cart_id=None,  
@@ -179,164 +179,164 @@ def seed_products():
         shopping_cart_id=None
       )
 
-# # Product 12
-#     product12 = Product(
-#         price=75.00,
-#         image='https://example.com/product12_image.jpg',
-#         image1='https://example.com/product12_image1.jpg',
-#         image2='https://example.com/product12_image2.jpg',
-#         image3='https://example.com/product12_image3.jpg',
-#         title='Handmade Ceramic Mug Set',
-#         handmade=True,
-#         vintage=True,
-#         made_to_order=True,
-#         creator='ClayCraft Studios',
-#         material='Ceramic',
-#         description='Sip your favorite beverages in style with our handmade ceramic mug set. Each mug is crafted with care, adding an artisan touch to your daily routine.',
-#         user_id=5,
-#         shopping_cart_id=None
-#     )
+# Product 12
+    product12 = Product(
+        price=75.00,
+        image='https://i.etsystatic.com/38151466/r/il/9f26df/5459179147/il_1588xN.5459179147_1k7t.jpg',
+        image1='https://i.etsystatic.com/38151466/r/il/0f6556/5466983975/il_1588xN.5466983975_k2p5.jpg',
+        image2='https://i.etsystatic.com/38151466/r/il/ccf689/5466984267/il_1588xN.5466984267_gjee.jpg',
+        image3='https://i.etsystatic.com/38151466/r/il/209832/5411046012/il_1588xN.5411046012_4x5s.jpg',
+        title='Handmade Ceramic Mug Set',
+        handmade=True,
+        vintage=True,
+        made_to_order=True,
+        creator='ClayCraft Studios',
+        material='Ceramic',
+        description='Sip your favorite beverages in style with our handmade ceramic mug set. Each mug is crafted with care, adding an artisan touch to your daily routine.',
+        user_id=5,
+        shopping_cart_id=None
+    )
 
-# # Product 13
-#     product13 = Product(
-#         price=120.00,
-#         image='https://example.com/product13_image.jpg',
-#         image1='https://example.com/product13_image1.jpg',
-#         image2='https://example.com/product13_image2.jpg',
-#         image3='https://example.com/product13_image3.jpg',
-#         title='Macramé Wall Hanging',
-#         handmade=True,
-#         vintage=False,
-#         made_to_order=True,
-#         creator='BohoCraft Creations',
-#         material='Cotton Rope',
-#         description='Elevate your space with our macramé wall hanging. The intricate knots and natural fibers create a boho-chic vibe, making it a focal point in any room.',
-#         user_id=5,
-#         shopping_cart_id=None
-#         )
 
-# # Product 14
-#     product14 = Product(
-#         price=95.00,
-#         image='https://example.com/product14_image.jpg',
-#         image1='https://example.com/product14_image1.jpg',
-#         image2='https://example.com/product14_image2.jpg',
-#         image3='https://example.com/product14_image3.jpg',
-#         title='Hand-Embroidered Throw Pillow',
-#         handmade=True,
-#         vintage=True,
-#         made_to_order=True,
-#         creator='StitchCraft Artisans',
-#         material='Cotton Fabric',
-#         description='Add a touch of texture to your decor with our hand-embroidered throw pillow. The delicate embroidery and soft fabric create a cozy and stylish accent.',
-#         user_id=5,
-#         shopping_cart_id=None
-#     )
+    product13 = Product(
+        price=120.00,
+        image='https://i.etsystatic.com/37644913/r/il/7d424d/4385393815/il_1588xN.4385393815_q0zo.jpg',
+        image1='https://i.etsystatic.com/37644913/r/il/db0145/4338001452/il_1588xN.4338001452_ep2z.jpg',
+        image2='https://i.etsystatic.com/37644913/r/il/dd2a85/4400242787/il_1588xN.4400242787_55wf.jpg',
+        image3='https://i.etsystatic.com/37644913/r/il/b6c6f0/4385393811/il_1588xN.4385393811_d9ji.jpg',
+        title='Macramé Wall Hanging',
+        handmade=True,
+        vintage=False,
+        made_to_order=True,
+        creator='BohoCraft Creations',
+        material='Cotton Rope',
+        description='Elevate your space with our macramé wall hanging. The intricate knots and natural fibers create a boho-chic vibe, making it a focal point in any room.',
+        user_id=5,
+        shopping_cart_id=None
+        )
 
-# # Product 15
-#     product15 = Product(
-#         price=110.00,
-#         image='https://example.com/product15_image.jpg',
-#         image1='https://example.com/product15_image1.jpg',
-#         image2='https://example.com/product15_image2.jpg',
-#         image3='https://example.com/product15_image3.jpg',
-#         title='Custom Nameplate Necklace',
-#         handmade=True,
-#         vintage=False,
-#         made_to_order=True,
-#         creator='ArtistryInMetal Jewelry',
-#         material='Sterling Silver',
-#         description='Wear your name close to your heart with our custom nameplate necklace. Each piece is handcrafted in sterling silver for a personalized and timeless accessory.',
-#         user_id=3,
-#         shopping_cart_id=None
-#     )
-#     product16 = Product(
-#         price=80.00,
-#         image='https://example.com/product16_image.jpg',
-#         image1='https://example.com/product16_image1.jpg',
-#         image2='https://example.com/product16_image2.jpg',
-#         image3='https://example.com/product16_image3.jpg',
-#         title='Antique Brass Table Lamp',
-#         handmade=False,
-#         vintage=True,
-#         made_to_order=True,
-#         creator='Vintage Finds Co.',
-#         material='Brass',
-#         description='Illuminate your space with our antique brass table lamp. The vintage design and brass construction add a touch of old-world charm to any room.',
-#         user_id=6,
-#         shopping_cart_id=None
-#     )
+# Product 14
+    product14 = Product(
+        price=95.00,
+        image='https://i.etsystatic.com/16114916/r/il/26f4e0/5510207675/il_1588xN.5510207675_1zyf.jpg',
+        image1='https://i.etsystatic.com/16114916/r/il/8af952/5510207667/il_1588xN.5510207667_m774.jpg',
+        image2='https://i.etsystatic.com/16114916/r/il/9db6ab/5510207657/il_1588xN.5510207657_3glt.jpg',
+        image3='https://i.etsystatic.com/16114916/r/il/936f06/5510207725/il_1588xN.5510207725_mzpp.jpg',
+        title='Hand-Embroidered Throw Pillow',
+        handmade=True,
+        vintage=True,
+        made_to_order=True,
+        creator='StitchCraft Artisans',
+        material='Cotton Fabric',
+        description='Add a touch of texture to your decor with our hand-embroidered throw pillow. The delicate embroidery and soft fabric create a cozy and stylish accent.',
+        user_id=5,
+        shopping_cart_id=None
+    )
+
+# Product 15
+    product15 = Product(
+        price=110.00,
+        image='https://i.etsystatic.com/40108316/r/il/32f834/5408513826/il_1588xN.5408513826_s49b.jpg',
+        image1='https://i.etsystatic.com/40108316/r/il/25d8a6/5456653955/il_1588xN.5456653955_krpf.jpg',
+        image2='https://i.etsystatic.com/40108316/r/il/3323de/5408513832/il_1588xN.5408513832_ju67.jpg',
+        image3='https://i.etsystatic.com/40108316/r/il/30c1f4/5408513824/il_1588xN.5408513824_kvrc.jpg',
+        title='Custom Nameplate Necklace',
+        handmade=True,
+        vintage=False,
+        made_to_order=True,
+        creator='ArtistryInMetal Jewelry',
+        material='Sterling Silver',
+        description='Wear your name close to your heart with our custom nameplate necklace. Each piece is handcrafted in sterling silver for a personalized and timeless accessory.',
+        user_id=3,
+        shopping_cart_id=None
+    )
+    product16 = Product(
+        price=80.00,
+        image="https://i.etsystatic.com/15080593/r/il/18015a/1677255578/il_1588xN.1677255578_bnvj.jpg",
+        image1='https://i.etsystatic.com/15080593/r/il/a333c8/1677256680/il_1588xN.1677256680_p7kz.jpg',
+        image2='https://i.etsystatic.com/15080593/r/il/b1efd1/1677257580/il_1588xN.1677257580_3ydb.jpg',
+        image3='https://i.etsystatic.com/15080593/r/il/ab1291/1724731733/il_1588xN.1724731733_mafe.jpg',
+        title='Antique Brass Table Lamp',
+        handmade=False,
+        vintage=True,
+        made_to_order=True,
+        creator='Vintage Finds Co.',
+        material='Brass',
+        description='Illuminate your space with our antique brass table lamp. The vintage design and brass construction add a touch of old-world charm to any room.',
+        user_id=6,
+        shopping_cart_id=None
+    )
 
 # # Product 17
-#     product17 = Product(
-#         price=95.00,
-#         image='https://example.com/product17_image.jpg',
-#         image1='https://example.com/product17_image1.jpg',
-#         image2='https://example.com/product17_image2.jpg',
-#         image3='https://example.com/product17_image3.jpg',
-#         title='Retro Vinyl Record Player',
-#         handmade=False,
-#         vintage=True,
-#         made_to_order=True,
-#         creator='Retro Audio Co.',
-#         material='Plastic and Metal',
-#         description='Experience the nostalgia of vinyl with our retro record player. The vintage-inspired design and modern features make it a perfect addition to your music setup.',
-#         user_id=6,
-#         shopping_cart_id=None
-#     )
+    product17 = Product(
+        price=95.00,
+        image='https://i.etsystatic.com/27923347/r/il/9540b3/3561200178/il_1588xN.3561200178_29zi.jpg',
+        image1='https://i.etsystatic.com/27923347/r/il/783b40/5099247655/il_1588xN.5099247655_nmfk.jpg',
+        image2='https://i.etsystatic.com/27923347/r/il/2e39f4/5050940908/il_1588xN.5050940908_1laa.jpg',
+        image3='https://i.etsystatic.com/27923347/r/il/e7f749/5099171055/il_1588xN.5099171055_92wh.jpg',
+        title='Retro Vinyl Record Player',
+        handmade=False,
+        vintage=True,
+        made_to_order=True,
+        creator='Retro Audio Co.',
+        material='Plastic and Metal',
+        description='Experience the nostalgia of vinyl with our retro record player. The vintage-inspired design and modern features make it a perfect addition to your music setup.',
+        user_id=6,
+        shopping_cart_id=None
+    )
 
 # # Product 18
-#     product18 = Product(
-#         price=120.00,
-#         image='https://example.com/product18_image.jpg',
-#         image1='https://example.com/product18_image1.jpg',
-#         image2='https://example.com/product18_image2.jpg',
-#         image3='https://example.com/product18_image3.jpg',
-#         title='Mid-Century Modern Armchair',
-#         handmade=True,
-#         vintage=False,
-#         made_to_order=True,
-#         creator='Modern Living Designs',
-#         material='Wood and Fabric',
-#         description='Add a touch of mid-century modern style to your home with our handcrafted armchair. The wooden frame and sleek fabric upholstery create a timeless look.',
-#         user_id=7,
-#         shopping_cart_id=None
-#     )
+    product18 = Product(
+        price=120.00,
+        image='https://i.etsystatic.com/7319601/r/il/1b5f1f/5479174081/il_1588xN.5479174081_14bv.jpg',
+        image1='https://i.etsystatic.com/7319601/r/il/392b41/5479174057/il_1588xN.5479174057_mq0i.jpg',
+        image2='https://i.etsystatic.com/7319601/r/il/f72ccd/5431047580/il_1588xN.5431047580_szc4.jpg',
+        image3='https://i.etsystatic.com/7319601/r/il/2fb794/5431047668/il_1588xN.5431047668_1p3l.jpg',
+        title='Mid-Century Modern Armchair',
+        handmade=True,
+        vintage=False,
+        made_to_order=True,
+        creator='Modern Living Designs',
+        material='Wood and Fabric',
+        description='Add a touch of mid-century modern style to your home with our handcrafted armchair. The wooden frame and sleek fabric upholstery create a timeless look.',
+        user_id=7,
+        shopping_cart_id=None
+    )
 
 # # Product 19
-#     product19 = Product(
-#         price=100.00,
-#         image='https://example.com/product19_image.jpg',
-#         image1='https://example.com/product19_image1.jpg',
-#         image2='https://example.com/product19_image2.jpg',
-#         image3='https://example.com/product19_image3.jpg',
-#         title='Vintage Leather Suitcase',
-#         handmade=False,
-#         vintage=True,
-#         made_to_order=True,
-#         creator='Traveler\'s Treasures',
-#         material='Leather and Metal',
-#         description='Travel in style with our vintage leather suitcase. The worn leather and sturdy metal accents give it a timeless appeal for your adventures.',
-#         user_id=7,
-#         shopping_cart_id=None
-#     )
+    product19 = Product(
+        price=100.00,
+        image='https://i.etsystatic.com/22115709/r/il/91a72a/4218584547/il_1588xN.4218584547_ivqu.jpg',
+        image1='https://i.etsystatic.com/22115709/r/il/6d22d6/4170931090/il_1588xN.4170931090_i1hh.jpg',
+        image2='https://i.etsystatic.com/22115709/r/il/bf9d28/4218584657/il_1588xN.4218584657_8kub.jpg',
+        image3='https://i.etsystatic.com/22115709/r/il/7c59b2/4170930956/il_1588xN.4170930956_t8t9.jpg',
+        title='Vintage Leather Suitcase',
+        handmade=False,
+        vintage=True,
+        made_to_order=True,
+        creator='Traveler\'s Treasures',
+        material='Leather and Metal',
+        description='Travel in style with our vintage leather suitcase. The worn leather and sturdy metal accents give it a timeless appeal for your adventures.',
+        user_id=7,
+        shopping_cart_id=None
+    )
     
-#     product20 = Product(
-#             price=85.00,
-#             image='https://example.com/product20_image.jpg',
-#             image1='https://example.com/product20_image1.jpg',
-#             image2='https://example.com/product20_image2.jpg',
-#             image3='https://example.com/product20_image3.jpg',
-#             title='Vintage Tea Set',
-#             handmade=False,
-#             vintage=True,
-#             made_to_order=True,
-#             creator='TeaTime Antiques',
-#             material='Porcelain',
-#             description='Enjoy tea time in classic style with our vintage tea set. The delicate porcelain and timeless design make it a charming addition to your collection.',
-#             user_id=6,
-#             shopping_cart_id=None
-#     )
+    product20 = Product(
+            price=85.00,
+            image='https://i.etsystatic.com/37873593/r/il/7ff306/5339362844/il_1588xN.5339362844_op9m.jpg',
+            image1='https://i.etsystatic.com/37873593/r/il/7ff306/5339362844/il_1588xN.5339362844_op9m.jpg',
+            image2='https://i.etsystatic.com/37873593/r/il/8db252/5339363478/il_1588xN.5339363478_mo98.jpg',
+            image3='https://i.etsystatic.com/37873593/r/il/8cf30a/5339364026/il_1588xN.5339364026_oinw.jpg',
+            title='Vintage Tea Set',
+            handmade=False,
+            vintage=True,
+            made_to_order=True,
+            creator='TeaTime Antiques',
+            material='Porcelain',
+            description='Enjoy tea time in classic style with our vintage tea set. The delicate porcelain and timeless design make it a charming addition to your collection.',
+            user_id=6,
+            shopping_cart_id=None
+    )
 
 # # Product 21
 #     product21 = Product(
@@ -387,15 +387,15 @@ def seed_products():
     db.session.add(product9)
     db.session.add(product10)
     # db.session.add(product11)
-    # db.session.add(product12)
-    # db.session.add(product13)
-    # db.session.add(product14)
-    # db.session.add(product15)
-    # db.session.add(product16)
-    # db.session.add(product17)
-    # db.session.add(product18)
-    # db.session.add(product19)
-    # db.session.add(product20)
+    db.session.add(product12)
+    db.session.add(product13)
+    db.session.add(product14)
+    db.session.add(product15)
+    db.session.add(product16)
+    db.session.add(product17)
+    db.session.add(product18)
+    db.session.add(product19)
+    db.session.add(product20)
     # db.session.add(product21)
     # db.session.add(product22)
    
