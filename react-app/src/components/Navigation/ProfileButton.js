@@ -79,7 +79,7 @@ function ProfileButton({ user }) {
             />
 
           <button onClick={handleClick}   className="login-button">
-          Demo Login
+             View as Demo
           </button>
           
 
